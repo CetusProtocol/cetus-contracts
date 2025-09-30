@@ -536,6 +536,10 @@ public fun emergency_pause(config: &mut GlobalConfig, ctx: &TxContext) {
     dynamic_field::add(&mut config.id, EMERGENCY_PAUSE_BEFORE_VERSION, old_version);
 }
 
+/// Emergency unpause the protocol.
+/// * `config` - The global config
+/// * `version` - The new package version
+/// * `ctx` - The transaction context
 public fun emergency_unpause(config: &mut GlobalConfig, version: u64, ctx: &TxContext) {
     check_emergency_pause_role(config, tx_context::sender(ctx));
     assert!(

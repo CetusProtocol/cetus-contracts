@@ -298,6 +298,7 @@ public struct ClosePositionEvent has copy, drop, store {
 }
 
 /// Emited when add liquidity for a position.
+/// @deprecated
 /// * `pool` - The ID of the pool
 /// * `position` - The ID of the position
 /// * `tick_lower` - The lower tick index
@@ -343,6 +344,7 @@ public struct RemoveLiquidityV2Event has copy, drop, store {
 }
 
 /// Emited when remove liquidity from a position.
+/// @deprecated
 /// * `pool` - The ID of the pool
 /// * `position` - The ID of the position
 /// * `tick_lower` - The lower tick index
