@@ -167,3 +167,10 @@ Update `inter-mate` library version
 
 ### Fixed
 ### Security
+
+## 2025-09-12
+- Online Version: 13
+### Added
+- Add `AddLiquidityV2Event`, `RemoveLiquidityV2Event`
+- Fix asymptotic audit
+- Add `remove_liquidity_with_slippage`
