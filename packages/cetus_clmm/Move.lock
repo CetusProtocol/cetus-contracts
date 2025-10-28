@@ -2,7 +2,7 @@
 
 [move]
 version = 3
-manifest_digest = "67D396ACABD422EF7223C863E448B480C7B55F3107D660535BCB4AD35E5DFDAB"
+manifest_digest = "F48BB53C6A540988EDF56E567F8647C23AF2FC26EE1B487B4D26D9A1094283DF"
 deps_digest = "52B406A7A21811BEF51751CF88DA0E76DAEFFEAC888D4F4060B1A72BBE7D8D35"
 dependencies = [
   { id = "Bridge", name = "Bridge" },
@@ -25,18 +25,24 @@ dependencies = [
 
 [[move.package]]
 id = "IntegerMate"
-source = { git = "https://github.com/CetusProtocol/integer-mate.git", rev = "testnet-v1.23.1", subdir = "sui" }
+source = { git = "https://github.com/CetusProtocol/integer-mate.git", rev = "testnet-v1.3.0", subdir = "" }
 
 dependencies = [
+  { id = "Bridge", name = "Bridge" },
+  { id = "MoveStdlib", name = "MoveStdlib" },
   { id = "Sui", name = "Sui" },
+  { id = "SuiSystem", name = "SuiSystem" },
 ]
 
 [[move.package]]
 id = "MoveSTL"
-source = { git = "https://github.com/CetusProtocol/move-stl.git", rev = "testnet-v1.23.1", subdir = "sui" }
+source = { git = "https://github.com/CetusProtocol/move-stl.git", rev = "testnet-v1.3.0", subdir = "" }
 
 dependencies = [
+  { id = "Bridge", name = "Bridge" },
+  { id = "MoveStdlib", name = "MoveStdlib" },
   { id = "Sui", name = "Sui" },
+  { id = "SuiSystem", name = "SuiSystem" },
 ]
 
 [[move.package]]
@@ -76,5 +82,5 @@ published-version = "14"
 [env.testnet]
 chain-id = "4c78adac"
 original-published-id = "0x5372d555ac734e272659136c2a0cd3227f9b92de67c80dc11250307268af2db8"
-latest-published-id = "0x5372d555ac734e272659136c2a0cd3227f9b92de67c80dc11250307268af2db8"
-published-version = "1"
+latest-published-id = "0x6bbdf09f9fa0baa1524080a5b8991042e95061c4e1206217279aec51ba08edf7"
+published-version = "2"
