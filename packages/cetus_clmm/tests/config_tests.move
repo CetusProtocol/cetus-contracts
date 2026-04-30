@@ -390,3 +390,27 @@ fun test_emergency_unpause() {
     public_share_object(config);
     public_transfer(admin_cap, tx_context::sender(&ctx));
 }
+
+#[test]
+fun test_emergency_unpause_to_package_version() {
+    let mut ctx = tx_context::dummy();
+    let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 10);
+    config::add_role(&admin_cap, &mut config, sender(&ctx), 5);
+    config::emergency_pause(&mut config, &ctx);
+    config::emergency_unpause(&mut config, config::package_version(), &ctx);
+    config::checked_package_version(&config);
+    public_share_object(config);
+    public_transfer(admin_cap, tx_context::sender(&ctx));
+}
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EInvalidPackageVersion)]
+fun test_emergency_unpause_rejects_future_version() {
+    let mut ctx = tx_context::dummy();
+    let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, config::package_version());
+    config::add_role(&admin_cap, &mut config, sender(&ctx), 5);
+    config::emergency_pause(&mut config, &ctx);
+    config::emergency_unpause(&mut config, config::package_version() + 1, &ctx);
+    public_share_object(config);
+    public_transfer(admin_cap, tx_context::sender(&ctx));
+}

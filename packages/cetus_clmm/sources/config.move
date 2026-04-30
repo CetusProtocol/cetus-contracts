@@ -549,7 +549,7 @@ public fun emergency_unpause(config: &mut GlobalConfig, version: u64, ctx: &TxCo
         &mut config.id,
         EMERGENCY_PAUSE_BEFORE_VERSION,
     );
-    assert!(version >= before_version, EInvalidPackageVersion);
+    assert!(version >= before_version && version <= package_version(), EInvalidPackageVersion);
     config.package_version = version;
 }
 
