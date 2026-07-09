@@ -299,7 +299,7 @@ public fun pool_simple_info(pools: &Pools, pool_key: ID): &PoolSimpleInfo {
 /// * `Coin` - The coin type
 public fun in_allowed_list<Coin>(pools: &Pools): bool {
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
         EDenyCoinListNotExists,
     );
     let coin_list = dynamic_object_field::borrow<String, DenyCoinList>(
@@ -314,7 +314,7 @@ public fun in_allowed_list<Coin>(pools: &Pools): bool {
 /// * `Coin` - The coin type
 public fun in_denied_list<Coin>(pools: &Pools): bool {
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
         EDenyCoinListNotExists,
     );
     let coin_list = dynamic_object_field::borrow<String, DenyCoinList>(
@@ -349,7 +349,7 @@ public fun is_allowed_coin_v2<Coin>(pools: &mut Pools): bool {
 /// * `tick_spacing` - The tick spacing
 public fun is_permission_pair<CoinTypeA, CoinTypeB>(pools: &Pools, tick_spacing: u32): bool {
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerNotExists,
     );
     let manager = dynamic_object_field::borrow<String, PermissionPairManager>(
@@ -367,7 +367,7 @@ public fun is_permission_pair<CoinTypeA, CoinTypeB>(pools: &Pools, tick_spacing:
 /// * `tick_spacing` - The tick spacing
 public fun permission_pair_cap<CoinTypeA, CoinTypeB>(pools: &Pools, tick_spacing: u32): ID {
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerNotExists,
     );
     let manager = dynamic_object_field::borrow<String, PermissionPairManager>(
@@ -412,7 +412,7 @@ public entry fun init_manager_and_whitelist(
     );
     let manager_id = object::id(&manager);
     assert!(
-        !dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        !dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerAlreadyExists,
     );
     dynamic_object_field::add(&mut pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY), manager);
@@ -423,7 +423,7 @@ public entry fun init_manager_and_whitelist(
     };
     let denied_list_id = object::id(&whitelist);
     assert!(
-        !dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+        !dynamic_object_field::exists(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
         EDenyCoinListAlreadyExists,
     );
     dynamic_object_field::add(&mut pools.id, string::utf8(DENY_COIN_LIST_KEY), whitelist);
@@ -442,7 +442,7 @@ public fun add_allowed_list<Coin>(config: &GlobalConfig, pools: &mut Pools, ctx:
     check_pool_manager_role(config, tx_context::sender(ctx));
     let c_type = type_name::with_defining_ids<Coin>();
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
         EDenyCoinListNotExists,
     );
     let coin_list = dynamic_object_field::borrow_mut<String, DenyCoinList>(
@@ -465,7 +465,7 @@ public fun remove_allowed_list<Coin>(config: &GlobalConfig, pools: &mut Pools, c
     check_pool_manager_role(config, tx_context::sender(ctx));
     let c_type = type_name::with_defining_ids<Coin>();
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
         EDenyCoinListNotExists,
     );
     let coin_list = dynamic_object_field::borrow_mut<String, DenyCoinList>(
@@ -498,7 +498,7 @@ public fun remove_denied_list<Coin>(config: &GlobalConfig, pools: &mut Pools, ct
     check_pool_manager_role(config, tx_context::sender(ctx));
     let c_type = type_name::with_defining_ids<Coin>();
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
         EDenyCoinListNotExists,
     );
     let coin_list = dynamic_object_field::borrow_mut<String, DenyCoinList>(
@@ -530,7 +530,7 @@ public fun add_allowed_pair_config<Coin>(
 
     let name = type_name::with_defining_ids<Coin>();
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerNotExists,
     );
     let manager = dynamic_object_field::borrow_mut<String, PermissionPairManager>(
@@ -570,7 +570,7 @@ public fun remove_allowed_pair_config<Coin>(
     check_pool_manager_role(config, tx_context::sender(ctx));
     let coin_type = type_name::with_defining_ids<Coin>();
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerNotExists,
     );
     let manager = dynamic_object_field::borrow_mut<String, PermissionPairManager>(
@@ -687,7 +687,7 @@ fun register_permission_pair_internal<CoinTypeA, CoinTypeB>(
     ctx: &mut TxContext,
 ) {
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerNotExists,
     );
     let manager = dynamic_object_field::borrow_mut<String, PermissionPairManager>(
@@ -741,7 +741,7 @@ fun unregister_permission_pair_internal<CoinTypeA, CoinTypeB>(
     tick_spacing: u32,
 ) {
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerNotExists,
     );
     let manager = dynamic_object_field::borrow_mut<String, PermissionPairManager>(
@@ -778,7 +778,7 @@ fun unregister_permission_pair_internal<CoinTypeA, CoinTypeB>(
 fun add_denied_coin<Coin>(pools: &mut Pools) {
     let c_type = type_name::with_defining_ids<Coin>();
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
         EDenyCoinListNotExists,
     );
     let coin_list = dynamic_object_field::borrow_mut<String, DenyCoinList>(
@@ -798,7 +798,7 @@ fun mint_pool_creation_cap_internal(
     ctx: &mut TxContext,
 ): PoolCreationCap {
     assert!(
-        dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+        dynamic_object_field::exists(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
         EPermissionPairManagerNotExists,
     );
     let manager = dynamic_object_field::borrow_mut<String, PermissionPairManager>(
@@ -1040,9 +1040,9 @@ fun create_pool_internal<CoinTypeA, CoinTypeB>(
 /// * `limit` - The max number of Pool to fetch
 public fun fetch_pools(pools: &Pools, start: vector<ID>, limit: u64): vector<PoolSimpleInfo> {
     if (limit == 0) {
-        return vector::empty<PoolSimpleInfo>()
+        return vector<PoolSimpleInfo>[]
     };
-    let mut simple_pools = vector::empty<PoolSimpleInfo>();
+    let mut simple_pools = vector<PoolSimpleInfo>[];
     let mut next_pool_key = if (vector::is_empty(&start)) {
         linked_table::head(&pools.list)
     } else {

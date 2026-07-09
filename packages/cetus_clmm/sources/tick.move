@@ -385,7 +385,7 @@ public fun get_rewards_in_range(
     op_tick_lower: Option<Tick>,
     op_tick_upper: Option<Tick>,
 ): vector<u128> {
-    let mut rewards_inside = vector::empty<u128>();
+    let mut rewards_inside = vector<u128>[];
     let mut idx = 0;
     while (idx < vector::length(&rewards_growth_globals)) {
         let growth_global = *vector::borrow(&rewards_growth_globals, idx);
@@ -540,9 +540,9 @@ public(package) fun cross_by_swap(
 /// * Returns the ticks
 public fun fetch_ticks(manager: &TickManager, start: vector<u32>, limit: u64): vector<Tick> {
     if(limit == 0) {
-        return vector::empty<Tick>()
+        return vector<Tick>[]
     };
-    let mut ticks = vector::empty<Tick>();
+    let mut ticks = vector<Tick>[];
     let mut opt_next_score = if (vector::is_empty(&start)) {
         skip_list::head(&manager.ticks)
     } else {
@@ -671,7 +671,7 @@ fun default(tick_idx: I32): Tick {
         fee_growth_outside_b: 0,
         points_growth_outside: 0,
         //rewards_growth_outside: vector<u128>[0, 0, 0],
-        rewards_growth_outside: vector::empty<u128>(),
+        rewards_growth_outside: vector<u128>[],
     }
 }
 
@@ -681,9 +681,9 @@ fun default(tick_idx: I32): Tick {
 /// * Returns the default rewards growth outside
 fun default_rewards_growth_outside(reward_count: u64): vector<u128> {
     if (reward_count <= 0) {
-        vector::empty<u128>()
+        vector<u128>[]
     } else {
-        let mut outsides = vector::empty<u128>();
+        let mut outsides = vector<u128>[];
         let mut idx = 0;
         while (idx < reward_count) {
             vector::push_back(&mut outsides, 0);

@@ -875,7 +875,7 @@ public fun close_position<CoinTypeA, CoinTypeB>(
 
     let position_id = object::id(&position_nft);
     if (
-        dynamic_object_field::exists_<String>(
+        dynamic_object_field::exists<String>(
             &pool.id,
             string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY),
         )
@@ -1658,7 +1658,7 @@ public fun position_liquidity_snapshot<CoinTypeA, CoinTypeB>(
     pool: &Pool<CoinTypeA, CoinTypeB>,
 ): &PositionLiquiditySnapshot {
     assert!(
-        dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
+        dynamic_object_field::exists(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
         EPoolHasNoPositionSnapshot,
     );
     dynamic_object_field::borrow<String, PositionLiquiditySnapshot>(
@@ -1675,7 +1675,7 @@ public fun is_attacked_position<CoinTypeA, CoinTypeB>(
     pool: &Pool<CoinTypeA, CoinTypeB>,
     position_id: ID,
 ): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY))) {
         let snapshot = dynamic_object_field::borrow<String, PositionLiquiditySnapshot>(
             &pool.id,
             string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY),
@@ -1695,7 +1695,7 @@ public fun get_position_snapshot_by_position_id<CoinTypeA, CoinTypeB>(
     position_id: ID,
 ): PositionSnapshot {
     assert!(
-        dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
+        dynamic_object_field::exists(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
         EPoolHasNoPositionSnapshot,
     );
     let snapshot = dynamic_object_field::borrow<String, PositionLiquiditySnapshot>(
@@ -2013,7 +2013,7 @@ public fun calculate_swap_result<CoinTypeA, CoinTypeB>(
         fee_rate: pool.fee_rate,
         after_sqrt_price: pool.current_sqrt_price,
         is_exceed: false,
-        step_results: vector::empty(),
+        step_results: vector[],
     };
     while (remainder_amount > 0) {
         if (option_u64::is_none(&opt_next_tick_score)) {
@@ -2415,7 +2415,7 @@ public fun step_swap_result_remainder_amount(stepSwapResult: &SwapStepResult): u
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_swap<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2430,7 +2430,7 @@ public fun is_allow_swap<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_add_liquidity<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2447,7 +2447,7 @@ public fun is_allow_add_liquidity<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, C
 public fun is_allow_remove_liquidity<CoinTypeA, CoinTypeB>(
     pool: &Pool<CoinTypeA, CoinTypeB>,
 ): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2462,7 +2462,7 @@ public fun is_allow_remove_liquidity<CoinTypeA, CoinTypeB>(
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_flash_loan<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2477,7 +2477,7 @@ public fun is_allow_flash_loan<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, Coin
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_collect_fee<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2492,7 +2492,7 @@ public fun is_allow_collect_fee<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, Coi
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_collect_reward<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2532,7 +2532,7 @@ public fun set_pool_status<CoinTypeA, CoinTypeB>(
         disable_add_liquidity || disable_remove_liquidity || disable_swap || disable_flash_loan || disable_collect_fee || disable_collect_reward,
     );
     let (before_status, after_status) = if (
-        dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))
+        dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))
     ) {
         let pool_status = dynamic_object_field::borrow_mut<string::String, PoolStatus>(
             &mut pool.id,
@@ -3070,11 +3070,11 @@ fun collect_protocol_fee_internal<CoinTypeA, CoinTypeB>(
 
 fun mark_pending_add_liquidity<CoinTypeA, CoinTypeB>(pool: &mut Pool<CoinTypeA, CoinTypeB>) {
     let key = PENDING_ADD_LIQUIDITY_KEY;
-    if (!dynamic_field::exists_(&pool.id, key)) {
+    if (!dynamic_field::exists(&pool.id, key)) {
         dynamic_field::add(&mut pool.id, key, 1u64);
     } else {
         let count = dynamic_field::borrow_mut(&mut pool.id, key);
-        *count = *count + 1;
+        *count = *count + 1u64;
     }
 }
 
@@ -3089,7 +3089,7 @@ fun clear_pending_add_liquidity<CoinTypeA, CoinTypeB>(pool: &mut Pool<CoinTypeA,
 
 fun assert_no_pending_add_liquidity<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>){
     let key = PENDING_ADD_LIQUIDITY_KEY;
-    assert!(!dynamic_field::exists_<vector<u8>>(&pool.id, key), EPositionPendingAddLiquidity);
+    assert!(!dynamic_field::exists<vector<u8>>(&pool.id, key), EPositionPendingAddLiquidity);
 }
 
 /// Check the remainer amount sub

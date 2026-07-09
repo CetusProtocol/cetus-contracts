@@ -110,7 +110,7 @@ fun init(ctx: &mut TxContext) {
 /// * Returns the new `RewarderManager`
 public(package) fun new(): RewarderManager {
     RewarderManager {
-        rewarders: vector::empty(),
+        rewarders: vector[],
         points_released: 0,
         points_growth_global: 0,
         last_updated_time: 0,
@@ -129,7 +129,7 @@ public fun rewarders(manager: &RewarderManager): vector<Rewarder> {
 /// * Returns the reward growth globals
 public fun rewards_growth_global(manager: &RewarderManager): vector<u128> {
     let mut idx = 0;
-    let mut res = vector::empty<u128>();
+    let mut res = vector<u128>[];
     while (idx < vector::length(&manager.rewarders)) {
         vector::push_back(&mut res, vector::borrow(&manager.rewarders, idx).growth_global);
         idx = idx + 1;

@@ -8,7 +8,7 @@ public fun str(mut num: u64): String {
         return string::utf8(b"0")
     };
     let mut remainder: u8;
-    let mut digits = vector::empty<u8>();
+    let mut digits = vector<u8>[];
     while (num > 0) {
         remainder = (num % 10 as u8);
         num = num / 10;
