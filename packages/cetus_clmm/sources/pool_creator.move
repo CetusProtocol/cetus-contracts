@@ -88,6 +88,8 @@ public fun create_pool_v2<CoinTypeA, CoinTypeB>(
 /// * `tick_upper_idx` - The upper tick index
 /// * `coin_a` - The coin A
 /// * `coin_b` - The coin B
+/// * `metadata_a` - The metadata of the coin A
+/// * `metadata_b` - The metadata of the coin B
 /// * `fix_amount_a` - Whether to fix the amount of the coin A
 /// * `clock` - The clock object
 /// * `ctx` - The transaction context
@@ -148,6 +150,8 @@ public fun create_pool_v3_with_creation_cap<CoinTypeA, CoinTypeB>(
 /// * `tick_upper_idx` - The upper tick index
 /// * `coin_a` - The coin A
 /// * `coin_b` - The coin B
+/// * `metadata_a` - The metadata of the coin A
+/// * `metadata_b` - The metadata of the coin B
 /// * `fix_amount_a` - Whether to fix the amount of the coin A
 /// * `clock` - The clock object
 /// * `ctx` - The transaction context
