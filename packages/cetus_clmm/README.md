@@ -17,7 +17,7 @@ Cetus CLMM is the core contract implementation of the Cetus protocol, providing 
 
 - Source release: **CLMM v15**
 - Mainnet package: `0x260693ec785a6e6c9d81d58c7d2ff72f1288ae0fa6a9725abe05a6478b11f084`
-- Original package ID: `0x1eabed72c53feb3808dd44968b6b59ec3c4637bd6bb4b5ec5c2c7072ce28bd7b`
+- Original package ID: `0x1eabed72c53feb3805120a081dc15963c204dc8d091542592abaf7a35689b2fb`
 - Upgrade transaction: `5sSoTfTiti8kXjJhZeYuFWFcxxvjbZpFQ96rZ3dzeQbC`
 
 The v15 package is published on mainnet. At the time this source was synchronized
