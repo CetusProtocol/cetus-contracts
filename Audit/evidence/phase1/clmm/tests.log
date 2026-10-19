@@ -1,0 +1,1212 @@
+INCLUDING DEPENDENCY IntegerMate
+INCLUDING DEPENDENCY MoveSTL
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING CetusClmm
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/pool.move:876:31
+    │
+876 │         dynamic_object_field::exists_<String>(
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:1659:31
+     │
+1659 │         dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:1676:31
+     │
+1676 │     if (dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY))) {
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:1696:31
+     │
+1696 │         dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2014:31
+     │
+2014 │         step_results: vector::empty(),
+     │                               ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2416:31
+     │
+2416 │     if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2431:31
+     │
+2431 │     if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2448:31
+     │
+2448 │     if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2463:31
+     │
+2463 │     if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2478:31
+     │
+2478 │     if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2493:31
+     │
+2493 │     if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:2533:31
+     │
+2533 │         dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))
+     │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:3071:25
+     │
+3071 │     if (!dynamic_field::exists_(&pool.id, key)) {
+     │                         ^^^^^^^ The function 'sui::dynamic_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+     ┌─ ./sources/pool.move:3075:27
+     │
+3075 │         *count = *count + 1;
+     │                           ^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+     │
+     = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+     = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/pool.move:3090:29
+     │
+3090 │     assert!(!dynamic_field::exists_<vector<u8>>(&pool.id, key), EPositionPendingAddLiquidity);
+     │                             ^^^^^^^ The function 'sui::dynamic_field::exists_' is deprecated: Renamed to `exists`
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./tests/pool_creator_tests.move:423:58
+    │
+423 │         let (treasury_cap_cetus, metadata_cetus) = coin::create_currency(
+    │                                                          ^^^^^^^^^^^^^^^ The function 'sui::coin::create_currency' is deprecated: Use `coin_registry::new_currency_with_otw` instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./tests/pool_creator_tests.move:446:46
+    │
+446 │         let (treasury_cap, metadata) = coin::create_currency(
+    │                                              ^^^^^^^^^^^^^^^ The function 'sui::coin::create_currency' is deprecated: Use `coin_registry::new_currency_with_otw` instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/acl.move:112:31
+    │
+112 │     let mut members = vector::empty<Member>();
+    │                               ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/rewarder.move:113:28
+    │
+113 │         rewarders: vector::empty(),
+    │                            ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/rewarder.move:132:27
+    │
+132 │     let mut res = vector::empty<u128>();
+    │                           ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position.move:271:26
+    │
+271 │         rewards: vector::empty<PositionReward>(),
+    │                          ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position.move:455:37
+    │
+455 │     let mut owned_amounts = vector::empty<u64>();
+    │                                     ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position.move:554:24
+    │
+554 │         return vector::empty<PositionInfo>()
+    │                        ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position.move:556:33
+    │
+556 │     let mut positions = vector::empty<PositionInfo>();
+    │                                 ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position.move:707:37
+    │
+707 │     let mut owned_amounts = vector::empty<u64>();
+    │                                     ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position.move:928:26
+    │
+928 │         rewards: vector::empty<PositionReward>(),
+    │                          ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position.move:946:26
+    │
+946 │         rewards: vector::empty<PositionReward>(),
+    │                          ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:109:14
+    │
+109 │             (1000000 as u128),
+    │              ^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:130:14
+    │
+130 │             (1000000 as u128),
+    │              ^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:146:14
+    │
+146 │             (1000000 as u128),
+    │              ^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:157:14
+    │
+157 │             (1000000 as u128),
+    │              ^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:203:18
+    │
+203 │                 (1000000000 as u128),
+    │                  ^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:210:43
+    │
+210 │     assert!(manager.points_released() == (1000000000 as u128) * POINTS_EMISSIONS_PER_SECOND, 3);
+    │                                           ^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:223:14
+    │
+223 │             (1000000000 as u128),
+    │              ^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:234:14
+    │
+234 │             (1000000000 as u128),
+    │              ^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/rewarder_unittests.move:245:14
+    │
+245 │             (1000000000 as u128),
+    │              ^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/swap_tests.move:780:24
+    │
+780 │     std::debug::print(&1234567);
+    │                        ^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/swap_cases.move:252:24
+    │
+252 │     std::debug::print(&999999999999110);
+    │                        ^^^^^^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/swap_cases.move:265:24
+    │
+265 │     std::debug::print(&999999999999110);
+    │                        ^^^^^^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/swap_cases.move:373:24
+    │
+373 │     std::debug::print(&999999999999110);
+    │                        ^^^^^^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/swap_cases.move:472:24
+    │
+472 │     std::debug::print(&999999999999110);
+    │                        ^^^^^^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04039]: unable to determine literal's type
+    ┌─ ./tests/swap_cases.move:485:24
+    │
+485 │     std::debug::print(&999999999999110);
+    │                        ^^^^^^^^^^^^^^^ Could not determine a concrete type for this numeric literal, so defaulting to 'u64'
+    │
+    = To avoid this warning, add an explicit type annotation, e.g., '<num>u64'
+    = This warning can be suppressed with '#[allow(untyped_literal)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/position_snapshot.move:157:31
+    │
+157 │     let mut rewards = vector::empty<u64>();
+    │                               ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:302:31
+    │
+302 │         dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:317:31
+    │
+317 │         dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:352:31
+    │
+352 │         dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:370:31
+    │
+370 │         dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:415:32
+    │
+415 │         !dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                                ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:426:32
+    │
+426 │         !dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+    │                                ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:445:31
+    │
+445 │         dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:468:31
+    │
+468 │         dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:501:31
+    │
+501 │         dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:533:31
+    │
+533 │         dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:573:31
+    │
+573 │         dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:690:31
+    │
+690 │         dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:744:31
+    │
+744 │         dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:781:31
+    │
+781 │         dynamic_object_field::exists_(&pools.id, string::utf8(DENY_COIN_LIST_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/factory.move:801:31
+    │
+801 │         dynamic_object_field::exists_(&pools.id, string::utf8(PERMISSION_PAIR_MANAGER_KEY)),
+    │                               ^^^^^^^ The function 'sui::dynamic_object_field::exists_' is deprecated: Renamed to `exists`
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/factory.move:1043:24
+     │
+1043 │         return vector::empty<PoolSimpleInfo>()
+     │                        ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./sources/factory.move:1045:36
+     │
+1045 │     let mut simple_pools = vector::empty<PoolSimpleInfo>();
+     │                                    ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./tests/factory_tests.move:226:63
+    │
+226 │         let pool_infos = factory::fetch_pools(&pools, vector::empty(), 10);
+    │                                                               ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./tests/factory_tests.move:236:63
+    │
+236 │         let pool_infos = factory::fetch_pools(&pools, vector::singleton(pool_key), 10);
+    │                                                               ^^^^^^^^^ The function 'std::vector::singleton' is deprecated: Use `vector[e]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./tests/factory_tests.move:277:46
+    │
+277 │         factory::fetch_pools(&pools, vector::singleton(pool_key), 10);
+    │                                              ^^^^^^^^^ The function 'std::vector::singleton' is deprecated: Use `vector[e]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./tests/factory_tests.move:745:30
+    │
+745 │         let (cap, m) = coin::create_currency<TEST_COIN>(
+    │                              ^^^^^^^^^^^^^^^ The function 'sui::coin::create_currency' is deprecated: Use `coin_registry::new_currency_with_otw` instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+     ┌─ ./tests/factory_tests.move:1313:30
+     │
+1313 │         let (cap, m) = coin::create_currency<AUSDC>(
+     │                              ^^^^^^^^^^^^^^^ The function 'sui::coin::create_currency' is deprecated: Use `coin_registry::new_currency_with_otw` instead
+     │
+     = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/tick.move:388:38
+    │
+388 │     let mut rewards_inside = vector::empty<u128>();
+    │                                      ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/tick.move:543:24
+    │
+543 │         return vector::empty<Tick>()
+    │                        ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/tick.move:545:29
+    │
+545 │     let mut ticks = vector::empty<Tick>();
+    │                             ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/tick.move:674:41
+    │
+674 │         rewards_growth_outside: vector::empty<u128>(),
+    │                                         ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/tick.move:684:17
+    │
+684 │         vector::empty<u128>()
+    │                 ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+    ┌─ ./sources/tick.move:686:36
+    │
+686 │         let mut outsides = vector::empty<u128>();
+    │                                    ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+    │
+    = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+   ┌─ ./sources/utils.move:11:30
+   │
+11 │     let mut digits = vector::empty<u8>();
+   │                              ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+   │
+   = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC04037]: deprecated usage
+   ┌─ ./tests/tick_tests.move:57:63
+   │
+57 │     assert!(default_rewards_growth_outside_test(0) == vector::empty<u128>(), 1);
+   │                                                               ^^^^^ The function 'std::vector::empty' is deprecated: Use `vector[]` literal instead
+   │
+   = This warning can be suppressed with '#[allow(deprecated_usage)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+Running Move unit tests
+[ PASS    ] cetus_clmm::rewarder::test_init
+[ PASS    ] cetus_clmm::acl_tests::test_add_role_has_role
+[ PASS    ] cetus_clmm::partner::test_init
+[ PASS    ] cetus_clmm::acl_tests::test_add_role_number_too_large
+[ PASS    ] cetus_clmm::position_snapshot_tests::test_add_snapshot_already_exists
+[ PASS    ] cetus_clmm::rewarder_unittests::test_add_rewarder
+[ PASS    ] cetus_clmm::rewarder_unittests::test_add_rewarder_failure_with_rewarder_exist
+[ PASS    ] cetus_clmm::position_snapshot_tests::test_calculate_remove_liquidity
+[ PASS    ] cetus_clmm::partner_tests::test_claim_ref_fee_wrong_partner_cap
+[ PASS    ] cetus_clmm::rewarder_unittests::test_add_rewarder_failure_with_rewarder_slod_is_full
+[ PASS    ] cetus_clmm::rewarder_unittests::test_borrow
+[ PASS    ] cetus_clmm::rewarder_unittests::test_borrow_failure_with_reward_not_exist
+[ PASS    ] cetus_clmm::rewarder_unittests::test_borrow_mut_failure_with_reward_not_exist
+[ PASS    ] cetus_clmm::position_snapshot_tests::test_snapshot_add_and_remove
+[ PASS    ] cetus_clmm::position_snapshot_tests::test_snapshot_get_not_exists
+[ PASS    ] cetus_clmm::position_snapshot_tests::test_snapshot_remove_not_exists
+[ PASS    ] cetus_clmm::partner_tests::test_create_partner
+[ PASS    ] cetus_clmm::rewarder_unittests::test_deposit_reward
+[ PASS    ] cetus_clmm::position_tests::test_apply_liquidity_cut
+[ PASS    ] cetus_clmm::partner_tests::test_create_partner_exists_error
+[ PASS    ] cetus_clmm::config::test_init
+[ PASS    ] cetus_clmm::partner_tests::test_create_partner_name_error
+[ PASS    ] cetus_clmm::partner_tests::test_create_partner_ref_fee_error
+[ PASS    ] cetus_clmm::rewarder_unittests::test_emergent_withdraw
+[ PASS    ] cetus_clmm::partner_tests::test_create_partner_startime_error
+[ PASS    ] cetus_clmm::partner_tests::test_create_partner_time_error
+[ PASS    ] cetus_clmm::partner_tests::test_receiver_and_claim_ref_fee
+[ PASS    ] cetus_clmm::rewarder_unittests::test_settle
+[ PASS    ] cetus_clmm::rewarder_unittests::test_settle_failure_with_invalid_time
+[ PASS    ] cetus_clmm::position_tests::test_apply_liquidity_cut_underflow
+[ PASS    ] cetus_clmm::partner_tests::test_receiver_and_claim_ref_fee_invalid_coin_type
+[ PASS    ] cetus_clmm::config_tests::test_acl
+[ PASS    ] cetus_clmm::position_tests::test_apply_liquidity_cut_zero
+[ PASS    ] cetus_clmm::rewarder_unittests::test_update_emission
+[ PASS    ] cetus_clmm::position_tests::test_borrow_mut_position_info_not_exists
+[ PASS    ] cetus_clmm::partner_tests::test_update_ref_fee_rate
+[ PASS    ] cetus_clmm::rewarder_unittests::test_update_emission_failure_with_reward_amount_insufficient
+[ PASS    ] cetus_clmm::partner_tests::test_update_ref_fee_rate_invalid
+[ PASS    ] cetus_clmm::position_tests::test_borrow_position_info_not_exists
+[ PASS    ] cetus_clmm::rewarder_unittests::test_withdraw_reward
+[ PASS    ] cetus_clmm::partner_tests::test_update_time_range
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3
+[ PASS    ] cetus_clmm::position_tests::test_check_position_tick_range
+[ PASS    ] cetus_clmm::position_tests::test_check_position_tick_range_invalid_tick_range_0
+[ PASS    ] cetus_clmm::position_tests::test_check_position_tick_range_invalid_tick_range_1
+[ PASS    ] cetus_clmm::partner_tests::test_update_time_range_invalid_time
+[ PASS    ] cetus_clmm::config_tests::test_acl_expect_failure
+[ PASS    ] cetus_clmm::position_tests::test_check_position_tick_range_invalid_tick_range_11
+[ PASS    ] cetus_clmm::position_tests::test_check_position_tick_range_invalid_tick_range_2
+[ PASS    ] cetus_clmm::position_tests::test_check_position_tick_range_invalid_tick_range_3
+[ PASS    ] cetus_clmm::partner_tests::test_update_time_range_invalid_time_2
+[ PASS    ] cetus_clmm::config_tests::test_add_fee_tier_already_exist
+[ PASS    ] cetus_clmm::config_tests::test_check_emergency_pause_role
+[ PASS    ] cetus_clmm::position_tests::test_close_position
+[ PASS    ] cetus_clmm::config_tests::test_check_emergency_restore_version
+[ PASS    ] cetus_clmm::config_tests::test_check_emergency_restore_version_failure
+[ PASS    ] cetus_clmm::config_tests::test_check_emergency_unpause_role
+[ PASS    ] cetus_clmm::config_tests::test_check_partner_manager_role
+[ PASS    ] cetus_clmm::position_tests::test_close_position_failure
+[ PASS    ] cetus_clmm::config_tests::test_check_pool_manager_role
+[ PASS    ] cetus_clmm::config_tests::test_check_protocol_fee_claim_role
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3_by_creation_cap
+[ PASS    ] cetus_clmm::config_tests::test_check_rewarder_manager_role
+[ PASS    ] cetus_clmm::config_tests::test_check_role
+[ PASS    ] cetus_clmm::config_tests::test_check_role_failure
+[debug] 0
+[debug] 1000000
+[ PASS    ] cetus_clmm::config_tests::test_delete_fee_tier
+[debug] [
+  0x1eabed72c53feb3805120a081dc15963c204dc8d091542592abaf7a35689b2fb::acl::Member {
+    address: @0x1234,
+    permission: 10633824600414112107166502299319144450
+  },
+  0x1eabed72c53feb3805120a081dc15963c204dc8d091542592abaf7a35689b2fb::acl::Member {
+    address: @0x5678,
+    permission: 10633823966279326983230456482242756614
+  }
+]
+[ PASS    ] cetus_clmm::config_tests::test_delete_fee_tier_not_found
+[ PASS    ] cetus_clmm::position_tests::test_decrease_liquidity
+[ PASS    ] cetus_clmm::acl_tests::test_end_to_end
+[ PASS    ] cetus_clmm::config_tests::test_emergency_pause
+[ PASS    ] cetus_clmm::acl_tests::test_get_permission
+[ PASS    ] cetus_clmm::config_tests::test_emergency_pause_rejects_revoked_role
+[ PASS    ] cetus_clmm::config_tests::test_emergency_unpause
+[ PASS    ] cetus_clmm::acl_tests::test_remove_member
+[ PASS    ] cetus_clmm::acl_tests::test_remove_member_not_exist
+[ PASS    ] cetus_clmm::config_tests::test_emergency_unpause_correct_version
+[ PASS    ] cetus_clmm::acl_tests::test_remove_role
+[ PASS    ] cetus_clmm::position_tests::test_decrease_liquidity_underflow
+[ PASS    ] cetus_clmm::acl_tests::test_remove_role_not_exist
+[ PASS    ] cetus_clmm::acl_tests::test_remove_role_number_too_large
+[ PASS    ] cetus_clmm::acl_tests::test_role_number_too_large
+[ PASS    ] cetus_clmm::rewarder_tests::calculate_and_update_reward
+[ PASS    ] cetus_clmm::acl_tests::test_set_role
+[ PASS    ] cetus_clmm::clmm_math::test_overflow_in_get_liquidity_from_a
+[ PASS    ] cetus_clmm::config_tests::test_emergency_unpause_rejects_revoked_role
+[ PASS    ] cetus_clmm::clmm_math_tests::test_compute_swap_step
+[ PASS    ] cetus_clmm::clmm_math_tests::test_compute_swap_step_cast_to_u64_error
+[ PASS    ] cetus_clmm::clmm_math_tests::test_compute_swap_step_cast_to_u64_error_2
+[ PASS    ] cetus_clmm::clmm_math_tests::test_compute_swap_step_sqrt_price_invalid
+[ PASS    ] cetus_clmm::clmm_math_tests::test_compute_swap_step_sqrt_price_invalid_2
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_active
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_amount_by_liquidity_with_little_liquidity
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_amount_by_liquidity_zero
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3_pool_is_permissioned
+[ PASS    ] cetus_clmm::position_tests::test_decrease_liquidity_zero
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_delta_a
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_delta_b
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_delta_down_from_output_overflow
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_delta_up_from_input_overflow
+[ PASS    ] cetus_clmm::config_tests::test_fee_tier
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_delta_up_from_input_zero
+[ PASS    ] cetus_clmm::config_tests::test_fee_tier_invalid_fee_rate
+[ PASS    ] cetus_clmm::config_tests::test_fee_tier_invalid_tick_spacing
+[ PASS    ] cetus_clmm::config_tests::test_fee_tier_invalid_tick_spacing_2
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3_sqrt_price_error
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_by_amount_with_little_amount
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_1
+[ PASS    ] cetus_clmm::position_tests::test_fetch_positions
+[ PASS    ] cetus_clmm::config_tests::test_package_version
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_authorized
+[debug] 746804131
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_11
+[debug] 0
+[debug] 1000000
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_121
+[ PASS    ] cetus_clmm::config_tests::test_pause_role_cannot_emergency_unpause
+[ PASS    ] cetus_clmm::config_tests::test_read_config
+[debug] 1000000000000
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_122
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_2
+[ PASS    ] cetus_clmm::position_tests::test_fetch_positions_position_not_exist
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_21
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_22
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_31
+[ PASS    ] cetus_clmm::config_tests::test_separate_roles_can_pause_then_unpause
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_32
+[debug] 999999999999110
+[debug] 999999
+[ PASS    ] cetus_clmm::config_tests::test_unpause_role_cannot_emergency_pause
+[debug] 0x714a63a0dba6da4f017b42d5d0fb78867f18bcde904868e51d951a5a6f5b7f57::i32::I32 {
+  bits: 4294967285
+}
+[debug] 1000501
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_41
+[debug] 999999999999110
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_42
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_51
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_a_52
+[ PASS    ] cetus_clmm::position_tests::test_increase_liquidity
+[ PASS    ] cetus_clmm::config_tests::test_update_fee_tier
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_b
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_b_1
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_liquidity_from_b_2
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_price_a_down
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_price_a_down_underflow
+[ PASS    ] cetus_clmm::position_tests::test_increase_liquidity_overflow
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_price_a_up
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_price_a_up_underflow
+[ PASS    ] cetus_clmm::position_tests::test_is_empty
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_sqrt_price_a_up_overflow
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_sqrt_price_a_up_token_amount_max_exceed
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_sqrt_price_a_up_token_amount_min_exceed
+[ PASS    ] cetus_clmm::config_tests::test_update_fee_tier_fee_rate_max_exceed
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_sqrt_price_a_up_underflow
+[ PASS    ] cetus_clmm::rewarder_tests::collect_reward_not_exist
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_sqrt_price_b_down_token_amount_max_exceed
+[ PASS    ] cetus_clmm::clmm_math_tests::test_get_next_sqrt_price_b_down_token_amount_min_exceed
+[ PASS    ] cetus_clmm::position_tests::test_open_position
+[ PASS    ] cetus_clmm::position_tests::test_open_position_failure_with_tick_error
+[ PASS    ] cetus_clmm::config_tests::test_update_fee_tier_not_found
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_authorized
+[ PASS    ] cetus_clmm::config_tests::test_update_protocol_fee_rate
+[ PASS    ] cetus_clmm::position_tests::test_remove_position_info_for_restore
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_deprecated
+[ PASS    ] cetus_clmm::config_tests::test_update_protocol_fee_rate_max_exceed
+[ PASS    ] cetus_clmm::swap_cases::swap_cross_tick_when_tick_spacing_is_1
+[ PASS    ] cetus_clmm::config_tests::test_version_setter_rejects_equal
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_paused
+[ PASS    ] cetus_clmm::position_tests::test_reset_fee
+[ PASS    ] cetus_clmm::config_tests::test_version_setter_rejects_lower
+[ PASS    ] cetus_clmm::config_tests::test_version_setter_rejects_pause_sentinel
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_revoked
+[ PASS    ] cetus_clmm::factory::test_init
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_wrong_role
+[ PASS    ] cetus_clmm::position_tests::test_reset_reward
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_authorized
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_deprecated
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_deprecated
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_deprecated
+[ PASS    ] cetus_clmm::position_tests::test_update_and_reset_fee
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_paused
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3_with_creation_cap
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_use_incorret_coin_sequence
+[debug] 0
+[debug] 1000000
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_use_invalid_init_price
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_revoked
+[ PASS    ] cetus_clmm::position_tests::test_update_and_reset_reward
+[ PASS    ] cetus_clmm::position_tests::test_update_and_reset_reward_invalid_index
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3_with_creation_cap_error_cap_not_match_with_coin_type
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_use_invalid_tick_spacing
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_wrong_role
+[ PASS    ] cetus_clmm::position_tests::test_update_fee_internal
+[ PASS    ] cetus_clmm::position_tests::test_update_fee_internal_overflow
+[ PASS    ] cetus_clmm::position_tests::test_update_fee_internal_overflow_b
+[ PASS    ] cetus_clmm::position_tests::test_update_points_internal
+[ PASS    ] cetus_clmm::position_tests::test_update_points_internal_overflow
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_use_same_coin
+[ PASS    ] cetus_clmm::position_tests::test_update_rewards_case_2
+[ PASS    ] cetus_clmm::position_tests::test_update_rewards_case_overflow
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_authorized
+[ PASS    ] cetus_clmm::position_tests::test_update_rewards_internal_case_1
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_deprecated
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_use_sui
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_paused
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_revoked
+[ PASS    ] cetus_clmm::rewarder_tests::collect_reward_not_permited
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_wrong_role
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_authorized
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3_with_creation_cap_not_match_with_pool_key
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_deprecated
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_paused
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_revoked
+[debug] 0
+[debug] 1000000
+[ PASS    ] cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_wrong_role
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_paused
+[ PASS    ] cetus_clmm::pool_creator_tests::test_create_pool_v3_with_creation_cap_sqrt_price_error
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_fix_coin_active
+[ PASS    ] cetus_clmm::pool_creator_tests::test_full_range_tick_range
+[ PASS    ] cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_authorized
+[ PASS    ] cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_deprecated
+[debug] 999999999999110
+[debug] 999999
+[debug] 0x714a63a0dba6da4f017b42d5d0fb78867f18bcde904868e51d951a5a6f5b7f57::i32::I32 {
+  bits: 4294967285
+}
+[debug] 1000501
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_amount_in_above_max_limit
+[debug] 999999999999110
+[ PASS    ] cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_missing_asset
+[ PASS    ] cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_paused
+[ PASS    ] cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_repeated_claim
+[debug] 0x714a63a0dba6da4f017b42d5d0fb78867f18bcde904868e51d951a5a6f5b7f57::i32::I32 {
+  bits: 4294967290
+}
+[ PASS    ] cetus_clmm::swap_cases::swap_cross_tick_when_tick_spacing_is_1_b2a
+[ PASS    ] cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_wrong_cap
+[ PASS    ] cetus_clmm::rewarder_tests::collect_reward_pool_position_not_match
+[ PASS    ] cetus_clmm::pool::test_init
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_revoked
+[debug] 0
+[debug] 1000000
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_amount_out_below_min_limit
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_fix_coin_deprecated
+[ PASS    ] cetus_clmm::pool::test_set_display
+[ PASS    ] cetus_clmm::pool_restore_tests::test_emergency_restore
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_wrong_role
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_deprecated
+[debug] 0
+[debug] 1000000
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_authorized
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_deprecated
+[debug] 1000501
+[debug] 999999999999110
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_paused
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_fix_amount_b
+[debug] 0x714a63a0dba6da4f017b42d5d0fb78867f18bcde904868e51d951a5a6f5b7f57::i32::I32 {
+  bits: 4294967282
+}
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_fix_coin_paused
+[ PASS    ] cetus_clmm::swap_cases::swap_cross_tick_when_tick_spacing_is_1_case_2
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_revoked
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_init_sqrt_price_invalid
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_wrong_role
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_init_sqrt_price_invalid_2
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_delta_zero
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_authorized
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_exact
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_deprecated
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_paused
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_revoked
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_expect_error_amount_incorrect
+[debug] 0x714a63a0dba6da4f017b42d5d0fb78867f18bcde904868e51d951a5a6f5b7f57::i32::I32 {
+  bits: 46151
+}
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_wrong_role
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_fix_coin_amount_zero
+[ PASS    ] cetus_clmm::pool_restore_tests::test_emergency_restore_cannot_close_position
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_emission_authorized
+[ PASS    ] cetus_clmm::swap_cases::test_swap_to_max_tick
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_emission_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_fix_coin_pool_position_not_match
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_liquidity_check_failed
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_overpay_a
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_emission_paused
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_emission_revoked
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_emission_wrong_role
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_authorized
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_internal
+[debug] 1000000
+[debug] 100974625
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_fix_coin_pool_disabled
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_deprecated
+[debug] 0x714a63a0dba6da4f017b42d5d0fb78867f18bcde904868e51d951a5a6f5b7f57::i32::I32 {
+  bits: 46151
+}
+[debug] 10048613
+[ PASS    ] cetus_clmm::swap_cases::test_swap_to_min_tick
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_paused
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_overpay_b
+[ PASS    ] cetus_clmm::pool_restore_tests::test_governance_fund_injection
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_liquidity_check_failed_coin_a
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_revoked
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_wrong_role
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_authorized
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_internal_by_liquidity
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_not_allowed_coin
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_deprecated
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_paused
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_fix_coin_wrong_pool
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_not_allowed_coin_2
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_paused
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_revoked
+[ PASS    ] cetus_clmm::pool_restore_tests::test_governance_fund_withdrawal
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_wrong_role
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_internal_failure_epool_id_is_error
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_authorized
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_deprecated
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_underpay_a
+[ PASS    ] cetus_clmm::rewarder_tests::test_collect_reward_and_points
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_v3_pool_already_exists
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_paused
+[ PASS    ] cetus_clmm::factory_tests::test_create_pool_with_liquidity
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_revoked
+[ PASS    ] cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_wrong_role
+[ PASS    ] cetus_clmm::tick::test_tick_score_invalid_tick
+[ PASS    ] cetus_clmm::tick_math_tests::test_get_sqrt_price_at_invalid_lower_tick
+[ PASS    ] cetus_clmm::tick_math_tests::test_get_sqrt_price_at_invalid_upper_tick
+[ PASS    ] cetus_clmm::tick_math_tests::test_get_sqrt_price_at_tick
+[ PASS    ] cetus_clmm::tick_math_tests::test_get_tick_at_invalid_lower_sqrt_price
+[ PASS    ] cetus_clmm::tick_math_tests::test_get_tick_at_invalid_upper_sqrt_price
+[ PASS    ] cetus_clmm::factory_tests::test_fetch_pools
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_internal_failure_with_eamount_incorrect
+[ PASS    ] cetus_clmm::tick_math_tests::test_get_tick_at_sqrt_price_1
+[ PASS    ] cetus_clmm::pool_restore_tests::test_init_position_snapshot
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_paused
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_underpay_b
+[ PASS    ] cetus_clmm::tick_math_tests::test_is_valid_index
+[ PASS    ] cetus_clmm::factory_tests::test_fetch_pools_pool_key_not_registered
+[ PASS    ] cetus_clmm::factory_tests::test_is_right_order
+[ PASS    ] cetus_clmm::factory_tests::test_is_right_order_same_coin_type
+[ PASS    ] cetus_clmm::factory_tests::test_new_pool_key_invalid_coin_sequence
+[ PASS    ] cetus_clmm::factory_tests::test_new_pool_key_same_coin_type
+[ PASS    ] cetus_clmm::test_coin::test_add_allowed_config_error_1
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_no_permit
+[ PASS    ] cetus_clmm::pool_restore_tests::test_init_position_snapshot_not_paused
+[ PASS    ] cetus_clmm::test_coin::test_add_allowed_list_error_1
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_pool_disabled
+[ PASS    ] cetus_clmm::pool_tests::test_add_liquidity_pool_position_not_match
+[ PASS    ] cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_wrong_pool
+[ PASS    ] cetus_clmm::tick_tests::test_cross_by_swap
+[ PASS    ] cetus_clmm::swap_tests::calculate_swap_result
+[ PASS    ] cetus_clmm::pool_restore_tests::test_init_position_snapshot_ppm_error
+[ PASS    ] cetus_clmm::utils::test_str
+[ PASS    ] cetus_clmm::tick_tests::test_cross_swap
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_wrong_pool
+[ PASS    ] cetus_clmm::test_coin::test_add_allowed_pair_config
+[ PASS    ] cetus_clmm::test_coin::test_add_denied_list_error_1
+[debug] 1387973698994220290
+[ PASS    ] cetus_clmm::test_coin::test_add_remove_allowed_list
+[ PASS    ] cetus_clmm::tick_tests::test_decrease_liquidity
+[ PASS    ] cetus_clmm::tick_tests::test_default_rewards_growth_inside
+[ PASS    ] cetus_clmm::pool_tests::test_calculate_and_update_fee
+[ PASS    ] cetus_clmm::swap_tests::test_0x6bd95ea11d8f932311d1b4e032de66dc61d3938cbb490216db4d2093c72be868
+[ PASS    ] cetus_clmm::test_coin::test_add_remove_denied_list
+[ PASS    ] cetus_clmm::test_coin::test_init_manager_and_whitelist
+[ PASS    ] cetus_clmm::tick_tests::test_fetch_ticks
+[ PASS    ] cetus_clmm::pool_tests::test_calculate_and_update_fee_not_permit
+[ PASS    ] cetus_clmm::test_coin::test_is_allowed_coin
+[ PASS    ] cetus_clmm::test_coin::test_is_right_order
+[ PASS    ] cetus_clmm::pool_tests::test_calculate_and_update_points_not_permit
+[ PASS    ] cetus_clmm::test_coin::test_mint_cap
+[ PASS    ] cetus_clmm::pool_tests::test_calculate_and_update_reward_not_exist
+[ PASS    ] cetus_clmm::tick_tests::test_first_score_for_swap
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_active
+[ PASS    ] cetus_clmm::tick_tests::test_get_fee_in_range
+[ PASS    ] cetus_clmm::tick_tests::test_get_points_in_range
+[ PASS    ] cetus_clmm::test_coin::test_mint_cap_by_admin_error_2
+[ PASS    ] cetus_clmm::swap_tests::test_0xbec7ef988a9cf880b1e3d80260ad1e972e680f0f340fc87fd6f014d32b83e526
+[ PASS    ] cetus_clmm::pool_tests::test_calculate_and_update_rewards_not_permit
+[ PASS    ] cetus_clmm::tick_tests::test_get_rewards_in_range
+[ PASS    ] cetus_clmm::pool_tests::test_check_pool_status
+[ PASS    ] cetus_clmm::test_coin::test_mint_cap_error_0
+[ PASS    ] cetus_clmm::pool_tests::test_checked_shlw_overflow
+[ PASS    ] cetus_clmm::test_coin::test_permission_pair_cap_pool_key_not_registered
+[ PASS    ] cetus_clmm::pool_tests::test_close_position
+[ PASS    ] cetus_clmm::tick_tests::test_increase_liquidity
+[ PASS    ] cetus_clmm::tick_tests::test_increase_liquidity_tick_not_found
+[ PASS    ] cetus_clmm::tick_tests::test_increase_liquidity_tick_not_found_2
+[ PASS    ] cetus_clmm::tick_tests::test_increase_liquidity_zero
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_close_position_cannot_close_attacked_position
+[ PASS    ] cetus_clmm::tick_tests::test_tick_score
+[ PASS    ] cetus_clmm::test_coin::test_register_permission_pair_error_0
+[ PASS    ] cetus_clmm::tick_tests::test_update_by_liquidity_lower_tick
+[ PASS    ] cetus_clmm::tick_tests::test_update_by_liquidity_overflow
+[ PASS    ] cetus_clmm::tick_tests::test_update_by_liquidity_overflow_case_2
+[ PASS    ] cetus_clmm::tick_tests::test_update_by_liquidity_underflow
+[ PASS    ] cetus_clmm::tick_tests::test_update_by_liquidity_upper_tick
+[ PASS    ] cetus_clmm::pool_tests::test_close_position_not_allowed
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_nonempty
+[ PASS    ] cetus_clmm::test_coin::test_register_permission_pair_error_1
+[ PASS    ] cetus_clmm::pool_tests::test_close_position_pool_position_not_match
+[ PASS    ] cetus_clmm::test_coin::test_register_permission_pair_error_2
+[ PASS    ] cetus_clmm::rewarder_tests::test_collect_reward_and_points_position_open_with_full_range
+[ PASS    ] cetus_clmm::test_coin::test_register_permission_pair_error_3
+[ PASS    ] cetus_clmm::test_coin::test_register_permission_pair_error_4
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_paused
+[ PASS    ] cetus_clmm::test_coin::test_remove_allowed_config_error_1
+[ PASS    ] cetus_clmm::test_coin::test_remove_allowed_list_error_1
+[ PASS    ] cetus_clmm::test_coin::test_remove_allowed_pair_config
+[ PASS    ] cetus_clmm::test_coin::test_remove_denied_list_error_1
+[ PASS    ] cetus_clmm::swap_tests::test_emergency_restore_pool_state
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_pool_disabled
+[ PASS    ] cetus_clmm::test_coin::test_unregister_permission_pair
+[ PASS    ] cetus_clmm::test_coin::test_unregister_permission_pair_1
+[ PASS    ] cetus_clmm::test_coin::test_unregister_permission_pair_not_registered
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_collect_fee
+[ PASS    ] cetus_clmm::swap_tests::test_repair_tick_crossed_boudary_pool
+[ PASS    ] cetus_clmm::swap_tests::test_repay_flash_swap_invalid_amount_a
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_active
+[ PASS    ] cetus_clmm::swap_tests::test_repay_flash_swap_invalid_amount_b
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_deprecated
+[ PASS    ] cetus_clmm::rewarder_tests::test_collect_reward_position_open_before_init
+[ PASS    ] cetus_clmm::rewarder_tests::test_initialize_rewarder
+[ PASS    ] cetus_clmm::swap_tests::test_repay_flash_swap_receipt_not_match
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_paused
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_pool_disabled
+[ PASS    ] cetus_clmm::pool_tests::test_collect_fee_full_range
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_collect_fee_no_permit
+[ PASS    ] cetus_clmm::pool_tests::test_collect_fee_position_not_match
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_active
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_deprecated
+[ PASS    ] cetus_clmm::swap_tests::test_swap_verify
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_paused
+[ PASS    ] cetus_clmm::pool_tests::test_collect_fee_without_recalculate
+[ PASS    ] cetus_clmm::pool_tests::test_collect_protocol_fee
+[ PASS    ] cetus_clmm::pool_tests::test_collect_protocol_fee_with_cap
+[ PASS    ] cetus_clmm::swap_tests::test_verify_tick_cross_boudary
+[ PASS    ] cetus_clmm::pool_tests::test_flash_loan
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_pool_disabled
+[ PASS    ] cetus_clmm::pool_tests::test_flash_loan_not_permit
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_flash_loan_with_partner
+[ PASS    ] cetus_clmm::pool_tests::test_flash_loan_with_partner_not_permit
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_active
+[ PASS    ] cetus_clmm::tick_math_tests::test_tick_swap_sqrt_price
+[ PASS    ] cetus_clmm::pool_tests::test_flash_swap_internal
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_flash_swap_internal_failure_with_eamount_incorrect
+[ PASS    ] cetus_clmm::pool_tests::test_flash_swap_internal_failure_with_eamount_out_is_zero
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_paused
+[ PASS    ] cetus_clmm::pool_tests::test_flash_swap_internal_failure_with_ewrong_sqrt_price_limit
+[ PASS    ] cetus_clmm::pool_tests::test_flash_swap_not_permit
+[ PASS    ] cetus_clmm::rewarder_tests::test_multi_rewarder_and_swap_cross
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_pool_disabled
+[ PASS    ] cetus_clmm::pool_tests::test_flash_swap_with_partner_not_permit
+[ PASS    ] cetus_clmm::pool_tests::test_get_position_amounts
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_swap_active
+[ PASS    ] cetus_clmm::pool_tests::test_get_position_infos
+[ PASS    ] cetus_clmm::pool_tests::test_mint_protocol_fee_collect_cap
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_swap_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_add_liquidity_active
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_add_liquidity_deprecated
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_swap_paused
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_add_liquidity_fix_coin_active
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_swap_pool_disabled
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_add_liquidity_fix_coin_deprecated
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_open_position_active
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_add_liquidity_fix_coin_paused
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_add_liquidity_paused
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_open_position_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_collect_fee_active
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_open_position_paused
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_collect_fee_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_collect_fee_paused
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_open_position_pool_disabled
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_flash_swap_active
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_active
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_flash_swap_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_flash_swap_paused
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_open_position_active
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_paused
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_open_position_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_open_position_paused
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_pool_disabled
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_remove_liquidity_active
+[ PASS    ] cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_remove_liquidity_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_remove_liquidity_paused
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_repay_add_liquidity_active
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_repay_add_liquidity_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_money_gate_repay_add_liquidity_paused
+[ PASS    ] cetus_clmm::pool_tests::test_new
+[ PASS    ] cetus_clmm::pool_tests::test_open_position
+[ PASS    ] cetus_clmm::pool_tests::test_open_position_no_permit
+[ PASS    ] cetus_clmm::pool_tests::test_pause_unpause
+[ PASS    ] cetus_clmm::rewarder_tests::test_multi_rewarder_release_total
+[ PASS    ] cetus_clmm::rewarder_tests::test_update_emission_amount_insufficient
+[ PASS    ] cetus_clmm::pool_tests::test_remove_liquidity
+[ PASS    ] cetus_clmm::pool_tests::test_remove_liquidity_and_close
+[ PASS    ] cetus_clmm::pool_tests::test_remove_liquidity_and_not_update_pool_liquidty
+[ PASS    ] cetus_clmm::pool_tests::test_remove_liquidity_and_update_pool_liquidty
+[ PASS    ] cetus_clmm::pool_tests::test_remove_liquidity_failure_with_eliquidity_is_zero
+[ PASS    ] cetus_clmm::pool_tests::test_remove_liquidity_fix_coin_pool_position_not_match
+[ PASS    ] cetus_clmm::pool_tests::test_remove_liquidity_no_permit
+[ PASS    ] cetus_clmm::pool_tests::test_remove_rejects_one_of_two_receipts_pending
+[ PASS    ] cetus_clmm::pool_tests::test_remove_rejects_pending_add_receipt
+[ PASS    ] cetus_clmm::pool_tests::test_remove_succeeds_after_add_receipt_repaid
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_a_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_a_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_a_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_a_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_a_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_a_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_a_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_b_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_b_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_b_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_b_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_b_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_b_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_loan_b_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_plain_repay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_wrong_partner
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_a_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_plain_repay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_wrong_partner
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_loan_b_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_plain_repay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_wrong_partner
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_a_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_plain_repay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_wrong_partner
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_partner_swap_b_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_a_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_a_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_a_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_a_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_a_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_a_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_a_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_b_conservation
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_b_deprecated
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_b_overpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_b_paused
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_b_underpay
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_b_wrong_coin
+[ PASS    ] cetus_clmm::pool_tests::test_repayment_swap_b_wrong_pool
+[ PASS    ] cetus_clmm::pool_tests::test_set_pool_status
+[ PASS    ] cetus_clmm::pool_tests::test_swap
+[ PASS    ] cetus_clmm::pool_tests::test_swap_in_poo_failure_with_no_enough_liquidity
+[ PASS    ] cetus_clmm::pool_tests::test_swap_in_pool
+[ PASS    ] cetus_clmm::pool_tests::test_swap_on_bound
+[ PASS    ] cetus_clmm::pool_tests::test_swap_to_target_price_expect_error_amount_in_incorrect
+[ PASS    ] cetus_clmm::pool_tests::test_swap_to_target_price_expect_error_amount_out_is_zero
+[ PASS    ] cetus_clmm::pool_tests::test_two_receipts_repaid_out_of_order_conserve_balances
+[ PASS    ] cetus_clmm::pool_tests::test_update_emission
+[ PASS    ] cetus_clmm::pool_tests::test_update_fee_rate
+[ PASS    ] cetus_clmm::pool_tests::test_update_fee_rate_failure_with_einvalid_fee_rate
+[ PASS    ] cetus_clmm::pool_tests::test_update_pool_fee
+[ PASS    ] cetus_clmm::pool_tests::test_update_position_url
+Test result: OK. Total tests: 549; passed: 549; failed: 0

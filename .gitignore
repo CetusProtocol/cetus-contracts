@@ -1,1 +1,10 @@
 packages/*/build/*
+
+__pycache__/
+*.pyc
+packages/*/traces/
+packages/*/.trace
+packages/*/.coverage_map.mvcov
+packages/*/lcov.info
+evidence/
+!Audit/evidence/

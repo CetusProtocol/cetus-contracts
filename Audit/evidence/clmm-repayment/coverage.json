@@ -1,0 +1,119 @@
+{
+  "package": "cetus_clmm",
+  "metric": "Sui native trace LCOV, filtered to package sources",
+  "totals": {
+    "LF": 3755,
+    "LH": 3535,
+    "BRF": 1742,
+    "BRH": 1554
+  },
+  "files": [
+    {
+      "source": "cetus_clmm/sources/acl.move",
+      "sha256": "209c6b1f5c5d25cf8ce88f96f67af111945b79198173264c048736ce8879007b",
+      "LF": 45,
+      "LH": 45,
+      "BRF": 36,
+      "BRH": 34
+    },
+    {
+      "source": "cetus_clmm/sources/math/clmm_math.move",
+      "sha256": "0c73df0bf1fa8626a2c4cbbace02546cbb854aa8ee2501573b5e305a638c60b3",
+      "LF": 230,
+      "LH": 228,
+      "BRF": 194,
+      "BRH": 185
+    },
+    {
+      "source": "cetus_clmm/sources/config.move",
+      "sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+      "LF": 221,
+      "LH": 215,
+      "BRF": 81,
+      "BRH": 75
+    },
+    {
+      "source": "cetus_clmm/sources/factory.move",
+      "sha256": "9b3a87ddc0cdfdc35e2bb3333c3f690dba4069c40b0a92324fb30a8da3a04276",
+      "LF": 486,
+      "LH": 464,
+      "BRF": 240,
+      "BRH": 202
+    },
+    {
+      "source": "cetus_clmm/sources/partner.move",
+      "sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+      "LF": 158,
+      "LH": 151,
+      "BRF": 54,
+      "BRH": 48
+    },
+    {
+      "source": "cetus_clmm/sources/pool.move",
+      "sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "LF": 1371,
+      "LH": 1247,
+      "BRF": 476,
+      "BRH": 405
+    },
+    {
+      "source": "cetus_clmm/sources/pool_creator.move",
+      "sha256": "337cf8c7d79ccc3cdfe677a0c9cda36ee7bd118bf4a7da26e75eff81036c2937",
+      "LF": 63,
+      "LH": 59,
+      "BRF": 20,
+      "BRH": 20
+    },
+    {
+      "source": "cetus_clmm/sources/position.move",
+      "sha256": "4498a6d762f791b3e08db44deb948ae464afa98f3a8bf047eb63fac188230a75",
+      "LF": 413,
+      "LH": 363,
+      "BRF": 133,
+      "BRH": 115
+    },
+    {
+      "source": "cetus_clmm/sources/position_snapshot.move",
+      "sha256": "672c0fc24f917306d1d4d15d6f0b036545effbb63347c2634c802b45409a25d2",
+      "LF": 62,
+      "LH": 62,
+      "BRF": 13,
+      "BRH": 13
+    },
+    {
+      "source": "cetus_clmm/sources/rewarder.move",
+      "sha256": "43a069b9aaddbe1bfeae10023664bf10cccdfc3814cc915a6726a6fa55ba30c7",
+      "LF": 168,
+      "LH": 168,
+      "BRF": 72,
+      "BRH": 69
+    },
+    {
+      "source": "cetus_clmm/sources/tick.move",
+      "sha256": "c1d2086164e18872f43e743e5b416c1dc0a06de4ab245e30c238c75fc635ca78",
+      "LF": 361,
+      "LH": 356,
+      "BRF": 220,
+      "BRH": 198
+    },
+    {
+      "source": "cetus_clmm/sources/math/tick_math.move",
+      "sha256": "7b349d6c2fc29a55d5dadc3898e689af19fab6dd4f98c9a6e59e905b22f00780",
+      "LF": 154,
+      "LH": 154,
+      "BRF": 161,
+      "BRH": 160
+    },
+    {
+      "source": "cetus_clmm/sources/utils.move",
+      "sha256": "c4bdd0d713768d9c25c62691fb500c756647afbf4c157477ce369cc7bf3c0485",
+      "LF": 23,
+      "LH": 23,
+      "BRF": 42,
+      "BRH": 30
+    }
+  ],
+  "sources_missing_from_lcov": [],
+  "excluded_records": 232,
+  "limits": "Native mapped executable lines/branches only; not every auth check or invariant. Missing source files are not assigned invented denominators. Inline test-only code in sources may remain."
+}

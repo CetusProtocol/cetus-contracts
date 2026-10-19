@@ -1025,3 +1025,7 @@ For detailed version update records, please refer to [CHANGELOG.md](CHANGELOG.md
 ## License
 
 This project is licensed under the [Apache-2.0](LICENSE) license.
+
+## Regression and audit evidence
+
+See [CLMM audit evidence](../../Audit/README.md) for positive/negative tests, line/branch coverage, compiler controls, reproduction commands and explicit remaining scope.
