@@ -1,0 +1,86 @@
+name: Move tests and coverage
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-ledger:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check reviewed test witnesses and generated inventories
+        run: |
+          python3 Audit/tools/check_inventory.py
+          python3 Audit/tools/positive_negative_report.py
+          python3 -m unittest discover -s Audit/tools -p 'test_*.py'
+          git diff --exit-code -- Audit/check-inventory.csv Audit/check-inventory-summary.json Audit/test-index.json Audit/positive-negative-status.csv Audit/positive-negative-status.json
+  move:
+    name: Move / ${{ matrix.package }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [cetus_clmm]
+    env:
+      SUI_VERSION: mainnet-v1.79.1
+      MVR_VERSION: v0.1.0
+      PACKAGE: ${{ matrix.package }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Sui and MVR
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/sui-bin"
+          curl --fail --location --retry 3 \
+            "https://github.com/MystenLabs/sui/releases/download/${SUI_VERSION}/sui-${SUI_VERSION}-ubuntu-x86_64.tgz" \
+            --output "$RUNNER_TEMP/sui.tgz"
+          tar -xzf "$RUNNER_TEMP/sui.tgz" -C "$RUNNER_TEMP/sui-bin"
+          curl --fail --location --retry 3 \
+            "https://github.com/MystenLabs/mvr/releases/download/${MVR_VERSION}/mvr-ubuntu-x86_64" \
+            --output "$RUNNER_TEMP/sui-bin/mvr"
+          chmod +x "$RUNNER_TEMP/sui-bin/sui" "$RUNNER_TEMP/sui-bin/mvr"
+          echo "$RUNNER_TEMP/sui-bin" >> "$GITHUB_PATH"
+      - name: Test and measure source lines and branches
+        shell: bash
+        run: |
+          set -euo pipefail
+          report="$GITHUB_WORKSPACE/evidence/$PACKAGE"
+          mkdir -p "$report"
+          git rev-parse HEAD > "$report/source-sha.txt"
+          sui --version > "$report/toolchain.txt"
+          mvr --version >> "$report/toolchain.txt"
+          cd "packages/$PACKAGE"
+          cp Move.toml "$report/Move.toml"
+          echo 'sui move test --build-env mainnet --trace --coverage --gas-limit 10000000000' > "$report/command.txt"
+          echo 'Coverage scope: full package test suite; native full VM traces.' > "$report/coverage-scope.txt"
+          sui move test --build-env mainnet --trace --coverage --gas-limit 10000000000 2>&1 | tee "$report/tests.log"
+          sui move coverage lcov --build-env mainnet 2>&1 | tee "$report/lcov.log"
+          python3 "$GITHUB_WORKSPACE/Audit/tools/coverage_report.py" "$PWD" "$PWD/lcov.info" "$report"
+          cat "$report/coverage-scope.txt" "$report/coverage.md" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$PACKAGE" = cetus_clmm ]; then
+            python3 "$GITHUB_WORKSPACE/Audit/tools/capability_compile_checks.py" --commit "$GITHUB_SHA" --output "$report/capability-compile"
+          fi
+      - name: Preserve resolved build inputs
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p "evidence/$PACKAGE"
+          for input in Move.toml Move.lock Published.toml; do
+            if [ -f "packages/$PACKAGE/$input" ]; then
+              cp "packages/$PACKAGE/$input" "evidence/$PACKAGE/$input"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: move-evidence-${{ matrix.package }}-${{ github.sha }}
+          path: evidence/${{ matrix.package }}/
+          retention-days: 90
+          if-no-files-found: error
