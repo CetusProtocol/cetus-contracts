@@ -21,13 +21,9 @@ Twenty concrete repayment check sites are linked to positive/negative witnesses 
 
 ## Validation
 
-[Full local test log](evidence/clmm-repayment/tests.log): **437/437 passed**.
-[Native source coverage](evidence/clmm-repayment/coverage.md): **3,535/3,755 lines
-(94.14%)**, **1,554/1,742 branches (89.21%)**; no missing source files.
-[Build/test fingerprints](evidence/clmm-repayment/inputs.json) and resolved Move.lock
-bind this evidence to the working tree. This is historical 437-test evidence, superseded by the 549-test Phase 1 suite.
+The current full suite passes **549/549**. [Latest coverage and inputs](evidence/public-sync/clmm) record 94.14% line and 89.55% branch coverage. Superseded 437-test snapshots were removed.
 An isolated mutation drops partner fee credit in repayment; the positive partner-swap
-case fails when reading the missing actual partner balance ([log](evidence/clmm-repayment/partner-credit-mutation.log)). The mutation was confined to a temporary copy.
+case fails when reading the missing actual partner balance ([log](evidence/mutations/partner-credit-mutation.log)). The mutation was confined to a temporary copy.
 
 Coverage is Sui's executable mapping, not proof of every invariant or 100% semantic coverage.
 

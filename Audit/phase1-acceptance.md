@@ -28,7 +28,7 @@ and source/test hashes. The phase matrix includes properties beyond lexical asse
 ## Verification and evidence
 
 Full-suite logs, resolved build inputs, source/test hashes and native line/branch
-reports are retained under [evidence/phase1](evidence/phase1). Hosted verification is
+reports are retained under [latest public-checkout evidence](evidence/public-sync). Hosted verification is
 recorded in the original full-suite logs. See [synchronization provenance](sync-provenance.json) for original commit and path mapping. The public CI reruns this checkout.
 Line/branch percentages measure Sui-mapped executable code; they do not establish
 complete semantic coverage or justify silently removing remaining checks.

@@ -4,7 +4,7 @@
   "path_mapping": {
     "cetus_clmm/": "packages/cetus_clmm/"
   },
-  "historical_evidence": "Copied logs, LCOV and input fingerprints retain original paths and commit identifiers; these are historical runs, not runs of this public checkout. Only capability provenance is filtered to CLMM. Current generated inventories use public repository paths.",
+  "historical_evidence": "Redundant historical runs removed; current public-sync evidence and the unique partner-credit mutation remain. See evidence-retention.json for the archive commit.",
   "test_sha256": {
     "packages/cetus_clmm/tests/tick_tests.move": "c534e6a90ac5d290200bf0e0c3365824ccde7d475b63d6aa0f18ec0921423b39",
     "packages/cetus_clmm/tests/rewarder_unittests.move": "53fb177930a3a1e0b175d3497686dee48a7b629fc9e86d09532c3ed2528ff425",

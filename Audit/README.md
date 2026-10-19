@@ -5,9 +5,7 @@ This directory covers only `packages/cetus_clmm`. Production v15 sources and dep
 - [Phase 1 acceptance and deferred scope](phase1-acceptance.md)
 - [Repayment and fee conservation](clmm-repayment-invariants.md)
 - [Reviewed checks](positive-negative-reviewed.json) and [generated status](positive-negative-status.json)
-- [Full-suite historical evidence](evidence/phase1/clmm): 549 passing tests; 3,535/3,755 lines (94.14%) and 1,560/1,742 branches (89.55%).
-- [Capability compiler evidence](evidence/capability-compile-checks): five CLMM capability types; forwarding succeeds and external construction fails. This does not prove transaction-input ownership.
-- [Synchronization provenance](sync-provenance.json): original commit, file hashes and path mapping. Historical evidence retains original paths; it is not presented as execution of this public checkout.
+- [Synchronization provenance](sync-provenance.json): original commit, file hashes and path mapping. The retained mutation log preserves its original execution paths.
 
 The public baseline contained 343 tests. Synchronization brings it to 549 (+206), including the final 112-test Phase 1 increment and preceding authorization/repayment additions. The ledger maps 71 of 332 lexical sites; the other 261 remain unreviewed, which does not mean they have no tests. The original every-authorization-check/every-invariant requirement remains incomplete.
 
@@ -30,3 +28,5 @@ python3 Audit/tools/capability_compile_checks.py --commit HEAD --output evidence
 ```
 
 Committed reports are public snapshots. CI artifacts provide commit-specific reruns and may expire. None of these materials is an independent external audit or proof that dependencies are audited.
+
+See [evidence retention](evidence-retention.md) for the current/archive boundary.
