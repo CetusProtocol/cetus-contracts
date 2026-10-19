@@ -11,6 +11,10 @@ This directory covers only `packages/cetus_clmm`. Production v15 sources and dep
 
 The public baseline contained 343 tests. Synchronization brings it to 549 (+206), including the final 112-test Phase 1 increment and preceding authorization/repayment additions. The ledger maps 71 of 332 lexical sites; the other 261 remain unreviewed, which does not mean they have no tests. The original every-authorization-check/every-invariant requirement remains incomplete.
 
+## Public-checkout validation
+
+[Fresh public-layout evidence](evidence/public-sync/clmm) confirms 549/549 passing tests, 94.14% line coverage and 89.55% branch coverage. [Fresh compiler controls](evidence/public-sync/capability-compile) validate all five CLMM capability types against the recorded public-repository commit. Four ledger validation tests pass.
+
 ## Reproduce
 
 Use Sui `1.79.1-808640d9b49a` and MVR `0.1.0`. From the repository root:

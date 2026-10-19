@@ -31,7 +31,7 @@ def main():
         subprocess.run(['tar', '-xf', '-', '-C', str(tree)], input=archive, check=True)
         for package, caps in CAPS.items():
             dest = output / package
-            dest.mkdir(exist_ok=True)
+            dest.mkdir(parents=True, exist_ok=True)
             namespace = caps[0].split('::')[0]
             probe = tree / package / 'sources/capability_compile_probe.move'
             assert not probe.exists(), 'refusing to overwrite a source file'
