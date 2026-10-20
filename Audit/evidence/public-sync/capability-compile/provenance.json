@@ -1,0 +1,31 @@
+{
+  "tested_commit": "7b8e619ea069eeb10a39af322f8e99c68609adf3",
+  "toolchain": "sui 1.79.1-808640d9b49a",
+  "command": "sui move build --path PACKAGE --build-env mainnet",
+  "packages": {
+    "packages/cetus_clmm": {
+      "capabilities": [
+        "cetus_clmm::config::AdminCap",
+        "cetus_clmm::config::ProtocolFeeClaimCap",
+        "cetus_clmm::pool::ProtocolFeeCollectCap",
+        "cetus_clmm::factory::PoolCreationCap",
+        "cetus_clmm::partner::PartnerCap"
+      ],
+      "sha256": {
+        "forward.move": "1f6e4cdaa0d3a8e174a3ecf7208ddf8c7b86c414c47896890193126cf8c7b5ab",
+        "forward.log": "4223fa51ce969c1f04f393c1ea5efed5ad0fdd142ea08046d2c34ac66ecca219",
+        "forge.move": "d1e7321fc332daaf41e199236ae688715ae1d4c5e97227dea90180da2fbddc0e",
+        "forge.log": "d2f7184fa1ed4122e03c25f76ce9b5083b5e041dfa47141b0bb233d489cacfbf"
+      },
+      "forward": {
+        "exit_code": 0,
+        "expected_result_observed": true
+      },
+      "forge": {
+        "exit_code": 1,
+        "expected_result_observed": true
+      }
+    }
+  },
+  "limits": "Compiler construction visibility only. Does not prove transaction input ownership, capability minting policy, or every guarded entry. ProtocolFeeClaimCap is included although source calls it redundant."
+}

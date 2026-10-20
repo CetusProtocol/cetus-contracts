@@ -1,0 +1,13 @@
+{
+  "method": "Lexical sites with manually reviewed, fingerprint-bound entry witnesses. Not a complete semantic invariant inventory.",
+  "lexical_check_sites": 332,
+  "paired_sites": 71,
+  "unreviewed_sites": 261,
+  "requirement_complete": false,
+  "limits": [
+    "Unreviewed is not equivalent to missing tests.",
+    "Capability input ownership requires transaction/compiler evidence.",
+    "Business invariants beyond explicit assertions still require enumeration.",
+    "Scope is CLMM only; dependencies and integrations require separate evidence."
+  ]
+}

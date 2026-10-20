@@ -3331,3 +3331,586 @@ fun test_flash_loan_with_partner_not_permit() {
     scenerio.end();
     clk.destroy_for_testing();
 }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::pool::EPositionPendingAddLiquidity)]
+fun test_remove_rejects_pending_add_receipt() {
+    let mut ctx = tx_context::dummy();
+    let clk = clock::create_for_testing(&mut ctx);
+    let (cap, config) = new_global_config_for_test(&mut ctx, 5000);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(
+        2, get_sqrt_price_at_tick(i32::from(50)), 2500,
+        string::utf8(b""), 1, &clk, &mut ctx,
+    );
+    let mut pos = pool::open_position(&config, &mut pool, 0, 100, &mut ctx);
+    let receipt = pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    let (out_a, out_b) = pool::remove_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    transfer::public_transfer(coin::from_balance(out_a, &mut ctx), @0x1);
+    transfer::public_transfer(coin::from_balance(out_b, &mut ctx), @0x1);
+    let (amount_a, amount_b) = receipt.add_liquidity_pay_amount();
+    pool::repay_add_liquidity(&config, &mut pool,
+        balance::create_for_testing<CoinA>(amount_a),
+        balance::create_for_testing<CoinB>(amount_b), receipt);
+    clock::destroy_for_testing(clk);
+    transfer::public_share_object(cap);
+    transfer::public_share_object(config);
+    transfer::public_share_object(pool);
+    transfer::public_transfer(pos, @0x1);
+}
+
+#[test]
+fun test_remove_succeeds_after_add_receipt_repaid() {
+    let mut ctx = tx_context::dummy();
+    let clk = clock::create_for_testing(&mut ctx);
+    let (cap, config) = new_global_config_for_test(&mut ctx, 5000);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(
+        2, get_sqrt_price_at_tick(i32::from(50)), 2500,
+        string::utf8(b""), 1, &clk, &mut ctx,
+    );
+    let mut pos = pool::open_position(&config, &mut pool, 0, 100, &mut ctx);
+    let receipt = pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    let (amount_a, amount_b) = receipt.add_liquidity_pay_amount();
+    pool::repay_add_liquidity(&config, &mut pool,
+        balance::create_for_testing<CoinA>(amount_a),
+        balance::create_for_testing<CoinB>(amount_b), receipt);
+    let (out_a, out_b) = pool::remove_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    transfer::public_transfer(coin::from_balance(out_a, &mut ctx), @0x1);
+    transfer::public_transfer(coin::from_balance(out_b, &mut ctx), @0x1);
+    clock::destroy_for_testing(clk);
+    transfer::public_share_object(cap);
+    transfer::public_share_object(config);
+    transfer::public_share_object(pool);
+    transfer::public_transfer(pos, @0x1);
+}
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::pool::EPositionPendingAddLiquidity)]
+fun test_remove_rejects_one_of_two_receipts_pending() {
+    let mut ctx = tx_context::dummy();
+    let clk = clock::create_for_testing(&mut ctx);
+    let (cap, config) = new_global_config_for_test(&mut ctx, 5000);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(
+        2, get_sqrt_price_at_tick(i32::from(50)), 2500,
+        string::utf8(b""), 1, &clk, &mut ctx,
+    );
+    let mut pos = pool::open_position(&config, &mut pool, 0, 100, &mut ctx);
+    let first = pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    let second = pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    let (a1, b1) = first.add_liquidity_pay_amount();
+    let (a2, b2) = second.add_liquidity_pay_amount();
+    // Repay in reverse order: clearing one receipt must retain the other guard.
+    pool::repay_add_liquidity(&config, &mut pool,
+        balance::create_for_testing<CoinA>(a2), balance::create_for_testing<CoinB>(b2), second);
+    let (out_a, out_b) = pool::remove_liquidity(&config, &mut pool, &mut pos, 2000, &clk);
+    pool::repay_add_liquidity(&config, &mut pool,
+        balance::create_for_testing<CoinA>(a1), balance::create_for_testing<CoinB>(b1), first);
+    transfer::public_transfer(coin::from_balance(out_a, &mut ctx), @0x1);
+    transfer::public_transfer(coin::from_balance(out_b, &mut ctx), @0x1);
+    clock::destroy_for_testing(clk);
+    transfer::public_share_object(cap);
+    transfer::public_share_object(config);
+    transfer::public_share_object(pool);
+    transfer::public_transfer(pos, @0x1);
+}
+
+#[test]
+fun test_two_receipts_repaid_out_of_order_conserve_balances() {
+    let mut ctx = tx_context::dummy();
+    let clk = clock::create_for_testing(&mut ctx);
+    let (cap, config) = new_global_config_for_test(&mut ctx, 5000);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(
+        2, get_sqrt_price_at_tick(i32::from(50)), 2500,
+        string::utf8(b""), 1, &clk, &mut ctx,
+    );
+    let mut pos = pool::open_position(&config, &mut pool, 0, 100, &mut ctx);
+    let first = pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    let second = pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+    let (a1, b1) = first.add_liquidity_pay_amount();
+    let (a2, b2) = second.add_liquidity_pay_amount();
+    // Repay in reverse order: clearing one receipt must retain the other guard.
+    pool::repay_add_liquidity(&config, &mut pool,
+        balance::create_for_testing<CoinA>(a2), balance::create_for_testing<CoinB>(b2), second);
+    pool::repay_add_liquidity(&config, &mut pool,
+        balance::create_for_testing<CoinA>(a1), balance::create_for_testing<CoinB>(b1), first);
+    let (out_a, out_b) = pool::remove_liquidity(&config, &mut pool, &mut pos, 2000, &clk);
+    let (left_a, left_b) = pool::balances(&pool);
+    assert!(balance::value(left_a) + balance::value(&out_a) == a1 + a2, 100);
+    assert!(balance::value(left_b) + balance::value(&out_b) == b1 + b2, 101);
+    transfer::public_transfer(coin::from_balance(out_a, &mut ctx), @0x1);
+    transfer::public_transfer(coin::from_balance(out_b, &mut ctx), @0x1);
+    clock::destroy_for_testing(clk);
+    transfer::public_share_object(cap);
+    transfer::public_share_object(config);
+    transfer::public_share_object(pool);
+    transfer::public_transfer(pos, @0x1);
+}
+
+// Valid funded fixtures isolate the global version gate from pool/position errors.
+fun exercise_money_entry_gate(operation: u8, gate: u8) {
+    let mut ctx = tx_context::dummy();
+    let clk = clock::create_for_testing(&mut ctx);
+    let (cap, mut config) = new_global_config_for_test(&mut ctx, 5000);
+    config::add_role(&cap, &mut config, tx_context::sender(&ctx), 6);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(
+        2, get_sqrt_price_at_tick(i32::from(50)), 2500,
+        string::utf8(b""), 1, &clk, &mut ctx,
+    );
+    let mut pos = pool::open_position(&config, &mut pool, 0, 100, &mut ctx);
+    let receipt = pool::add_liquidity(&config, &mut pool, &mut pos, 10000000, &clk);
+    let (a, b) = receipt.add_liquidity_pay_amount();
+    pool::repay_add_liquidity(&config, &mut pool,
+        balance::create_for_testing<CoinA>(a), balance::create_for_testing<CoinB>(b), receipt);
+    let mut pending = option::none();
+    if (operation == 6) pending.fill(pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk));
+    if (gate == 1) config::emergency_pause(&mut config, &ctx);
+    if (gate == 2) config::update_package_version(&cap, &mut config, config::package_version() + 1);
+    if (operation == 0) {
+        let extra = pool::open_position(&config, &mut pool, 0, 100, &mut ctx);
+        transfer::public_transfer(extra, @0x1);
+    } else if (operation == 1) {
+        let receipt = pool::add_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+        let (a, b) = receipt.add_liquidity_pay_amount();
+        pool::repay_add_liquidity(&config, &mut pool, balance::create_for_testing<CoinA>(a), balance::create_for_testing<CoinB>(b), receipt);
+    } else if (operation == 2) {
+        let (a, b) = pool::remove_liquidity(&config, &mut pool, &mut pos, 1000, &clk);
+        balance::destroy_for_testing(a);
+        balance::destroy_for_testing(b);
+    } else if (operation == 3) {
+        let (a, b) = pool::collect_fee(&config, &mut pool, &pos, true);
+        balance::destroy_zero(a);
+        balance::destroy_zero(b);
+    } else if (operation == 4) {
+        let receipt = pool::add_liquidity_fix_coin(&config, &mut pool, &mut pos, 1000, true, &clk);
+        let (a, b) = receipt.add_liquidity_pay_amount();
+        pool::repay_add_liquidity(&config, &mut pool, balance::create_for_testing<CoinA>(a), balance::create_for_testing<CoinB>(b), receipt);
+    } else if (operation == 5) {
+        let (a, b, receipt) = pool::flash_swap(&config, &mut pool, true, true, 10, min_sqrt_price(), &clk);
+        let pay = pool::swap_pay_amount(&receipt);
+        balance::destroy_for_testing(a);
+        balance::destroy_for_testing(b);
+        pool::repay_flash_swap(&config, &mut pool, balance::create_for_testing<CoinA>(pay), balance::zero<CoinB>(), receipt);
+    } else {
+        let receipt = pending.extract();
+        let (a, b) = receipt.add_liquidity_pay_amount();
+        pool::repay_add_liquidity(&config, &mut pool, balance::create_for_testing<CoinA>(a), balance::create_for_testing<CoinB>(b), receipt);
+    };
+    pending.destroy_none();
+    clock::destroy_for_testing(clk);
+    transfer::public_share_object(config);
+    transfer::public_share_object(pool);
+    transfer::public_transfer(cap, @0x1);
+    transfer::public_transfer(pos, @0x1);
+}
+
+#[test]
+fun test_money_gate_open_position_active() { exercise_money_entry_gate(0, 0); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_open_position_paused() { exercise_money_entry_gate(0, 1); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_open_position_deprecated() { exercise_money_entry_gate(0, 2); }
+
+#[test]
+fun test_money_gate_add_liquidity_active() { exercise_money_entry_gate(1, 0); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_add_liquidity_paused() { exercise_money_entry_gate(1, 1); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_add_liquidity_deprecated() { exercise_money_entry_gate(1, 2); }
+
+#[test]
+fun test_money_gate_remove_liquidity_active() { exercise_money_entry_gate(2, 0); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_remove_liquidity_paused() { exercise_money_entry_gate(2, 1); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_remove_liquidity_deprecated() { exercise_money_entry_gate(2, 2); }
+
+#[test]
+fun test_money_gate_collect_fee_active() { exercise_money_entry_gate(3, 0); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_collect_fee_paused() { exercise_money_entry_gate(3, 1); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_collect_fee_deprecated() { exercise_money_entry_gate(3, 2); }
+
+#[test]
+fun test_money_gate_add_liquidity_fix_coin_active() { exercise_money_entry_gate(4, 0); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_add_liquidity_fix_coin_paused() { exercise_money_entry_gate(4, 1); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_add_liquidity_fix_coin_deprecated() { exercise_money_entry_gate(4, 2); }
+
+#[test]
+fun test_money_gate_flash_swap_active() { exercise_money_entry_gate(5, 0); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_flash_swap_paused() { exercise_money_entry_gate(5, 1); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_flash_swap_deprecated() { exercise_money_entry_gate(5, 2); }
+
+#[test]
+fun test_money_gate_repay_add_liquidity_active() { exercise_money_entry_gate(6, 0); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_repay_add_liquidity_paused() { exercise_money_entry_gate(6, 1); }
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_money_gate_repay_add_liquidity_deprecated() { exercise_money_entry_gate(6, 2); }
+
+// Real receipts and production repayment entries in both directions. Pool and
+// partner constructors, and external funding, are fixtures only.
+fun exercise_repayment_invariant(operation: u8, a2b: bool, mode: u8) {
+    let mut ctx = tx_context::dummy();
+    let (clk, cap, mut config) = init_test(&mut ctx);
+    config::add_role(&cap, &mut config, ctx.sender(), 6);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(200, 18446744073709551616, 10000, string::utf8(b""), 0, &clk, &mut ctx);
+    let mut pos = open_position(&config, &mut pool, nt(1800), pt(1800), &mut ctx);
+    add_liquidity(&config, &mut pool, &mut pos, 10000000000, &clk);
+    let mut other = pool::new_for_test<CoinA, CoinB>(200, 18446744073709551616, 10000, string::utf8(b""), 0, &clk, &mut ctx);
+    let (partner_cap, mut partner) = partner::create_partner_for_test(string::utf8(b"first"), 2000, 0, 1000000, &clk, &mut ctx);
+    let (other_cap, mut other_partner) = partner::create_partner_for_test(string::utf8(b"other"), 2000, 0, 1000000, &clk, &mut ctx);
+    let (before_a, before_b) = { let (a,b) = pool::balances(&pool); (a.value(), b.value()) };
+    let with_partner = operation >= 2;
+    let (out_a, out_b, payment, referral) = if (operation % 2 == 0) {
+        let (a, b, receipt) = if (with_partner) {
+            pool::flash_swap_with_partner(&config, &mut pool, &partner, a2b, true, 10000, if (a2b) { min_sqrt_price() } else { max_sqrt_price() }, &clk)
+        } else {
+            pool::flash_swap(&config, &mut pool, a2b, true, 10000, if (a2b) { min_sqrt_price() } else { max_sqrt_price() }, &clk)
+        };
+        let out_a = a.value(); let out_b = b.value();
+        balance::destroy_for_testing(a); balance::destroy_for_testing(b);
+        let payment = pool::swap_pay_amount(&receipt);
+        let referral = pool::ref_fee_amount(&receipt);
+        let actual = if (mode == 1) { payment - 1 } else if (mode == 2) { payment + 1 } else { payment };
+        let wrong_side = if (mode == 4) { 1 } else { 0 };
+        let a = balance::create_for_testing<CoinA>(if (a2b) { actual } else { wrong_side });
+        let b = balance::create_for_testing<CoinB>(if (a2b) { wrong_side } else { actual });
+        if (mode == 5) config::emergency_pause(&mut config, &ctx);
+        if (mode == 6) config::update_package_version(&cap, &mut config, config::package_version() + 1);
+        let target = if (mode == 3) { &mut other } else { &mut pool };
+        if (with_partner && mode != 8) {
+            let target_partner = if (mode == 7) { &mut other_partner } else { &mut partner };
+            pool::repay_flash_swap_with_partner(&config, target, target_partner, a, b, receipt);
+        } else {
+            pool::repay_flash_swap(&config, target, a, b, receipt);
+        };
+        (out_a, out_b, payment, referral)
+    } else {
+        let (a, b, receipt) = if (with_partner) {
+            pool::flash_loan_with_partner(&config, &mut pool, &partner, a2b, 10000, &clk)
+        } else { pool::flash_loan(&config, &mut pool, a2b, 10000) };
+        let out_a = a.value(); let out_b = b.value();
+        assert!(if (a2b) { out_a == 10000 && out_b == 0 } else { out_a == 0 && out_b == 10000 }, 200);
+        balance::destroy_for_testing(a); balance::destroy_for_testing(b);
+        // 1% loan fee; 20% protocol share; partner takes 20% of protocol fee.
+        let payment = 10100;
+        let referral = if (with_partner) { 4 } else { 0 };
+        let actual = if (mode == 1) { payment - 1 } else if (mode == 2) { payment + 1 } else { payment };
+        let wrong_side = if (mode == 4) { 1 } else { 0 };
+        let a = balance::create_for_testing<CoinA>(if (a2b) { actual } else { wrong_side });
+        let b = balance::create_for_testing<CoinB>(if (a2b) { wrong_side } else { actual });
+        if (mode == 5) config::emergency_pause(&mut config, &ctx);
+        if (mode == 6) config::update_package_version(&cap, &mut config, config::package_version() + 1);
+        let target = if (mode == 3) { &mut other } else { &mut pool };
+        if (with_partner && mode != 8) {
+            let target_partner = if (mode == 7) { &mut other_partner } else { &mut partner };
+            pool::repay_flash_loan_with_partner(&config, target, target_partner, a, b, receipt);
+        } else { pool::repay_flash_loan(&config, target, a, b, receipt); };
+        (out_a, out_b, payment, referral)
+    };
+    if (with_partner) {
+        assert!(referral > 0, 201);
+        if (a2b) {
+            let key = string::from_ascii(type_name::into_string(type_name::with_defining_ids<CoinA>()));
+            assert!(bag::borrow<String, Balance<CoinA>>(partner::balances(&partner), key).value() == referral, 202);
+        } else {
+            let key = string::from_ascii(type_name::into_string(type_name::with_defining_ids<CoinB>()));
+            assert!(bag::borrow<String, Balance<CoinB>>(partner::balances(&partner), key).value() == referral, 203);
+        };
+    };
+    let (after_a, after_b) = { let (a,b) = pool::balances(&pool); (a.value(), b.value()) };
+    assert!(after_a + out_a + (if (a2b) { referral } else { 0 }) == before_a + (if (a2b) { payment } else { 0 }), 204);
+    assert!(after_b + out_b + (if (a2b) { 0 } else { referral }) == before_b + (if (a2b) { 0 } else { payment }), 205);
+    let (fees_a, fees_b) = pool::collect_fee(&config, &mut pool, &pos, true);
+    assert!(if (a2b) { fees_a.value() > 0 && fees_b.value() == 0 } else { fees_b.value() > 0 && fees_a.value() == 0 }, 206);
+    let (left_a,left_b) = pool::balances(&pool);
+    assert!(left_a.value() + fees_a.value() == after_a && left_b.value() + fees_b.value() == after_b, 207);
+    balance::destroy_for_testing(fees_a); balance::destroy_for_testing(fees_b);
+    let (again_a, again_b) = pool::collect_fee(&config, &mut pool, &pos, true);
+    balance::destroy_zero(again_a); balance::destroy_zero(again_b);
+    transfer::public_share_object(pool); transfer::public_share_object(other);
+    transfer::public_share_object(partner); transfer::public_share_object(other_partner);
+    transfer::public_transfer(partner_cap, TEST_ADDR); transfer::public_transfer(other_cap, TEST_ADDR);
+    transfer::public_transfer(pos, TEST_ADDR);
+    close_test(cap, config, clk);
+}
+
+#[test]
+fun test_repayment_swap_a_conservation() { exercise_repayment_invariant(0, true, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_swap_a_underpay() { exercise_repayment_invariant(0, true, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_swap_a_overpay() { exercise_repayment_invariant(0, true, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_swap_a_wrong_pool() { exercise_repayment_invariant(0, true, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_swap_a_wrong_coin() { exercise_repayment_invariant(0, true, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_swap_a_paused() { exercise_repayment_invariant(0, true, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_swap_a_deprecated() { exercise_repayment_invariant(0, true, 6); }
+
+#[test]
+fun test_repayment_swap_b_conservation() { exercise_repayment_invariant(0, false, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_swap_b_underpay() { exercise_repayment_invariant(0, false, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_swap_b_overpay() { exercise_repayment_invariant(0, false, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_swap_b_wrong_pool() { exercise_repayment_invariant(0, false, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_swap_b_wrong_coin() { exercise_repayment_invariant(0, false, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_swap_b_paused() { exercise_repayment_invariant(0, false, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_swap_b_deprecated() { exercise_repayment_invariant(0, false, 6); }
+
+#[test]
+fun test_repayment_loan_a_conservation() { exercise_repayment_invariant(1, true, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_loan_a_underpay() { exercise_repayment_invariant(1, true, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_loan_a_overpay() { exercise_repayment_invariant(1, true, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_loan_a_wrong_pool() { exercise_repayment_invariant(1, true, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_loan_a_wrong_coin() { exercise_repayment_invariant(1, true, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_loan_a_paused() { exercise_repayment_invariant(1, true, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_loan_a_deprecated() { exercise_repayment_invariant(1, true, 6); }
+
+#[test]
+fun test_repayment_loan_b_conservation() { exercise_repayment_invariant(1, false, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_loan_b_underpay() { exercise_repayment_invariant(1, false, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_loan_b_overpay() { exercise_repayment_invariant(1, false, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_loan_b_wrong_pool() { exercise_repayment_invariant(1, false, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_loan_b_wrong_coin() { exercise_repayment_invariant(1, false, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_loan_b_paused() { exercise_repayment_invariant(1, false, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_loan_b_deprecated() { exercise_repayment_invariant(1, false, 6); }
+
+#[test]
+fun test_repayment_partner_swap_a_conservation() { exercise_repayment_invariant(2, true, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_a_underpay() { exercise_repayment_invariant(2, true, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_a_overpay() { exercise_repayment_invariant(2, true, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_a_wrong_pool() { exercise_repayment_invariant(2, true, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_partner_swap_a_wrong_coin() { exercise_repayment_invariant(2, true, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_swap_a_paused() { exercise_repayment_invariant(2, true, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_swap_a_deprecated() { exercise_repayment_invariant(2, true, 6); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_a_wrong_partner() { exercise_repayment_invariant(2, true, 7); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_a_plain_repay() { exercise_repayment_invariant(2, true, 8); }
+
+#[test]
+fun test_repayment_partner_swap_b_conservation() { exercise_repayment_invariant(2, false, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_b_underpay() { exercise_repayment_invariant(2, false, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_b_overpay() { exercise_repayment_invariant(2, false, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_b_wrong_pool() { exercise_repayment_invariant(2, false, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_partner_swap_b_wrong_coin() { exercise_repayment_invariant(2, false, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_swap_b_paused() { exercise_repayment_invariant(2, false, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_swap_b_deprecated() { exercise_repayment_invariant(2, false, 6); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_b_wrong_partner() { exercise_repayment_invariant(2, false, 7); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashSwapReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_swap_b_plain_repay() { exercise_repayment_invariant(2, false, 8); }
+
+#[test]
+fun test_repayment_partner_loan_a_conservation() { exercise_repayment_invariant(3, true, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_a_underpay() { exercise_repayment_invariant(3, true, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_a_overpay() { exercise_repayment_invariant(3, true, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_a_wrong_pool() { exercise_repayment_invariant(3, true, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_partner_loan_a_wrong_coin() { exercise_repayment_invariant(3, true, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_loan_a_paused() { exercise_repayment_invariant(3, true, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_loan_a_deprecated() { exercise_repayment_invariant(3, true, 6); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_a_wrong_partner() { exercise_repayment_invariant(3, true, 7); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_a_plain_repay() { exercise_repayment_invariant(3, true, 8); }
+
+#[test]
+fun test_repayment_partner_loan_b_conservation() { exercise_repayment_invariant(3, false, 0); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_b_underpay() { exercise_repayment_invariant(3, false, 1); }
+
+#[test]
+#[expected_failure(abort_code = pool::EAmountIncorrect, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_b_overpay() { exercise_repayment_invariant(3, false, 2); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_b_wrong_pool() { exercise_repayment_invariant(3, false, 3); }
+
+#[test]
+#[expected_failure(abort_code = sui::balance::ENonZero, location = sui::balance)]
+fun test_repayment_partner_loan_b_wrong_coin() { exercise_repayment_invariant(3, false, 4); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_loan_b_paused() { exercise_repayment_invariant(3, false, 5); }
+
+#[test]
+#[expected_failure(abort_code = config::EPackageVersionDeprecate, location = cetus_clmm::config)]
+fun test_repayment_partner_loan_b_deprecated() { exercise_repayment_invariant(3, false, 6); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_b_wrong_partner() { exercise_repayment_invariant(3, false, 7); }
+
+#[test]
+#[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
+fun test_repayment_partner_loan_b_plain_repay() { exercise_repayment_invariant(3, false, 8); }

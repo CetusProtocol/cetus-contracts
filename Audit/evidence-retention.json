@@ -1,0 +1,27 @@
+{
+  "archive_commit": "6879dae92f86233acf42416d33a6c3b30ca665e8",
+  "removed_files_sha256": {
+    "Audit/evidence/capability-compile-checks/provenance.json": "96a71c0d91a979b0b6239ac93950b7b8da6bc2fdf5e79ce0fa88e67d21c9568d",
+    "Audit/evidence/clmm-repayment/coverage.md": "73efc57a06ef4daac8a7ae74b1665fbbfdd476a2e1415ff650a5b1ff092f29c9",
+    "Audit/evidence/clmm-repayment/Move.lock": "a3614aa34cf30af3f62b94cdace72af387a71502227d6717637435308bffcf9d",
+    "Audit/evidence/clmm-repayment/coverage.json": "3b8e8d213f2e000330cfa19794e938a21e79260130ec68a837be3f449085ff3c",
+    "Audit/evidence/clmm-repayment/partner-credit-mutation.log": "3e202b579e0c31d2bfcb0121ed648cf980098002420d9e60077b03bdd330488e",
+    "Audit/evidence/clmm-repayment/Move.toml": "07a4e1271d50b710b434a82c97317970cbbe142bdaf1f7677b325f6c8bef6ece",
+    "Audit/evidence/clmm-repayment/inputs.json": "a486cd6faf4a74d6aafe6eeffaab384f945662902165b7c13e57e6ee776e8753",
+    "Audit/evidence/clmm-repayment/tests.log": "2015a41530e9c61240dcf389c261caccc3153b5fd0956cf09053a41342fec014",
+    "Audit/evidence/clmm-repayment/coverage.lcov": "a28cc997899e9b99e994c206a6d779d38b65e8487026e4937b1ac2d2418f247e",
+    "Audit/evidence/capability-compile-checks/cetus_clmm/forge.log": "d2f7184fa1ed4122e03c25f76ce9b5083b5e041dfa47141b0bb233d489cacfbf",
+    "Audit/evidence/capability-compile-checks/cetus_clmm/forward.move": "1f6e4cdaa0d3a8e174a3ecf7208ddf8c7b86c414c47896890193126cf8c7b5ab",
+    "Audit/evidence/capability-compile-checks/cetus_clmm/forge.move": "d1e7321fc332daaf41e199236ae688715ae1d4c5e97227dea90180da2fbddc0e",
+    "Audit/evidence/capability-compile-checks/cetus_clmm/forward.log": "4223fa51ce969c1f04f393c1ea5efed5ad0fdd142ea08046d2c34ac66ecca219",
+    "Audit/evidence/phase1/clmm/coverage.md": "9e33ec587971640276e2d612d2b58f310ac913dcf5a90037ed9240285b825964",
+    "Audit/evidence/phase1/clmm/Move.lock": "a3614aa34cf30af3f62b94cdace72af387a71502227d6717637435308bffcf9d",
+    "Audit/evidence/phase1/clmm/coverage.json": "a2c4b3f72075b4ca9e93808985a6aa30b468139c478cad273d95ed7e0b588879",
+    "Audit/evidence/phase1/clmm/Published.toml": "14a9c6c3db1d4551d4f3f53bfd13ceddeccd8af7b18dcb8160ea3cfb09a755ef",
+    "Audit/evidence/phase1/clmm/Move.toml": "07a4e1271d50b710b434a82c97317970cbbe142bdaf1f7677b325f6c8bef6ece",
+    "Audit/evidence/phase1/clmm/inputs.json": "2df20cc0884da0be1f0cede82a435bda3ae8d6cc537b5887dc8bf08d70016518",
+    "Audit/evidence/phase1/clmm/tests.log": "19439a0a168a04f7b1fba4dd42b60d958f4630b6dcbea2d8108e56ff5516cf1f",
+    "Audit/evidence/phase1/clmm/coverage.lcov": "28abbbd3bff9b427c476c0f695e49a96ba3073695ccebddeb30d7d4d94f83098"
+  },
+  "note": "Removed payloads remain retrievable at archive_commit. Historical provenance may retain hashes of archived payloads; it is not a claim those files remain in the current tree."
+}

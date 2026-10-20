@@ -1,0 +1,48 @@
+{
+  "method": "Conservative lexical inventory, NOT a Move parser, call graph or coverage proof.",
+  "source_sha256": {
+    "packages/cetus_clmm/sources/acl.move": "209c6b1f5c5d25cf8ce88f96f67af111945b79198173264c048736ce8879007b",
+    "packages/cetus_clmm/sources/config.move": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "packages/cetus_clmm/sources/factory.move": "9b3a87ddc0cdfdc35e2bb3333c3f690dba4069c40b0a92324fb30a8da3a04276",
+    "packages/cetus_clmm/sources/math/clmm_math.move": "0c73df0bf1fa8626a2c4cbbace02546cbb854aa8ee2501573b5e305a638c60b3",
+    "packages/cetus_clmm/sources/math/tick_math.move": "7b349d6c2fc29a55d5dadc3898e689af19fab6dd4f98c9a6e59e905b22f00780",
+    "packages/cetus_clmm/sources/partner.move": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "packages/cetus_clmm/sources/pool.move": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "packages/cetus_clmm/sources/pool_creator.move": "337cf8c7d79ccc3cdfe677a0c9cda36ee7bd118bf4a7da26e75eff81036c2937",
+    "packages/cetus_clmm/sources/position.move": "4498a6d762f791b3e08db44deb948ae464afa98f3a8bf047eb63fac188230a75",
+    "packages/cetus_clmm/sources/position_snapshot.move": "672c0fc24f917306d1d4d15d6f0b036545effbb63347c2634c802b45409a25d2",
+    "packages/cetus_clmm/sources/rewarder.move": "43a069b9aaddbe1bfeae10023664bf10cccdfc3814cc915a6726a6fa55ba30c7",
+    "packages/cetus_clmm/sources/tick.move": "c1d2086164e18872f43e743e5b416c1dc0a06de4ab245e30c238c75fc635ca78",
+    "packages/cetus_clmm/sources/utils.move": "c4bdd0d713768d9c25c62691fb500c756647afbf4c157477ce369cc7bf3c0485",
+    "packages/cetus_clmm/tests/acl_tests.move": "d6e63a786e850e478c8d9771490e15b35b3cb2ec0d410ac16f9ba9e1b0c6662d",
+    "packages/cetus_clmm/tests/clmm_math_tests.move": "2a2981f5d1a04fb68fcb69e803d7249d579013c1070569419cb2cee25882dc28",
+    "packages/cetus_clmm/tests/config_tests.move": "5ce8d511d7251b2becb98529c7eaddbd147762c82cebe7214ba8afdfecd6b24a",
+    "packages/cetus_clmm/tests/factory_tests.move": "a98310edfb50ab8cf232900d5f82e5850e59c8ae3f4fa8ec9ae606355e0f27a6",
+    "packages/cetus_clmm/tests/partner_tests.move": "6d1e45cec0f9f55bdaabb0a58c7f5dda09c70d9a8c9b11a94a7b0a57df09504d",
+    "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09",
+    "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61",
+    "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8",
+    "packages/cetus_clmm/tests/phase1_liquidity_receipt_tests.move": "941a63642e8c89bfd1600b5d6c5b81111a2798ef99d287724fe3e6785fbce6a7",
+    "packages/cetus_clmm/tests/phase1_partner_claim_tests.move": "58c1260266a7661a11c8ca619cebe37bd2eb9d76d315ea3d9b397a3bdaaf8c02",
+    "packages/cetus_clmm/tests/pool_creator_tests.move": "20963aaec4b09b7c2b84d920cdf5f929a6306a5a228d2f2a9c4fb36dc1cc129a",
+    "packages/cetus_clmm/tests/pool_restore_tests.move": "00a8909249b57a3944734ca67d427bc7a2e6b57db2c45d2ad4b8d344e136084a",
+    "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804",
+    "packages/cetus_clmm/tests/position_snapshot.move": "3daa4dea5bd4688bb873b76724d8e916edea6ea908aeffe12052f413a831f07c",
+    "packages/cetus_clmm/tests/position_tests.move": "db6f7c569309dd0ed8ee287c9cf91308d0e7e7247b197eeb55099ad9f4addf57",
+    "packages/cetus_clmm/tests/rewarder_tests.move": "3b66968a2662dedafe6dfb6d43fc16407404ddf2b6a5b529a57adc7308b45dab",
+    "packages/cetus_clmm/tests/rewarder_unittests.move": "53fb177930a3a1e0b175d3497686dee48a7b629fc9e86d09532c3ed2528ff425",
+    "packages/cetus_clmm/tests/swap_cases.move": "61a7eb6ef45593a06d9991ff235eba4e7e72025171d3706f72c184a4ed3d376b",
+    "packages/cetus_clmm/tests/swap_tests.move": "5702100511d4d3afd8918f18ba02adb89cdf3031366e9174a630ebcae91be02a",
+    "packages/cetus_clmm/tests/tick_math_tests.move": "67b2164597b1ae93fe7e8c1ce84f8df5f26080d726604755ff8b07cc73fdaf0d",
+    "packages/cetus_clmm/tests/tick_tests.move": "c534e6a90ac5d290200bf0e0c3365824ccde7d475b63d6aa0f18ec0921423b39"
+  },
+  "tests": 549,
+  "check_rows": 332,
+  "by_package": {
+    "cetus_clmm": {
+      "assertion": 218,
+      "capability signature": 20,
+      "guard call candidate": 94
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Cetus CLMM Test Coverage Report
 
+> Historical deployment snapshot. Current added regression tests and line/branch evidence are documented in [Audit](../../Audit/README.md); the full suite now contains 549 tests. The historical results below remain dated as originally recorded.
+
 Generated on 2026-09-10 for commit `b6025cf` (based on `cetus-clmm-sui/main`
 commit `30facd5b160ed00fe61603e4442988faf7d8f4ac`) using `sui 1.74.1-8fc60f1fa966`.
 

@@ -1,5 +1,7 @@
 # Cetus CLMM v15 Audit Scope
 
+> Historical deployment snapshot. Current added regression tests and line/branch evidence are documented in [Audit](../../Audit/README.md); the full suite now contains 549 tests. The historical results below remain dated as originally recorded.
+
 This document identifies the immutable deployment and reproducible source scope
 for an independent audit of Cetus CLMM v15.
 

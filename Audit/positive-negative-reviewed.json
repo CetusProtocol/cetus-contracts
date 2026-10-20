@@ -1,0 +1,1214 @@
+[
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::open_position",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_money_gate_open_position_active"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_money_gate_open_position_paused",
+      "cetus_clmm::pool_tests::test_money_gate_open_position_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Funded valid pool/position; gate changed only after setup; negative requires config module and version abort. Receipt repayment has receipt created before gate change."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::add_liquidity",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_money_gate_add_liquidity_active"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_money_gate_add_liquidity_paused",
+      "cetus_clmm::pool_tests::test_money_gate_add_liquidity_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Funded valid pool/position; gate changed only after setup; negative requires config module and version abort. Receipt repayment has receipt created before gate change."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::remove_liquidity",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_money_gate_remove_liquidity_active"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_money_gate_remove_liquidity_paused",
+      "cetus_clmm::pool_tests::test_money_gate_remove_liquidity_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Funded valid pool/position; gate changed only after setup; negative requires config module and version abort. Receipt repayment has receipt created before gate change."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_fee",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_money_gate_collect_fee_active"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_money_gate_collect_fee_paused",
+      "cetus_clmm::pool_tests::test_money_gate_collect_fee_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Funded valid pool/position; gate changed only after setup; negative requires config module and version abort. Receipt repayment has receipt created before gate change."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::add_liquidity_fix_coin",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_money_gate_add_liquidity_fix_coin_active"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_money_gate_add_liquidity_fix_coin_paused",
+      "cetus_clmm::pool_tests::test_money_gate_add_liquidity_fix_coin_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Funded valid pool/position; gate changed only after setup; negative requires config module and version abort. Receipt repayment has receipt created before gate change."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::flash_swap",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_money_gate_flash_swap_active"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_money_gate_flash_swap_paused",
+      "cetus_clmm::pool_tests::test_money_gate_flash_swap_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Funded valid pool/position; gate changed only after setup; negative requires config module and version abort. Receipt repayment has receipt created before gate change."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_add_liquidity",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_money_gate_repay_add_liquidity_active"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_money_gate_repay_add_liquidity_paused",
+      "cetus_clmm::pool_tests::test_money_gate_repay_add_liquidity_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Funded valid pool/position; gate changed only after setup; negative requires config module and version abort. Receipt repayment has receipt created before gate change."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap",
+    "check": "assert!(object::id(pool) == pool_id, EFlashSwapReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_swap_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_swap_a_wrong_pool",
+      "cetus_clmm::pool_tests::test_repayment_swap_b_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap",
+    "check": "assert!(ref_fee_amount == 0, EFlashSwapReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_swap_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_plain_repay",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_plain_repay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap",
+    "check": "assert!(balance::value<CoinTypeA>(&coin_a) == pay_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_swap_a_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_swap_a_underpay",
+      "cetus_clmm::pool_tests::test_repayment_swap_a_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap",
+    "check": "assert!(balance::value<CoinTypeB>(&coin_b) == pay_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_swap_b_underpay",
+      "cetus_clmm::pool_tests::test_repayment_swap_b_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_swap_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_swap_a_paused",
+      "cetus_clmm::pool_tests::test_repayment_swap_a_deprecated",
+      "cetus_clmm::pool_tests::test_repayment_swap_b_paused",
+      "cetus_clmm::pool_tests::test_repayment_swap_b_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap_with_partner",
+    "check": "assert!(object::id(pool) == pool_id, EFlashSwapReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_wrong_pool",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap_with_partner",
+    "check": "assert!(object::id(partner) == partner_id, EFlashSwapReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_wrong_partner",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_wrong_partner"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap_with_partner",
+    "check": "assert!(balance::value<CoinTypeA>(&coin_a) == pay_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_underpay",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap_with_partner",
+    "check": "assert!(balance::value<CoinTypeB>(&coin_b) == pay_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_underpay",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_swap_with_partner",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_paused",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_a_deprecated",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_paused",
+      "cetus_clmm::pool_tests::test_repayment_partner_swap_b_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan",
+    "check": "assert!(pool_id == object::id(pool), EFlashLoanReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_loan_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_loan_a_wrong_pool",
+      "cetus_clmm::pool_tests::test_repayment_loan_b_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan",
+    "check": "assert!(ref_fee_amount == 0, EFlashLoanReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_loan_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_plain_repay",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_plain_repay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan",
+    "check": "assert!(balance::value(&balance_a) == amount + fee_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_loan_a_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_loan_a_underpay",
+      "cetus_clmm::pool_tests::test_repayment_loan_a_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan",
+    "check": "assert!(balance::value(&balance_b) == amount + fee_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_loan_b_underpay",
+      "cetus_clmm::pool_tests::test_repayment_loan_b_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_loan_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_loan_a_paused",
+      "cetus_clmm::pool_tests::test_repayment_loan_a_deprecated",
+      "cetus_clmm::pool_tests::test_repayment_loan_b_paused",
+      "cetus_clmm::pool_tests::test_repayment_loan_b_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan_with_partner",
+    "check": "assert!(pool_id == object::id(pool), EFlashLoanReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_wrong_pool",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan_with_partner",
+    "check": "assert!(partner_id == object::id(partner), EFlashLoanReceiptNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_wrong_partner",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_wrong_partner"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan_with_partner",
+    "check": "assert!(balance::value(&balance_a) == amount + fee_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_underpay",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan_with_partner",
+    "check": "assert!(balance::value(&balance_b) == amount + fee_amount, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_underpay",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_overpay"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_flash_loan_with_partner",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_conservation",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_conservation"
+    ],
+    "negative": [
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_paused",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_a_deprecated",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_paused",
+      "cetus_clmm::pool_tests::test_repayment_partner_loan_b_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804"
+    },
+    "review": "Production receipt from funded pool, both payment directions where applicable; only tested field/gate changes. Negative pins module and abort code. Positive checks pool/partner asset conservation and fee collection without double claim."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::update_protocol_fee_rate",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_paused",
+      "cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::update_protocol_fee_rate",
+    "check": "check_pool_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_revoked",
+      "cetus_clmm::phase1_config_tests::test_phase1_update_protocol_fee_rate_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::add_fee_tier",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_paused",
+      "cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::add_fee_tier",
+    "check": "check_fee_tier_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_revoked",
+      "cetus_clmm::phase1_config_tests::test_phase1_add_fee_tier_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::delete_fee_tier",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_paused",
+      "cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::delete_fee_tier",
+    "check": "check_fee_tier_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_revoked",
+      "cetus_clmm::phase1_config_tests::test_phase1_delete_fee_tier_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::update_fee_tier",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_paused",
+      "cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/config.move",
+    "function": "cetus_clmm::config::update_fee_tier",
+    "check": "check_fee_tier_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "positive": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_revoked",
+      "cetus_clmm::phase1_config_tests::test_phase1_update_fee_tier_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_config_tests.move": "d70da957483b3ccb90602de052cb9004a32b24d52437435f26b4dd3013f49a61"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/partner.move",
+    "function": "cetus_clmm::partner::update_ref_fee_rate",
+    "check": "checked_package_version(config);",
+    "source_sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_paused",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/partner.move",
+    "function": "cetus_clmm::partner::update_ref_fee_rate",
+    "check": "check_partner_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_revoked",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_ref_fee_rate_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/partner.move",
+    "function": "cetus_clmm::partner::update_time_range",
+    "check": "checked_package_version(config);",
+    "source_sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_paused",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/partner.move",
+    "function": "cetus_clmm::partner::update_time_range",
+    "check": "check_partner_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_revoked",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_time_range_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::open_position",
+    "check": "assert!(is_allow_add_liquidity(pool), EOperationNotPermitted)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_open_position_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_open_position_pool_disabled"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::add_liquidity",
+    "check": "assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::add_liquidity_fix_coin",
+    "check": "assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_fix_coin_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_add_liquidity_fix_coin_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_add_liquidity",
+    "check": "assert!(balance::value<CoinTypeA>(&balance_a) == amount_a, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_exact"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_underpay_a",
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_overpay_a"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_liquidity_receipt_tests.move": "941a63642e8c89bfd1600b5d6c5b81111a2798ef99d287724fe3e6785fbce6a7"
+    },
+    "review": "Production liquidity certificate created before mutation/pause. Both assets require exact payment; one unit too little/too much isolated separately. Correct repayment increases actual pool reserves by the paid amounts."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_add_liquidity",
+    "check": "assert!(balance::value<CoinTypeB>(&balance_b) == amount_b, EAmountIncorrect)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_exact"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_underpay_b",
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_overpay_b"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_liquidity_receipt_tests.move": "941a63642e8c89bfd1600b5d6c5b81111a2798ef99d287724fe3e6785fbce6a7"
+    },
+    "review": "Production liquidity certificate created before mutation/pause. Both assets require exact payment; one unit too little/too much isolated separately. Correct repayment increases actual pool reserves by the paid amounts."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::repay_add_liquidity",
+    "check": "assert!(object::id(pool) == pool_id, EPoolIdIsError)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_exact"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_liquidity_receipt_tests::test_phase1_repay_liquidity_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_liquidity_receipt_tests.move": "941a63642e8c89bfd1600b5d6c5b81111a2798ef99d287724fe3e6785fbce6a7"
+    },
+    "review": "Production liquidity certificate created before mutation/pause. Both assets require exact payment; one unit too little/too much isolated separately. Correct repayment increases actual pool reserves by the paid amounts."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::remove_liquidity",
+    "check": "assert!(is_allow_remove_liquidity(pool), EOperationNotPermitted)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_pool_disabled"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::remove_liquidity",
+    "check": "assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_remove_liquidity_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::close_position",
+    "check": "assert!(is_allow_remove_liquidity(pool), EOperationNotPermitted)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_pool_disabled"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::close_position",
+    "check": "assert!(object::id(pool) == pool_id(&position_nft), EPoolPositionNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::close_position",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_paused",
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_close_position_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_fee",
+    "check": "assert!(is_allow_collect_fee(pool), EOperationNotPermitted)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_pool_disabled"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_fee",
+    "check": "assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_fee_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_reward",
+    "check": "assert!(is_allow_collect_reward(pool), EOperationNotPermitted)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_pool_disabled"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_reward",
+    "check": "assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_wrong_pool"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_reward",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_paused",
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_collect_reward_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::flash_swap",
+    "check": "assert!(is_allow_swap(pool), EOperationNotPermitted)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_swap_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_swap_pool_disabled"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_protocol_fee",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_paused",
+      "cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::collect_protocol_fee",
+    "check": "config::check_protocol_fee_claim_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_revoked",
+      "cetus_clmm::phase1_admin_tests::test_phase1_collect_protocol_fee_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::initialize_rewarder",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_paused",
+      "cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::initialize_rewarder",
+    "check": "check_rewarder_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_revoked",
+      "cetus_clmm::phase1_admin_tests::test_phase1_initialize_rewarder_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::update_emission",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_emission_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_emission_paused",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_emission_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::update_emission",
+    "check": "check_rewarder_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_emission_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_emission_revoked",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_emission_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::update_fee_rate",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_paused",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::update_fee_rate",
+    "check": "check_pool_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_revoked",
+      "cetus_clmm::phase1_admin_tests::test_phase1_update_fee_rate_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::flash_loan",
+    "check": "assert!(is_allow_flash_loan(pool), EOperationNotPermitted)",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_pool_disabled"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::flash_loan",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_active"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_paused",
+      "cetus_clmm::phase1_lifecycle_tests::test_phase1_flash_loan_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8"
+    },
+    "review": "Funded production position fixture; actual public lifecycle entry (or its internal delegate) is reached. Valid fee/reward balance exists before restriction; positives assert asset conservation and no repeated payout where applicable. Negative pins origin and code."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::set_pool_status",
+    "check": "checked_package_version(config);",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_paused",
+      "cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/pool.move",
+    "function": "cetus_clmm::pool::set_pool_status",
+    "check": "check_pool_manager_role(config, tx_context::sender(ctx));",
+    "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "positive": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_revoked",
+      "cetus_clmm::phase1_admin_tests::test_phase1_set_pool_status_wrong_role"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_admin_tests.move": "f3391bb7125665ad178ba2609f222c70f6cc2edd625ba9ca266685cb3b187b09"
+    },
+    "review": "Valid target state and amount established before changing permissions. Actual public entry called; positive verifies resulting state or funded fee payout. Role revoked or replaced independently; exact abort origin/code. Pause happens after fixture setup."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/partner.move",
+    "function": "cetus_clmm::partner::claim_ref_fee_coin",
+    "check": "assert!(partner_cap.partner_id == object::id(partner), EInvalidPartnerCap)",
+    "source_sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "positive": [
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_wrong_cap"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_partner_claim_tests.move": "58c1260266a7661a11c8ca619cebe37bd2eb9d76d315ea3d9b397a3bdaaf8c02"
+    },
+    "review": "Partner fee container funded through package fee-credit helper (fixture); actual public claim returns exact funded Coin and empties container. Foreign capability, pause, absent token and second claim pin exact origin/code. Real swap-to-partner credit is independently covered by repayment tests."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/partner.move",
+    "function": "cetus_clmm::partner::claim_ref_fee_coin",
+    "check": "assert!(bag::contains<String>(&partner.balances, key), EInvalidCoinType)",
+    "source_sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "positive": [
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_missing_asset",
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_repeated_claim"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_partner_claim_tests.move": "58c1260266a7661a11c8ca619cebe37bd2eb9d76d315ea3d9b397a3bdaaf8c02"
+    },
+    "review": "Partner fee container funded through package fee-credit helper (fixture); actual public claim returns exact funded Coin and empties container. Foreign capability, pause, absent token and second claim pin exact origin/code. Real swap-to-partner credit is independently covered by repayment tests."
+  },
+  {
+    "file": "packages/cetus_clmm/sources/partner.move",
+    "function": "cetus_clmm::partner::claim_ref_fee_coin",
+    "check": "checked_package_version(config);",
+    "source_sha256": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "positive": [
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_authorized"
+    ],
+    "negative": [
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_paused",
+      "cetus_clmm::phase1_partner_claim_tests::test_phase1_partner_claim_deprecated"
+    ],
+    "test_sha256": {
+      "packages/cetus_clmm/tests/phase1_partner_claim_tests.move": "58c1260266a7661a11c8ca619cebe37bd2eb9d76d315ea3d9b397a3bdaaf8c02"
+    },
+    "review": "Partner fee container funded through package fee-credit helper (fixture); actual public claim returns exact funded Coin and empties container. Foreign capability, pause, absent token and second claim pin exact origin/code. Real swap-to-partner credit is independently covered by repayment tests."
+  }
+]
