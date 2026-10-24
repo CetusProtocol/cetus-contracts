@@ -54,10 +54,10 @@ fun test_tick_score() {
 
 #[test]
 fun test_default_rewards_growth_inside() {
-    assert!(default_rewards_growth_outside_test(0) == vector::empty<u128>(), 1);
-    assert!(default_rewards_growth_outside_test(1) == vector[0], 2);
-    assert!(default_rewards_growth_outside_test(2) == vector[0, 0], 3);
-    assert!(default_rewards_growth_outside_test(3) == vector[0, 0, 0], 4);
+    assert!(default_rewards_growth_outside_test(0) == vector<u128>[], 1);
+    assert!(default_rewards_growth_outside_test(1) == vector<u128>[0], 2);
+    assert!(default_rewards_growth_outside_test(2) == vector<u128>[0, 0], 3);
+    assert!(default_rewards_growth_outside_test(3) == vector<u128>[0, 0, 0], 4);
 }
 
 #[test]

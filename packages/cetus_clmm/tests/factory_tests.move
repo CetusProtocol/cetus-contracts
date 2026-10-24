@@ -223,7 +223,7 @@ module cetus_clmm::factory_tests {
         let pools = test_scenario::take_shared<Pools>(&scenario);
         let pool_id = object::id(&pool);
         let pool_key = factory::new_pool_key<CoinA, SUI>(10);
-        let pool_infos = factory::fetch_pools(&pools, vector::empty(), 10);
+        let pool_infos = factory::fetch_pools(&pools, vector[], 10);
         assert_eq!(pool_infos.length(), 1);
         let pool_info = pool_infos[0];
         assert_eq!(pool_info.pool_id(), pool_id);
@@ -233,7 +233,7 @@ module cetus_clmm::factory_tests {
         assert_eq!(cb, type_name::with_defining_ids<SUI>());
         assert_eq!(pool_key, pool_info.pool_key());
 
-        let pool_infos = factory::fetch_pools(&pools, vector::singleton(pool_key), 10);
+        let pool_infos = factory::fetch_pools(&pools, vector[pool_key], 10);
         assert_eq!(pool_infos.length(), 1);
         let pool_info = pool_infos[0];
         assert_eq!(pool_info.pool_id(), pool_id);
@@ -274,7 +274,7 @@ module cetus_clmm::factory_tests {
         let pool = test_scenario::take_shared<Pool<CoinA, SUI>>(&scenario);
         let pools = test_scenario::take_shared<Pools>(&scenario);
         let pool_key = factory::new_pool_key<CoinB, SUI>(10);
-        factory::fetch_pools(&pools, vector::singleton(pool_key), 10);
+        factory::fetch_pools(&pools, vector[pool_key], 10);
         clock::destroy_for_testing(clock);
         test_scenario::return_shared(pool);
         test_scenario::return_shared(pools);
@@ -731,6 +731,7 @@ module cetus_clmm::test_coin {
     use sui::url::Url;
 
     #[test_only]
+    #[allow(deprecated_usage)]
     fun test_init_prepare(): (
         TreasuryCap<TEST_COIN>,
         CoinMetadata<TEST_COIN>,
@@ -1306,6 +1307,7 @@ module cetus_clmm::ausdc {
     public struct AUSDC has drop {}
 
     #[test_only]
+    #[allow(deprecated_usage)]
     public fun test_init_ausdc(): (TreasuryCap<AUSDC>, CoinMetadata<AUSDC>) {
         let ctx = &mut tx_context::dummy();
         let witness = test_utils::create_one_time_witness<AUSDC>();

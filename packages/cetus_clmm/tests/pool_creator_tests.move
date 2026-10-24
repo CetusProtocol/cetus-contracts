@@ -411,6 +411,9 @@ module cetus_clmm::pool_creator_tests {
     }
 }
 
+
+
+
 #[test_only]
 module cetus_clmm::cetus {
     use sui::coin::{Self, CoinMetadata};
@@ -418,7 +421,7 @@ module cetus_clmm::cetus {
 
     public struct CETUS has drop {}
 
-    #[allow(lint(self_transfer))]
+    #[allow(lint(self_transfer), deprecated_usage)]
     public fun init_coin(ctx: &mut TxContext): CoinMetadata<CETUS> {
         let (treasury_cap_cetus, metadata_cetus) = coin::create_currency(
             test_utils::create_one_time_witness<CETUS>(),
@@ -441,7 +444,7 @@ module cetus_clmm::usdc {
 
     public struct USDC has drop {}
 
-    #[allow(lint(self_transfer))]
+    #[allow(lint(self_transfer), deprecated_usage)]
     public fun init_coin(ctx: &mut TxContext): CoinMetadata<USDC> {
         let (treasury_cap, metadata) = coin::create_currency(
             test_utils::create_one_time_witness<USDC>(),

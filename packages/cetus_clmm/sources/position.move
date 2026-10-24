@@ -268,7 +268,7 @@ public(package) fun open_position<CoinTypeA, CoinTypeB>(
         fee_owned_a: 0,
         fee_growth_inside_b: 0,
         fee_owned_b: 0,
-        rewards: vector::empty<PositionReward>(),
+        rewards: vector<PositionReward>[],
         //rewards: vector[
         //    default_rewarder_info(),
         //    default_rewarder_info(),
@@ -452,7 +452,7 @@ public(package) fun update_rewards(
     let rewards = info_rewards(position_info);
     let mut idx = 0;
     let length = vector::length(rewards);
-    let mut owned_amounts = vector::empty<u64>();
+    let mut owned_amounts = vector<u64>[];
     while (idx < length) {
         let reward = vector::borrow(rewards, idx);
         vector::push_back(&mut owned_amounts, reward_amount_owned(reward));
@@ -551,9 +551,9 @@ public fun fetch_positions(
     limit: u64,
 ): vector<PositionInfo> {
     if (limit == 0) {
-        return vector::empty<PositionInfo>()
+        return vector<PositionInfo>[]
     };
-    let mut positions = vector::empty<PositionInfo>();
+    let mut positions = vector<PositionInfo>[];
     let mut next_position_id = if (vector::is_empty(&start)) {
         linked_table::head(&manager.positions)
     } else {
@@ -704,7 +704,7 @@ public(package) fun rewards_amount_owned(manager: &PositionManager, position_id:
     let rewards = info_rewards(position_info);
     let mut idx = 0;
     let length = vector::length(rewards);
-    let mut owned_amounts = vector::empty<u64>();
+    let mut owned_amounts = vector<u64>[];
     while (idx < length) {
         let reward = vector::borrow(rewards, idx);
         vector::push_back(&mut owned_amounts, reward_amount_owned(reward));
@@ -925,7 +925,7 @@ public fun new_position_info_for_test(): PositionInfo {
         fee_owned_a: 0,
         fee_growth_inside_b: 0,
         fee_owned_b: 0,
-        rewards: vector::empty<PositionReward>(),
+        rewards: vector<PositionReward>[],
         points_owned: 0,
         points_growth_inside: 0,
     };
@@ -943,7 +943,7 @@ public fun new_position_info_for_test_from_address(addr: address): PositionInfo 
         fee_owned_a: 0,
         fee_growth_inside_b: 0,
         fee_owned_b: 0,
-        rewards: vector::empty<PositionReward>(),
+        rewards: vector<PositionReward>[],
         points_owned: 0,
         points_growth_inside: 0,
     };
