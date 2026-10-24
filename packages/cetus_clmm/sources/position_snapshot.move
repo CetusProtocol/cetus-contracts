@@ -154,7 +154,7 @@ public(package) fun add(
         !linked_table::contains(&snapshot.snapshots, position_id),
         EPositionSnapshotAlreadyExists,
     );
-    let mut rewards = vector::empty<u64>();
+    let mut rewards = vector<u64>[];
     let mut idx = 0;
     let reward_infos = position::info_rewards(&position_info);
     while (idx < vector::length(reward_infos)) {

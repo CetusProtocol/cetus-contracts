@@ -106,7 +106,7 @@ fun test_settle() {
     assert!(manager.points_released() == 1000000 * POINTS_EMISSIONS_PER_SECOND, 0);
     assert!(
         manager.points_growth_global() == full_math_u128::mul_div_floor(
-            (1000000 as u128),
+            (1000000u64 as u128),
             POINTS_EMISSIONS_PER_SECOND,
             liquidity
         ),
@@ -127,7 +127,7 @@ fun test_settle() {
     );
     assert!(
         manager.points_growth_global() == last_points_growth_global + full_math_u128::mul_div_floor(
-            (1000000 as u128),
+            (1000000u64 as u128),
             POINTS_EMISSIONS_PER_SECOND,
             liquidity
         ),
@@ -143,7 +143,7 @@ fun test_settle() {
     );
     assert!(
         manager.points_growth_global() == last_points_growth_global + full_math_u128::mul_div_floor(
-            (1000000 as u128),
+            (1000000u64 as u128),
             POINTS_EMISSIONS_PER_SECOND,
             2 * liquidity
         ),
@@ -154,7 +154,7 @@ fun test_settle() {
     assert!(rewarder.emissions_per_second() == 1000000 << 64, 6);
     assert!(
         rewarder.growth_global() == full_math_u128::mul_div_floor(
-            (1000000 as u128),
+            (1000000u64 as u128),
             1000000 << 64,
             2 * liquidity
         ),
@@ -200,14 +200,14 @@ fun test_update_emission() {
     update_emission<RewarderCoin>(&vault, &mut manager, 2 << 50, 1000000 << 64, 1000000000);
     assert!(
         manager.points_growth_global() == full_math_u128::mul_div_floor(
-                (1000000000 as u128),
+                (1000000000u64 as u128),
                 POINTS_EMISSIONS_PER_SECOND,
                 2 << 50
             ),
         1,
     );
     assert!(manager.last_update_time() == 1000000000, 2);
-    assert!(manager.points_released() == (1000000000 as u128) * POINTS_EMISSIONS_PER_SECOND, 3);
+    assert!(manager.points_released() == (1000000000u64 as u128) * POINTS_EMISSIONS_PER_SECOND, 3);
     let rewarder = *borrow_rewarder<RewarderCoin>(&manager);
     assert!(rewarder.emissions_per_second() == 1000000 << 64, 4);
     assert!(rewarder.growth_global() == 0, 5);
@@ -220,7 +220,7 @@ fun test_update_emission() {
     );
     assert!(
         manager.points_growth_global() == last_points_growth_global + full_math_u128::mul_div_floor(
-            (1000000000 as u128),
+            (1000000000u64 as u128),
             POINTS_EMISSIONS_PER_SECOND,
             2 << 50
         ),
@@ -231,7 +231,7 @@ fun test_update_emission() {
     assert!(last_rewarder.emissions_per_second() == 2000000 << 64, 9);
     assert!(
         last_rewarder.growth_global() == full_math_u128::mul_div_floor(
-            (1000000000 as u128),
+            (1000000000u64 as u128),
             1000000 << 64,
             2 << 50
         ),
@@ -242,7 +242,7 @@ fun test_update_emission() {
     assert!(rewarder.emissions_per_second() == 0, 11);
     assert!(
         rewarder.growth_global() == last_rewarder.growth_global() + full_math_u128::mul_div_floor(
-            (1000000000 as u128),
+            (1000000000u64 as u128),
             2000000 << 64,
             2 << 50
         ),
