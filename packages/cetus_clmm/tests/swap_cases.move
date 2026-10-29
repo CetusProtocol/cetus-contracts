@@ -249,7 +249,7 @@ fun swap_cross_tick_when_tick_spacing_is_1() {
         // 4295048016,
         &clock,
     );
-    std::debug::print(&999999999999110);
+    std::debug::print(&999999999999110u64);
     std::debug::print(&s_b.value());
     // std::debug::print(&s_a.value());
     std::debug::print(&pool.current_tick_index());
@@ -262,7 +262,7 @@ fun swap_cross_tick_when_tick_spacing_is_1() {
     let balance_b = balance::zero();
     pool::repay_flash_swap(&config, &mut pool, balance_a, balance_b, receipt);
     assert_eq!(pool.current_tick_index(), i32::neg_from(11));
-    std::debug::print(&999999999999110);
+    std::debug::print(&999999999999110u64);
     pool_tests::swap(
         &mut pool,
         &config,
@@ -370,7 +370,7 @@ fun swap_cross_tick_when_tick_spacing_is_1_case_2() {
     let balance_b = balance::zero();
     pool::repay_flash_swap(&config, &mut pool, balance_a, balance_b, receipt);
     assert_eq!(pool.current_tick_index(), i32::neg_from(11));
-    std::debug::print(&999999999999110);
+    std::debug::print(&999999999999110u64);
     pool_tests::swap(
         &mut pool,
         &config,
@@ -469,7 +469,7 @@ fun swap_cross_tick_when_tick_spacing_is_1_b2a() {
         // 4295048016,
         &clock,
     );
-    std::debug::print(&999999999999110);
+    std::debug::print(&999999999999110u64);
     std::debug::print(&s_b.value());
     // std::debug::print(&s_a.value());
     std::debug::print(&pool.current_tick_index());
@@ -482,7 +482,7 @@ fun swap_cross_tick_when_tick_spacing_is_1_b2a() {
     let balance_b = balance::zero();
     pool::repay_flash_swap(&config, &mut pool, balance_a, balance_b, receipt);
     assert_eq!(pool.current_tick_index(), i32::neg_from(11));
-    std::debug::print(&999999999999110);
+    std::debug::print(&999999999999110u64);
     pool_tests::swap(
         &mut pool,
         &config,
