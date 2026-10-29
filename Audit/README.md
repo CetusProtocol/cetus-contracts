@@ -32,4 +32,4 @@ Committed reports are public snapshots. CI artifacts provide commit-specific rer
 
 See [evidence retention](evidence-retention.md) for the current/archive boundary.
 
-The Phase 2 test inventory totals 577 tests. Its public CI rerun validates the unchanged public production package; the 549-test coverage percentages above remain explicitly Phase 1 measurements. Imported local receipts retain original provenance. See [Phase 2 provenance](phase2-sync-provenance.json) for public adapters and reproducible historical inputs.
+[Phase 2 public CI evidence](evidence/phase2/public-clmm-ci) records **577 passed, 0 failed**, **94.62% line** (3553/3755) and **89.78% branch** (1564/1742) on commit `ee61410924a0257bf7ee987c8c166c829964f1f7`. The 549-test coverage percentages above remain explicitly Phase 1 measurements. Imported local receipts retain original provenance. See [Phase 2 provenance](phase2-sync-provenance.json) for public adapters and reproducible historical inputs.

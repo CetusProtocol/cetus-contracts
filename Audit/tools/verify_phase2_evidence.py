@@ -28,3 +28,10 @@ for summary in (root / 'Audit/evidence/phase2').glob('clmm-*/summary.json'):
     for rel, expected in record.get('sha256', {}).items():
         verify((summary.parent / rel).relative_to(root).as_posix(), expected)
 print('CLMM Phase 2 receipts, public adapters, current sources and entry witnesses verified.')
+
+public = json.loads((root / 'Audit/evidence/phase2/public-clmm-ci/summary.json').read_text())
+for rel, expected in public['sha256'].items():
+    verify('Audit/evidence/phase2/public-clmm-ci/' + rel, expected)
+for name, expected in public['build_input_sha256'].items():
+    verify('packages/cetus_clmm/' + name, expected)
+print('Public CI snapshot and unchanged build inputs verified.')

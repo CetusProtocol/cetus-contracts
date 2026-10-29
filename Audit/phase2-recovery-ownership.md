@@ -10,7 +10,7 @@ As of 2026-10-29 (local evidence completed 2026-10-28). This supplements Mysten'
 | init_position_snapshot | Zero/full cut parameters succeed without changing funded pool balances or position liquidity; invalid version, missing manager, unpaused pool, >PPM and duplicate snapshot reject (7 tests). | Recovery sentinel is injected by an existing test-only helper. The ordinary v15 version setter cannot reach this sentinel; these tests model inherited historical state, not current operational reachability. |
 | Global emergency unpause | Pause then recover and execute a funded exit; lower/future versions, unpaused state and replay reject (5 tests). | Does not replace historical upgrade/state migration rehearsal. |
 
-28 new targeted Move tests pass. [Exact entry witnesses](phase2-recovery-witnesses.json) bind source and test hashes. [Logs and inputs](evidence/phase2/clmm-recovery) record the full package run (577/577 passed). The original overall completion flag remains false. No new coverage percentage is claimed by this increment.
+28 new targeted Move tests pass. [Exact entry witnesses](phase2-recovery-witnesses.json) bind source and test hashes. [Logs and inputs](evidence/phase2/clmm-recovery) record the full package run (577/577 passed). The original overall completion flag remains false. The independent [public CI snapshot](evidence/phase2/public-clmm-ci) records 577/577 passing, 94.62% line (3553/3755) and 89.78% branch (1564/1742) on public commit `ee61410924a0257bf7ee987c8c166c829964f1f7`; these are mapped executable coverage metrics, not exhaustive invariant coverage.
 
 ## Signed transaction ownership
 
@@ -80,7 +80,7 @@ The public extractor reconstructs the recorded historical source bytes from publ
 | --- | --- |
 | Current recovery tests and active capability ownership paths described above | Implemented and locally verified, 2026-10-28 |
 | v14→v15 funded source upgrade, old-gate retirement, position ownership and claims/exit | Reproduced, 2026-10-28 |
-| Original evidence CI | [Passed on the evidence commit](https://github.com/CetusProtocol/cetus-clmm-sui/actions/runs/40657369678); billing restriction resolved. Documentation-only closeout follows this run; check the PR for latest-head CI. |
+| Public full-suite CI | [Passed 2026-10-29](https://github.com/CetusProtocol/cetus-contracts/actions/runs/40812251907); durable snapshot linked above. See PR #12 for final-head checks. |
 | Exact incident reconstruction or older historical deployment replay | Requires an agreed old/new deployed package lineage, actual dependency/compiler inputs, pre-recovery object/checkpoint data and expected recovery allocations. Not replaced by a test-only recovery sentinel or the synthetic upgrade fixture. |
 
 The earlier 2026-10-30 / 2026-11-04 dates were internal planning targets. The recorded local deliverables above completed on 2026-10-28. No external completion date is promised for missing historical datasets; agree that scope and date with Mysten if exact incident replay is required. Shared/frozen/wrapped custody, multisig policy, every cross-pool permutation and exhaustive reward schedules are not established by these address-owned object probes. This is not a claim that every invariant in the full protocol has paired witnesses.

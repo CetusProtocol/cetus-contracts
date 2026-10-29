@@ -1,0 +1,39 @@
+{
+  "run_url": "https://github.com/CetusProtocol/cetus-contracts/actions/runs/40812251907",
+  "tested_commit": "ee61410924a0257bf7ee987c8c166c829964f1f7",
+  "completed_date": "2026-10-29",
+  "tests": {
+    "passed": 577,
+    "failed": 0
+  },
+  "line": {
+    "covered": 3553,
+    "total": 3755
+  },
+  "branch": {
+    "covered": 1564,
+    "total": 1742
+  },
+  "sha256": {
+    "coverage.md": "2a219598a8c820bf430c50d6fc4f5b17bdf8af643deba7b82bb7518dfa8c3ffb",
+    "source-sha.txt": "75d22d75749e60b071e729704a915fbdb359ff96db24145034fa9291d3f35b22",
+    "coverage.json": "bf49c51395e33305f18f6ddc64860f0dd8d1706fffb8d0789e73a3fba81b4042",
+    "toolchain.txt": "db0e7df888dcbea55fb7906ea81e68f55f8d16a40725d8850686f366662da8c6",
+    "command.txt": "8bc1503e019516a417190a3009f4d268e4aec9a65f8569a143b8344af7310d69",
+    "tests.log": "cfecfc197ddd8f45975766829285ba5b4ec057665527275bd9906bc349f5b3eb",
+    "coverage.lcov": "2cd0310e8d0401d6056a2c9986e4029a9ccff6e717d205fb58278ce87b339059"
+  },
+  "redactions": {
+    "tests.log": {
+      "reason": "Remove automatically generated disposable CI recovery phrase; no test result changed.",
+      "lines": 1,
+      "raw_artifact_sha256": "8370bd403097394754ba907321a247fa13a1f8e65cb1a2a9923565e67ce857a9"
+    }
+  },
+  "build_input_sha256": {
+    "Move.toml": "07a4e1271d50b710b434a82c97317970cbbe142bdaf1f7677b325f6c8bef6ece",
+    "Move.lock": "a3614aa34cf30af3f62b94cdace72af387a71502227d6717637435308bffcf9d",
+    "Published.toml": "6b4ef3759cbec4d5986da8f9aa2c6478faae920383091e10ac0020bd240992ba"
+  },
+  "scope": "Public package full suite. Coverage counts native mapped executable lines and branches, not every authorization check/invariant."
+}
