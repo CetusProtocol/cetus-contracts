@@ -1,0 +1,6 @@
+[package]
+name = "ownership_coin"
+edition = "2024.beta"
+
+[addresses]
+ownership_coin = "0x0"

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "test-upgrade",
+    "/tmp/phase2-clmm-repro-package",
+    "--pubfile-path",
+    "/tmp/phase2-repro-upgrade-Pub.toml",
+    "--build-env",
+    "mainnet",
+    "--upgrade-capability",
+    "0xc382bb3b0ca31a2b1659b4bf55b05063bfe9b2614988d333ca5f85d43f9668d2",
+    "--gas-budget",
+    "1000000000"
+  ]
+}

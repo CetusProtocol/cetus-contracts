@@ -1,0 +1,37 @@
+{
+  "chain": {
+    "base58": "E7x8EvWdcCoP4xLmzhRbqC9VBfTE5XejARba6v99R9Qy",
+    "hex": "c2efbea7"
+  },
+  "package": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540",
+  "scope": "Funded PoolCreationCap creation; ProtocolFeeCollectCap and PartnerCap signed holder/foreign-holder/transfer/former-holder/new-holder controls",
+  "sha256": {
+    "funded-pool/create-funded-pool.json": "5d7e16e12c6a7693057751bdbd39ebe21e44f4a8d103c331e43adc20e6e5a8df",
+    "funded-pool/fund-new-holder.json": "83c045ab013678a06fb3b487cd22dfc1bdd0a7ff703eac67b910e20883fa99c2",
+    "funded-pool/fixture.json": "7cf4f0463f7ac0974dca4a14d736ce5da6790cf19b3df73a9b7dc1c598acf6ee",
+    "controls/partner-new-owner-accepted.json": "c0dc02f2d9a42a2abe27347ffc157d0ee830fdf15ef9c46a0f3fce5dc9be28f3",
+    "controls/partner-nonowner-rejected.json": "c30da9f56c12f7e38f912c10947ad7c4f8b4d6a121b7d16bdcb3ebf9aaaab4db",
+    "controls/refill-fees.json": "c44207ba5a1b93b7ad54f5559aa05d4307cf29b83ab5b774e32ac60d7da51c8c",
+    "controls/fee-repeat-rejected.json": "9f6aa4eeeda09eef7d4dbf67b4325ce5ef44398b6ba716175c925915040c6adf",
+    "controls/partner-owner-accepted.json": "b2e314c108210ade2ba09b4017c05f980382fee908e8d68980d7f2308e7bcb8b",
+    "controls/partner-transfer.json": "5269bea7dd7ce3e8bbaac527120778b256db92bfdddba5348f86babbc38a22f7",
+    "controls/fee-new-owner-accepted.json": "efa8293922899f556808df22cc6dc036d1a3cefb3727917be0cbf310a063e10f",
+    "controls/partner-former-owner-rejected.json": "886b067b584e4182b73fbd8a9b58ab2568a87fac0455b70bf9ca5734daf96e59",
+    "controls/fee-former-owner-rejected.json": "02cdb086e9c3e3f8303628cb1209afff5b9b9f3574d5ebd10386d9a35cddf0b1",
+    "controls/fee-transfer.json": "2e24dbb0af4318017c1c1dab265999d7a9d453a8324811d48ec65fbb0fbb36fd",
+    "controls/fee-nonowner-rejected.json": "cedb53103d2413cd9d3471e7c61b27762f78b303c231ac4cc028318bc7f41f3b",
+    "controls/fee-owner-accepted.json": "9903d7f422a58d04400d243ef77a4a5e57e2f1f0cf25567126582cc81f15a015",
+    "fee-setup/fund-fees-through-swap.json": "69a6af98815cbdc2fb5461d4ef96d3bccf8945296ba58e2bc91e56a44a81f940",
+    "fee-setup/activate-partner.json": "e4d459477b59054b0b877699da3353d06c812c30206418828a80baa51c11f37a",
+    "fee-setup/authorize-fee-cap.json": "bf799b6e55f31b9df6b727de7f2c20f72dbfbbcda680ceae6910ffac4be4fff6",
+    "fee-setup/create-partner.json": "bb2ef616b4de90da5531e6fe3b85bccd8c6f10b227bd9a402b27a2a7be08070e",
+    "fee-setup/fixture.json": "f75f696ecc882787bfe9e9349a74cf782d693c88555ffa2d19cdcb6d656f72bf",
+    "fee-setup/mint-fee-cap.json": "bcf36299527ad5b3ada79da989010b44d0c7c6f03ec5ef704b7b04839b4e6494"
+  },
+  "reproduction_sha256": {
+    "Audit/tools/clmm_funded_ownership_check.py": "78108b44bec8ac116139d87db2b51e758d15daf247d18cac9d61f496d4081c4d",
+    "Audit/fixtures/ownership_coin/Move.toml": "aab939d5663cf68dad019b3c9d3fd633b9d164be609ede820aa31ef0c329818e",
+    "Audit/fixtures/ownership_coin/Move.lock": "a065bce5dc574f1243ad709fc487cccc183ed88064a9d03055bdd323fc62b2be",
+    "Audit/fixtures/ownership_coin/sources/probe.move": "bb2f4ac268421664dc3245617559b3235806c63a2ac885acb3dba5e9c8e00270"
+  }
+}

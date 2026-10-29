@@ -1,0 +1,29 @@
+{
+  "historical_revision": "9d555db3bcc63c959f4d8506da606f217da024fd",
+  "package": "cetus_clmm",
+  "historical_source_sha256": {
+    "sources/acl.move": "209c6b1f5c5d25cf8ce88f96f67af111945b79198173264c048736ce8879007b",
+    "sources/config.move": "f9aa6b223592b507dad6498169ab0db8e14e4703edea87206dd0bb61c41f95c3",
+    "sources/factory.move": "9b3a87ddc0cdfdc35e2bb3333c3f690dba4069c40b0a92324fb30a8da3a04276",
+    "sources/math/clmm_math.move": "bd21a52b6bc70b46fdaacca33f0830990628a55cfe628bce160e7847f127ef82",
+    "sources/math/tick_math.move": "7b349d6c2fc29a55d5dadc3898e689af19fab6dd4f98c9a6e59e905b22f00780",
+    "sources/partner.move": "6f2b7214e91825d04a6522d7bcad89b5332185bb732077bcccab0449014cf30c",
+    "sources/pool.move": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "sources/pool_creator.move": "337cf8c7d79ccc3cdfe677a0c9cda36ee7bd118bf4a7da26e75eff81036c2937",
+    "sources/position.move": "4498a6d762f791b3e08db44deb948ae464afa98f3a8bf047eb63fac188230a75",
+    "sources/position_snapshot.move": "672c0fc24f917306d1d4d15d6f0b036545effbb63347c2634c802b45409a25d2",
+    "sources/rewarder.move": "43a069b9aaddbe1bfeae10023664bf10cccdfc3814cc915a6726a6fa55ba30c7",
+    "sources/tick.move": "c1d2086164e18872f43e743e5b416c1dc0a06de4ab245e30c238c75fc635ca78",
+    "sources/utils.move": "c4bdd0d713768d9c25c62691fb500c756647afbf4c157477ce369cc7bf3c0485"
+  },
+  "normalized_metadata_sha256": {
+    "Move.toml": "1818b89757f55e17d6b460d07015e909cfdaa84a59047e45022a317ab3160f91",
+    "Move.lock": "6d7b6a5fa5220e9586b634c379c5e464c6e8bd154856fef3339853498d61eef6",
+    "Published.toml": "14a9c6c3db1d4551d4f3f53bfd13ceddeccd8af7b18dcb8160ea3cfb09a755ef"
+  },
+  "limits": "Historical source bytes preserved; current locked package metadata used for a reproducible local source rehearsal. No mainnet bytecode equivalence is asserted.",
+  "public_source_base": "b7c3a5adf0832148a54378275d0ec90981713066",
+  "public_package": "packages/cetus_clmm",
+  "patch_sha256": "33274cc6c6a07407295f5fa685721f2178367f9714e27bd48cee446534634b3a",
+  "purpose": "Local test fixture only. Reconstructs the recorded historical source bytes from public v15 sources; normalized metadata matches the original rehearsal. Does not change the production package."
+}

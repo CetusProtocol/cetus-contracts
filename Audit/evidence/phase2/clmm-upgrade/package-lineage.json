@@ -1,0 +1,1063 @@
+{
+  "old": {
+    "objectId": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5",
+    "version": 1,
+    "digest": "DR9w8MXV3FCK6tZVqXBanTiUBBrtZYaMEtuZ4TD7pc65",
+    "owner": "Immutable",
+    "prevTx": "AipW7tiVibpoubBPAKj2k7TiXVhf6v32wJMSAsDU1TFm",
+    "module_sha256": {
+      "acl": "381c529f0d7e433860c4a04f200eff21b58f4d35d3f1398adc64e1faa5016001",
+      "clmm_math": "11ab9201ca634d45a995bdee6a523bcaed81971b9eeeb778b63d58e2477b0007",
+      "config": "fd8fc36f29bb76e1e426090028091c0e82ce15f15bf059f281a61d73f25bd1a9",
+      "factory": "41387fc8cc563bc0296f415a104de40ad08ff0233c78d46a07917a8e44fbe17e",
+      "partner": "ba4414c780d2280592955dbd11ddb5224136fb3b8e47ccf2b16eb2f531cb6fb1",
+      "pool": "e51aeb88aa2e96a5473ed751379d92d77ab0c55a71329c6a4e94eb88727afb46",
+      "pool_creator": "991d993e1ec54d4a4bf11a39453d0e2de62dc38e37d8d1383e8bf4522733abf2",
+      "position": "8397ca4c7985062449db73319020f219ac8f5c2dd231b5e0f1fa84bf9a28de5c",
+      "position_snapshot": "863cf41d2acc65adfb4b7eb73a1af01d5d80ae68e6c9cec7bd19c8d291388fa6",
+      "rewarder": "b0cc2be6a01a59ba5c400c55f8f2bfcf5173b3978d664d2a24bc22c10f732020",
+      "tick": "3f670e299a1bb8314ee92a048f5f852c320ab7634aec3228fe072363c5d2b3f1",
+      "tick_math": "4e359609360f97795a92dcf15b716290ebe093de30750e749f3e5f8e9354b1fd",
+      "utils": "f5877e98c988d279c5a04d3116f2d6e9cb13652399d8858625e1347e0bf19ff3"
+    },
+    "linkage_table": {
+      "0x0000000000000000000000000000000000000000000000000000000000000001": {
+        "upgraded_id": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "upgraded_version": 1
+      },
+      "0x0000000000000000000000000000000000000000000000000000000000000002": {
+        "upgraded_id": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "upgraded_version": 1
+      },
+      "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf": {
+        "upgraded_id": "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf",
+        "upgraded_version": 1
+      },
+      "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a": {
+        "upgraded_id": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a",
+        "upgraded_version": 1
+      }
+    },
+    "type_origin_table": [
+      {
+        "module_name": "acl",
+        "datatype_name": "ACL",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "acl",
+        "datatype_name": "Member",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "AdminCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "ProtocolFeeClaimCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "FeeTier",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "GlobalConfig",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "InitConfigEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "UpdateFeeRateEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "AddFeeTierEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "UpdateFeeTierEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "DeleteFeeTierEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "SetRolesEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "AddRoleEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "RemoveRoleEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "RemoveMemberEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "SetPackageVersion",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "PositionManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "POSITION",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "Position",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "PositionInfo",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "PositionReward",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "tick",
+        "datatype_name": "TickManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "tick",
+        "datatype_name": "Tick",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "RewarderManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "Rewarder",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "RewarderGlobalVault",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "RewarderInitEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "DepositEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "EmergentWithdrawEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position_snapshot",
+        "datatype_name": "PositionLiquiditySnapshot",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position_snapshot",
+        "datatype_name": "PositionSnapshot",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "Partners",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "PartnerCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "Partner",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "InitPartnerEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "CreatePartnerEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "UpdateRefFeeRateEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "UpdateTimeRangeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "ReceiveRefFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "ClaimRefFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "POOL",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "ProtocolFeeCollectCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "Pool",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "Status",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "PoolStatus",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "SwapResult",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "FlashSwapReceipt",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddLiquidityReceipt",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "FlashLoanReceipt",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CalculatedSwapResult",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "SwapStepResult",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "OpenPositionEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "ClosePositionEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddLiquidityEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddLiquidityV2Event",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "RemoveLiquidityV2Event",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "RemoveLiquidityEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "SwapEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectProtocolFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "UpdateFeeRateEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "UpdateEmissionEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddRewarderEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectRewardEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectRewardV2Event",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "FlashLoanEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "UpdatePoolStatusEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PoolSimpleInfo",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "Pools",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "DenyCoinList",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PoolKey",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PermissionPairManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PoolCreationCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "InitFactoryEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "CreatePoolEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "AddAllowedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RemoveAllowedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "AddDeniedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RemoveDeniedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "InitPermissionPairManagerEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RegisterPermissionPairEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "UnregisterPermissionPairEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "AddAllowedPairConfigEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RemoveAllowedPairConfigEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "MintPoolCreationCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "MintPoolCreationCapByAdmin",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      }
+    ]
+  },
+  "new": {
+    "objectId": "0xa18655ea868ebc93eb8185581b45c8aed14e5b4133e9d61d8392b6b1314b8b87",
+    "version": 2,
+    "digest": "8u3KmSLnjmodJXY1EUNq8agNLnWG4vuuuG1kXyfLpzgL",
+    "owner": "Immutable",
+    "prevTx": "6VEi6HCW7gjv1AsRwtpW4iD5j9JQXAwMtf8yP8nCGN1X",
+    "module_sha256": {
+      "acl": "381c529f0d7e433860c4a04f200eff21b58f4d35d3f1398adc64e1faa5016001",
+      "clmm_math": "11ab9201ca634d45a995bdee6a523bcaed81971b9eeeb778b63d58e2477b0007",
+      "config": "09707a7bb5124770d20e6584dcdf8de266f3565d257ff48f1a18acec47a4b996",
+      "factory": "41387fc8cc563bc0296f415a104de40ad08ff0233c78d46a07917a8e44fbe17e",
+      "partner": "c8405865e4d279fbd5bdb8d4012f0a3bfcc0bf41e7b9186a47725108ea62e3f9",
+      "pool": "e51aeb88aa2e96a5473ed751379d92d77ab0c55a71329c6a4e94eb88727afb46",
+      "pool_creator": "991d993e1ec54d4a4bf11a39453d0e2de62dc38e37d8d1383e8bf4522733abf2",
+      "position": "8397ca4c7985062449db73319020f219ac8f5c2dd231b5e0f1fa84bf9a28de5c",
+      "position_snapshot": "863cf41d2acc65adfb4b7eb73a1af01d5d80ae68e6c9cec7bd19c8d291388fa6",
+      "rewarder": "b0cc2be6a01a59ba5c400c55f8f2bfcf5173b3978d664d2a24bc22c10f732020",
+      "tick": "3f670e299a1bb8314ee92a048f5f852c320ab7634aec3228fe072363c5d2b3f1",
+      "tick_math": "4e359609360f97795a92dcf15b716290ebe093de30750e749f3e5f8e9354b1fd",
+      "utils": "f5877e98c988d279c5a04d3116f2d6e9cb13652399d8858625e1347e0bf19ff3"
+    },
+    "linkage_table": {
+      "0x0000000000000000000000000000000000000000000000000000000000000001": {
+        "upgraded_id": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "upgraded_version": 1
+      },
+      "0x0000000000000000000000000000000000000000000000000000000000000002": {
+        "upgraded_id": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "upgraded_version": 1
+      },
+      "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf": {
+        "upgraded_id": "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf",
+        "upgraded_version": 1
+      },
+      "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a": {
+        "upgraded_id": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a",
+        "upgraded_version": 1
+      }
+    },
+    "type_origin_table": [
+      {
+        "module_name": "acl",
+        "datatype_name": "ACL",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "acl",
+        "datatype_name": "Member",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "AdminCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "ProtocolFeeClaimCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "FeeTier",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "GlobalConfig",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "InitConfigEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "UpdateFeeRateEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "AddFeeTierEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "UpdateFeeTierEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "DeleteFeeTierEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "SetRolesEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "AddRoleEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "RemoveRoleEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "RemoveMemberEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "config",
+        "datatype_name": "SetPackageVersion",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "PositionManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "POSITION",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "Position",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "PositionInfo",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position",
+        "datatype_name": "PositionReward",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "tick",
+        "datatype_name": "TickManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "tick",
+        "datatype_name": "Tick",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "RewarderManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "Rewarder",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "RewarderGlobalVault",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "RewarderInitEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "DepositEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "rewarder",
+        "datatype_name": "EmergentWithdrawEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position_snapshot",
+        "datatype_name": "PositionLiquiditySnapshot",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "position_snapshot",
+        "datatype_name": "PositionSnapshot",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "Partners",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "PartnerCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "Partner",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "InitPartnerEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "CreatePartnerEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "UpdateRefFeeRateEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "UpdateTimeRangeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "ReceiveRefFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "partner",
+        "datatype_name": "ClaimRefFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "POOL",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "ProtocolFeeCollectCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "Pool",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "Status",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "PoolStatus",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "SwapResult",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "FlashSwapReceipt",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddLiquidityReceipt",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "FlashLoanReceipt",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CalculatedSwapResult",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "SwapStepResult",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "OpenPositionEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "ClosePositionEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddLiquidityEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddLiquidityV2Event",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "RemoveLiquidityV2Event",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "RemoveLiquidityEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "SwapEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectProtocolFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectFeeEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "UpdateFeeRateEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "UpdateEmissionEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "AddRewarderEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectRewardEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "CollectRewardV2Event",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "FlashLoanEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "pool",
+        "datatype_name": "UpdatePoolStatusEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PoolSimpleInfo",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "Pools",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "DenyCoinList",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PoolKey",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PermissionPairManager",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "PoolCreationCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "InitFactoryEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "CreatePoolEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "AddAllowedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RemoveAllowedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "AddDeniedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RemoveDeniedListEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "InitPermissionPairManagerEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RegisterPermissionPairEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "UnregisterPermissionPairEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "AddAllowedPairConfigEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "RemoveAllowedPairConfigEvent",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "MintPoolCreationCap",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      },
+      {
+        "module_name": "factory",
+        "datatype_name": "MintPoolCreationCapByAdmin",
+        "package": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5"
+      }
+    ]
+  },
+  "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf": {
+    "objectId": "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf",
+    "version": 1,
+    "digest": "FbdvJJsPeWYEbEWZiT7x7P4oPsV46Faeqrh7r6kGPn4W",
+    "owner": "Immutable",
+    "prevTx": "HL74JbMMnhRhqBHitLmKrmwZjCCzmBzyTKCwFLdmQyVh",
+    "module_sha256": {
+      "full_math_u128": "b4a502cab8c02b27bf3bf565904fd13a8cb292e31952e87417e6262fe1d750ba",
+      "full_math_u64": "560bfddaa39f0440b045e6d645abd99f6532944c2d61305d7fa24fc81260afe2",
+      "i128": "b9dad5085c3528f6e8cbc43ca0544e0a7f60b6c68dede617f716831c450bec12",
+      "i32": "c0f06d0b57d6ca464b4228049a14e43a614e6a622040fc0dc5b4b81bee2309b9",
+      "i64": "a83c2304ab70ce5e3a97a4291e8957fdfc490a89f261f1893400dab02daa9a66",
+      "math_u128": "c713baddf5bc452f896a5a5c3bce885d2db2950d615d3b3271611e078fd5ec65",
+      "math_u256": "13c284ac3dca7c3fac703a6bec457a8f4aee7c640a1a7cb931557a39b2078044",
+      "math_u64": "0de675683f63bdf8b6c5757b44277d8e9fcac29d98fa6fe7aae9262fd2765139"
+    },
+    "linkage_table": {},
+    "type_origin_table": [
+      {
+        "module_name": "i64",
+        "datatype_name": "I64",
+        "package": "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf"
+      },
+      {
+        "module_name": "i32",
+        "datatype_name": "I32",
+        "package": "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf"
+      },
+      {
+        "module_name": "i128",
+        "datatype_name": "I128",
+        "package": "0xde8d753881b388ec0d96fc4302df76ddcad410ebe36af76faa61610320a03ecf"
+      }
+    ]
+  },
+  "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a": {
+    "objectId": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a",
+    "version": 1,
+    "digest": "2N9MEMr3p7rwrBfqGP5snd6s8JgLJudiHYYTJJEnr81U",
+    "owner": "Immutable",
+    "prevTx": "41Jrsr9Uadgvts7eHpr6Tqqyw3CtDE7t9faDjHMGWHJx",
+    "module_sha256": {
+      "linked_table": "2c3447eb576a94c76a3daffbf48727f95dbc16184044f7b8729660dc44aa22ae",
+      "option_u128": "c2f22e4d02dda816fcde16bd618f0d623f704c9f8d9c4f81c3499ded1f0ea1bf",
+      "option_u64": "573a0bb0792c838ee8b097936e71344178b665e168416115841fc00bed2f7d75",
+      "random": "f39c23e31a265dc0c7db3a4d413c0380f8efd848dd36966dcf8c948774a3495d",
+      "skip_list": "b8bc2ff821a346659fc21567b845897441781662afb1950a0a4b3a0dcfe86690",
+      "skip_list_u128": "eb9b6d084f5c2fec5d0276fbe933dc31f7e606337c00531b9c10298d5124bea3"
+    },
+    "linkage_table": {
+      "0x0000000000000000000000000000000000000000000000000000000000000001": {
+        "upgraded_id": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "upgraded_version": 1
+      },
+      "0x0000000000000000000000000000000000000000000000000000000000000002": {
+        "upgraded_id": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "upgraded_version": 1
+      }
+    },
+    "type_origin_table": [
+      {
+        "module_name": "linked_table",
+        "datatype_name": "LinkedTable",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "linked_table",
+        "datatype_name": "Node",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "option_u128",
+        "datatype_name": "OptionU128",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "option_u64",
+        "datatype_name": "OptionU64",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "random",
+        "datatype_name": "Random",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "skip_list",
+        "datatype_name": "SkipList",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "skip_list",
+        "datatype_name": "Node",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "skip_list",
+        "datatype_name": "Item",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "skip_list_u128",
+        "datatype_name": "SkipList",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "skip_list_u128",
+        "datatype_name": "SkipListNode",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      },
+      {
+        "module_name": "skip_list_u128",
+        "datatype_name": "Item",
+        "package": "0xf12301ff621913b60e0cf4a43839288a5ae4047842a7fedb51bedf3d3707020a"
+      }
+    ]
+  }
+}

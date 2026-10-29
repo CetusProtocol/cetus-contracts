@@ -24,6 +24,7 @@
     "packages/cetus_clmm/tests/phase1_lifecycle_tests.move": "b643a6630ba522c284698d820a2529ab4e06e43ccfd4fd3c59238da2493f36b8",
     "packages/cetus_clmm/tests/phase1_liquidity_receipt_tests.move": "941a63642e8c89bfd1600b5d6c5b81111a2798ef99d287724fe3e6785fbce6a7",
     "packages/cetus_clmm/tests/phase1_partner_claim_tests.move": "58c1260266a7661a11c8ca619cebe37bd2eb9d76d315ea3d9b397a3bdaaf8c02",
+    "packages/cetus_clmm/tests/phase2_recovery_tests.move": "ee648cb3c47845691637976842ef06a427bf7e0fa7dc2d23a8a525867d3d327b",
     "packages/cetus_clmm/tests/pool_creator_tests.move": "20963aaec4b09b7c2b84d920cdf5f929a6306a5a228d2f2a9c4fb36dc1cc129a",
     "packages/cetus_clmm/tests/pool_restore_tests.move": "00a8909249b57a3944734ca67d427bc7a2e6b57db2c45d2ad4b8d344e136084a",
     "packages/cetus_clmm/tests/pool_tests.move": "f868a3d1fb3c91d60782f3fc5d7019638cf311d446f802f530962d40c0dad804",
@@ -36,7 +37,7 @@
     "packages/cetus_clmm/tests/tick_math_tests.move": "67b2164597b1ae93fe7e8c1ce84f8df5f26080d726604755ff8b07cc73fdaf0d",
     "packages/cetus_clmm/tests/tick_tests.move": "c534e6a90ac5d290200bf0e0c3365824ccde7d475b63d6aa0f18ec0921423b39"
   },
-  "tests": 549,
+  "tests": 577,
   "check_rows": 332,
   "by_package": {
     "cetus_clmm": {

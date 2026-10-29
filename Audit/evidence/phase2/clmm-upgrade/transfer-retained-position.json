@@ -1,0 +1,450 @@
+{
+  "command": [
+    "transfer",
+    "--to",
+    "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+    "--object-id",
+    "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+    "--sender",
+    "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb",
+    "--gas",
+    "0x12fa2c105cfcb409112b43fd305d5d30bc98674eaceaa0ca8ccbd289edb7fd63",
+    "--gas-budget",
+    "100000000"
+  ],
+  "before": {
+    "config": {
+      "objectId": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+      "version": 56730,
+      "digest": "868RpLALennNYvGYDHd9GT1KspEXsDZMAZkZuLxXzSnK",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 51683
+        }
+      },
+      "prevTx": "EZ5N5U3kAgM3bpvgUa5P719Ktrs9fUeDM582vRhYfoFf",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x1fe1efec1db4937c5a74925f238a482f3c0fb3b58165aeaf9b4e1040c54ff6b6",
+            "size": "3",
+            "tail": "0xdadb4c903a2c5acb7c51badc24703a80c8325bdf58ea21f94283f455f9c16c2b"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+        "package_version": "15",
+        "protocol_fee_rate": "2000"
+      }
+    },
+    "pool": {
+      "objectId": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+      "version": 56733,
+      "digest": "GdEJfukp8f2u3tcZm9vQm9wi3kSPTHC4SBRvf99cUd7N",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::pool::Pool<0x460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE,0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI>",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 56547
+        }
+      },
+      "prevTx": "BVwVN7r858WoAeLtwiK3pRHZ9akQ1YvFhCbvjxU3pQQu",
+      "storageRebate": 4962800,
+      "content": {
+        "coin_a": "1001980001",
+        "coin_b": "998020040",
+        "current_sqrt_price": "18446380673570787434",
+        "current_tick_index": {
+          "bits": 4294967295.0
+        },
+        "fee_growth_global_a": "2936624629282",
+        "fee_growth_global_b": "0",
+        "fee_protocol_coin_a": "0",
+        "fee_protocol_coin_b": "0",
+        "fee_rate": "10000",
+        "id": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "index": "0",
+        "is_pause": false,
+        "liquidity": "100505833206",
+        "position_manager": {
+          "position_index": "1",
+          "positions": {
+            "head": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+            "id": "0x5af09fa4eb857639b5c38437042ced3bde75ff16f1ea0c040f6ac0ded152aaf1",
+            "size": "1",
+            "tail": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b"
+          },
+          "tick_spacing": 200.0
+        },
+        "rewarder_manager": {
+          "last_updated_time": "1793175584",
+          "points_growth_global": "1651851353971710",
+          "points_released": "166020696663385964544000000",
+          "rewarders": []
+        },
+        "tick_manager": {
+          "tick_spacing": 200.0,
+          "ticks": {
+            "head": [
+              {
+                "is_none": false,
+                "v": "443436"
+              },
+              {
+                "is_none": false,
+                "v": "443836"
+              }
+            ],
+            "id": "0x2fc8f18a854dd12c1a7bf647b33f8c5bf0921a521bf82071765b00259bfa66d3",
+            "level": "2",
+            "list_p": "2",
+            "max_level": "16",
+            "random": {
+              "seed": "2306123192891635768"
+            },
+            "size": "2",
+            "tail": {
+              "is_none": false,
+              "v": "443836"
+            }
+          }
+        },
+        "tick_spacing": 200.0,
+        "url": "local ownership"
+      }
+    },
+    "position": {
+      "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+      "version": 56733,
+      "digest": "3zN2JmeohcPGMZLXbt8wHh2XGLK1yzSPFQUJgnVeA8C5",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::position::Position",
+      "owner": {
+        "AddressOwner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb"
+      },
+      "prevTx": "BVwVN7r858WoAeLtwiK3pRHZ9akQ1YvFhCbvjxU3pQQu",
+      "storageRebate": 3427600,
+      "content": {
+        "coin_type_a": "460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE",
+        "coin_type_b": "0000000000000000000000000000000000000000000000000000000000000002::sui::SUI",
+        "description": "Cetus Liquidity Position",
+        "id": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+        "index": "1",
+        "liquidity": "100505833206",
+        "name": "Cetus LP | Pool0-1",
+        "pool": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "tick_lower_index": {
+          "bits": 4294967096.0
+        },
+        "tick_upper_index": {
+          "bits": 200.0
+        },
+        "url": "local ownership"
+      }
+    }
+  },
+  "after": {
+    "config": {
+      "objectId": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+      "version": 56730,
+      "digest": "868RpLALennNYvGYDHd9GT1KspEXsDZMAZkZuLxXzSnK",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 51683
+        }
+      },
+      "prevTx": "EZ5N5U3kAgM3bpvgUa5P719Ktrs9fUeDM582vRhYfoFf",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x1fe1efec1db4937c5a74925f238a482f3c0fb3b58165aeaf9b4e1040c54ff6b6",
+            "size": "3",
+            "tail": "0xdadb4c903a2c5acb7c51badc24703a80c8325bdf58ea21f94283f455f9c16c2b"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+        "package_version": "15",
+        "protocol_fee_rate": "2000"
+      }
+    },
+    "pool": {
+      "objectId": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+      "version": 56733,
+      "digest": "GdEJfukp8f2u3tcZm9vQm9wi3kSPTHC4SBRvf99cUd7N",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::pool::Pool<0x460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE,0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI>",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 56547
+        }
+      },
+      "prevTx": "BVwVN7r858WoAeLtwiK3pRHZ9akQ1YvFhCbvjxU3pQQu",
+      "storageRebate": 4962800,
+      "content": {
+        "coin_a": "1001980001",
+        "coin_b": "998020040",
+        "current_sqrt_price": "18446380673570787434",
+        "current_tick_index": {
+          "bits": 4294967295.0
+        },
+        "fee_growth_global_a": "2936624629282",
+        "fee_growth_global_b": "0",
+        "fee_protocol_coin_a": "0",
+        "fee_protocol_coin_b": "0",
+        "fee_rate": "10000",
+        "id": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "index": "0",
+        "is_pause": false,
+        "liquidity": "100505833206",
+        "position_manager": {
+          "position_index": "1",
+          "positions": {
+            "head": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+            "id": "0x5af09fa4eb857639b5c38437042ced3bde75ff16f1ea0c040f6ac0ded152aaf1",
+            "size": "1",
+            "tail": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b"
+          },
+          "tick_spacing": 200.0
+        },
+        "rewarder_manager": {
+          "last_updated_time": "1793175584",
+          "points_growth_global": "1651851353971710",
+          "points_released": "166020696663385964544000000",
+          "rewarders": []
+        },
+        "tick_manager": {
+          "tick_spacing": 200.0,
+          "ticks": {
+            "head": [
+              {
+                "is_none": false,
+                "v": "443436"
+              },
+              {
+                "is_none": false,
+                "v": "443836"
+              }
+            ],
+            "id": "0x2fc8f18a854dd12c1a7bf647b33f8c5bf0921a521bf82071765b00259bfa66d3",
+            "level": "2",
+            "list_p": "2",
+            "max_level": "16",
+            "random": {
+              "seed": "2306123192891635768"
+            },
+            "size": "2",
+            "tail": {
+              "is_none": false,
+              "v": "443836"
+            }
+          }
+        },
+        "tick_spacing": 200.0,
+        "url": "local ownership"
+      }
+    },
+    "position": {
+      "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+      "version": 56734,
+      "digest": "C2D143XrZwWDuhyDkyK46DYeUNNBcKCNrcygMvQD9zDW",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::position::Position",
+      "owner": {
+        "AddressOwner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+      },
+      "prevTx": "JBTXwKteXCjwuosfov3g29JrgKFhHbkWwgptFsN61LFj",
+      "storageRebate": 3427600,
+      "content": {
+        "coin_type_a": "460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE",
+        "coin_type_b": "0000000000000000000000000000000000000000000000000000000000000002::sui::SUI",
+        "description": "Cetus Liquidity Position",
+        "id": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+        "index": "1",
+        "liquidity": "100505833206",
+        "name": "Cetus LP | Pool0-1",
+        "pool": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "tick_lower_index": {
+          "bits": 4294967096.0
+        },
+        "tick_upper_index": {
+          "bits": 200.0
+        },
+        "url": "local ownership"
+      }
+    }
+  },
+  "transaction": {
+    "digest": "JBTXwKteXCjwuosfov3g29JrgKFhHbkWwgptFsN61LFj",
+    "transaction": {
+      "data": {
+        "messageVersion": "v1",
+        "transaction": {
+          "kind": "ProgrammableTransaction",
+          "inputs": [
+            {
+              "type": "pure",
+              "valueType": "address",
+              "value": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+            },
+            {
+              "type": "object",
+              "objectType": "immOrOwnedObject",
+              "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+              "version": "56733",
+              "digest": "3zN2JmeohcPGMZLXbt8wHh2XGLK1yzSPFQUJgnVeA8C5"
+            }
+          ],
+          "transactions": [
+            {
+              "TransferObjects": [
+                [
+                  {
+                    "Input": 1
+                  }
+                ],
+                {
+                  "Input": 0
+                }
+              ]
+            }
+          ]
+        },
+        "sender": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb",
+        "gasData": {
+          "payment": [
+            {
+              "objectId": "0x12fa2c105cfcb409112b43fd305d5d30bc98674eaceaa0ca8ccbd289edb7fd63",
+              "version": 56733,
+              "digest": "E2BeUuZcXc7qTo5X9eMkWPUWBf8685cib7pahvGEFKYj"
+            }
+          ],
+          "owner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb",
+          "price": "1000",
+          "budget": "100000000"
+        }
+      },
+      "txSignatures": [
+        "AEJrpQ5cI080XKRHA+UJjY2+81+MVbtY5jzsT5eGcBXc3oFBrBZY3YXAcV/MU0hALAFrK6SzUoaOiISR88o9awDRZC4VDHZKI13pBcd56Z6QrU3yMJ79kA9wES/TdB1Bnw=="
+      ]
+    },
+    "effects": {
+      "messageVersion": "v1",
+      "status": {
+        "status": "success"
+      },
+      "executedEpoch": "0",
+      "gasUsed": {
+        "computationCost": "1000000",
+        "storageCost": "4415600",
+        "storageRebate": "4371444",
+        "nonRefundableStorageFee": "44156"
+      },
+      "modifiedAtVersions": [
+        {
+          "objectId": "0x12fa2c105cfcb409112b43fd305d5d30bc98674eaceaa0ca8ccbd289edb7fd63",
+          "sequenceNumber": "56733"
+        },
+        {
+          "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+          "sequenceNumber": "56733"
+        }
+      ],
+      "transactionDigest": "JBTXwKteXCjwuosfov3g29JrgKFhHbkWwgptFsN61LFj",
+      "mutated": [
+        {
+          "owner": {
+            "AddressOwner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb"
+          },
+          "reference": {
+            "objectId": "0x12fa2c105cfcb409112b43fd305d5d30bc98674eaceaa0ca8ccbd289edb7fd63",
+            "version": 56734,
+            "digest": "36QQETfMfQFGKsCCrH5UFmffNyt5Goig8CgBiEdMs3H5"
+          }
+        },
+        {
+          "owner": {
+            "AddressOwner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+          },
+          "reference": {
+            "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+            "version": 56734,
+            "digest": "C2D143XrZwWDuhyDkyK46DYeUNNBcKCNrcygMvQD9zDW"
+          }
+        }
+      ],
+      "gasObject": {
+        "owner": {
+          "AddressOwner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb"
+        },
+        "reference": {
+          "objectId": "0x12fa2c105cfcb409112b43fd305d5d30bc98674eaceaa0ca8ccbd289edb7fd63",
+          "version": 56734,
+          "digest": "36QQETfMfQFGKsCCrH5UFmffNyt5Goig8CgBiEdMs3H5"
+        }
+      },
+      "dependencies": [
+        "BVwVN7r858WoAeLtwiK3pRHZ9akQ1YvFhCbvjxU3pQQu"
+      ]
+    },
+    "objectChanges": [
+      {
+        "type": "mutated",
+        "sender": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb",
+        "owner": {
+          "AddressOwner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb"
+        },
+        "objectType": "0x2::coin::Coin<0x2::sui::SUI>",
+        "objectId": "0x12fa2c105cfcb409112b43fd305d5d30bc98674eaceaa0ca8ccbd289edb7fd63",
+        "version": "56734",
+        "previousVersion": "56733",
+        "digest": "36QQETfMfQFGKsCCrH5UFmffNyt5Goig8CgBiEdMs3H5"
+      },
+      {
+        "type": "mutated",
+        "sender": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb",
+        "owner": {
+          "AddressOwner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+        },
+        "objectType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::position::Position",
+        "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+        "version": "56734",
+        "previousVersion": "56733",
+        "digest": "C2D143XrZwWDuhyDkyK46DYeUNNBcKCNrcygMvQD9zDW"
+      }
+    ],
+    "balanceChanges": [
+      {
+        "owner": {
+          "AddressOwner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb"
+        },
+        "coinType": "0x2::sui::SUI",
+        "amount": "-1044156"
+      }
+    ],
+    "timestampMs": "1793175592284",
+    "checkpoint": "14219"
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "command": [
+    "ptb",
+    "--move-call",
+    "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::pool::collect_protocol_fee_with_cap",
+    "<0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE,0x2::sui::SUI>",
+    "@0xaf128840f03fcaa40e1e3f455d20ff4c95642739127e563c9ae866803ba1c812",
+    "@0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+    "@0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087",
+    "--assign",
+    "fees",
+    "--move-call",
+    "0x2::coin::from_balance",
+    "<0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE>",
+    "fees.0",
+    "--assign",
+    "ca",
+    "--move-call",
+    "0x2::coin::from_balance",
+    "<0x2::sui::SUI>",
+    "fees.1",
+    "--assign",
+    "cb",
+    "--transfer-objects",
+    "[ca,cb]",
+    "@0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+    "--sender",
+    "@0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+    "--gas-coin",
+    "@0x1984787b745e3a28ca08c9a7239e30c6af1599ca539e943bd45d129dd89de800",
+    "--gas-budget",
+    "100000000"
+  ],
+  "before": {
+    "cap": {
+      "objectId": "0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087",
+      "version": 28780,
+      "digest": "HnUSXhnVkyjBeVgTE6dmsj7UZw8hVmxzHxDGFt7XWeCj",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::pool::ProtocolFeeCollectCap",
+      "owner": {
+        "AddressOwner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb"
+      },
+      "prevTx": "CpeA7Y7x3GVfW5RGcUSjcGN5jKrPCsqsoGjhUtBbcrWZ",
+      "storageRebate": 1383200,
+      "content": {
+        "id": "0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087"
+      }
+    },
+    "pool": {
+      "objectId": "0xaf128840f03fcaa40e1e3f455d20ff4c95642739127e563c9ae866803ba1c812",
+      "version": 28779,
+      "digest": "CB6YrUepocrwUXvFny1eQpUjSzfcKKQkfMUa1doPVCSJ",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::pool::Pool<0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE,0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI>",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 28718
+        }
+      },
+      "prevTx": "3udeTAH92U662Lpmh1LxRKuHhKLnctuio9f6WDNF39vK",
+      "storageRebate": 4962800,
+      "content": {
+        "coin_a": "1000998000",
+        "coin_b": "999010010",
+        "current_sqrt_price": "18446562371850409756",
+        "current_tick_index": {
+          "bits": 4294967295.0
+        },
+        "fee_growth_global_a": "1468312314641",
+        "fee_growth_global_b": "0",
+        "fee_protocol_coin_a": "0",
+        "fee_protocol_coin_b": "0",
+        "fee_rate": "10000",
+        "id": "0xaf128840f03fcaa40e1e3f455d20ff4c95642739127e563c9ae866803ba1c812",
+        "index": "2",
+        "is_pause": false,
+        "liquidity": "100505833206",
+        "position_manager": {
+          "position_index": "1",
+          "positions": {
+            "head": "0x85ef05749a8152a7c7c2d2db14a6514de0b30b4f204ecf8991f6b7f18be27047",
+            "id": "0x70de70bf0b773af94e01fbefd54daf97672e289ca3369211ca86cd73afed6bac",
+            "size": "1",
+            "tail": "0x85ef05749a8152a7c7c2d2db14a6514de0b30b4f204ecf8991f6b7f18be27047"
+          },
+          "tick_spacing": 200.0
+        },
+        "rewarder_manager": {
+          "last_updated_time": "1793174148",
+          "points_growth_global": "550617117990570",
+          "points_released": "55340232221128654848000000",
+          "rewarders": []
+        },
+        "tick_manager": {
+          "tick_spacing": 200.0,
+          "ticks": {
+            "head": [
+              {
+                "is_none": false,
+                "v": "443436"
+              },
+              {
+                "is_none": false,
+                "v": "443836"
+              }
+            ],
+            "id": "0x1eb156e6cc322c1a190c8776f181d8b15015540de1c43f2c982f85ce17525b37",
+            "level": "2",
+            "list_p": "2",
+            "max_level": "16",
+            "random": {
+              "seed": "4611966201881891758"
+            },
+            "size": "2",
+            "tail": {
+              "is_none": false,
+              "v": "443836"
+            }
+          }
+        },
+        "tick_spacing": 200.0,
+        "url": "local ownership"
+      }
+    },
+    "partner": {
+      "objectId": "0x36f24f3f66df4d4cf9e361f6de212cfe5bdd4d3a7f8893e8b664b6686d9e50ff",
+      "version": 28777,
+      "digest": "492n4EMdsAPCRMBwgfo484CXUnRAb9UXcVpPeWtq7g9p",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::partner::Partner",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 28747
+        }
+      },
+      "prevTx": "DkmNwnZazFy9weHZKrnCvaJ4Grrng3YhqkHoMR6HKnSe",
+      "storageRebate": 2371200,
+      "content": {
+        "balances": {
+          "id": "0x90515733721cb5d5fd4d458dee9696c813f9b383dfa779b72970603fc2b0bea6",
+          "size": "1"
+        },
+        "end_time": "9999999999",
+        "id": "0x36f24f3f66df4d4cf9e361f6de212cfe5bdd4d3a7f8893e8b664b6686d9e50ff",
+        "name": "ownership-0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84",
+        "ref_fee_rate": "1000",
+        "start_time": "0"
+      }
+    },
+    "config": {
+      "objectId": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+      "version": 28720,
+      "digest": "DuZfJXgDNCJfzK3nrwTYzfQbbF6dHsfUjVeTAt3WoCKX",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 2
+        }
+      },
+      "prevTx": "HNZdrxM4yjBiuPM4rxZx9FmGahyvoNnFnuih8NCpSjFY",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x4b81578d13a381efaa82bf013e0c168bc28f12bdd69e7adf5cf709f7758814b4",
+            "size": "5",
+            "tail": "0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+        "package_version": "1",
+        "protocol_fee_rate": "2000"
+      }
+    }
+  },
+  "after": {
+    "cap": {
+      "objectId": "0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087",
+      "version": 28780,
+      "digest": "HnUSXhnVkyjBeVgTE6dmsj7UZw8hVmxzHxDGFt7XWeCj",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::pool::ProtocolFeeCollectCap",
+      "owner": {
+        "AddressOwner": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb"
+      },
+      "prevTx": "CpeA7Y7x3GVfW5RGcUSjcGN5jKrPCsqsoGjhUtBbcrWZ",
+      "storageRebate": 1383200,
+      "content": {
+        "id": "0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087"
+      }
+    },
+    "pool": {
+      "objectId": "0xaf128840f03fcaa40e1e3f455d20ff4c95642739127e563c9ae866803ba1c812",
+      "version": 28779,
+      "digest": "CB6YrUepocrwUXvFny1eQpUjSzfcKKQkfMUa1doPVCSJ",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::pool::Pool<0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE,0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI>",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 28718
+        }
+      },
+      "prevTx": "3udeTAH92U662Lpmh1LxRKuHhKLnctuio9f6WDNF39vK",
+      "storageRebate": 4962800,
+      "content": {
+        "coin_a": "1000998000",
+        "coin_b": "999010010",
+        "current_sqrt_price": "18446562371850409756",
+        "current_tick_index": {
+          "bits": 4294967295.0
+        },
+        "fee_growth_global_a": "1468312314641",
+        "fee_growth_global_b": "0",
+        "fee_protocol_coin_a": "0",
+        "fee_protocol_coin_b": "0",
+        "fee_rate": "10000",
+        "id": "0xaf128840f03fcaa40e1e3f455d20ff4c95642739127e563c9ae866803ba1c812",
+        "index": "2",
+        "is_pause": false,
+        "liquidity": "100505833206",
+        "position_manager": {
+          "position_index": "1",
+          "positions": {
+            "head": "0x85ef05749a8152a7c7c2d2db14a6514de0b30b4f204ecf8991f6b7f18be27047",
+            "id": "0x70de70bf0b773af94e01fbefd54daf97672e289ca3369211ca86cd73afed6bac",
+            "size": "1",
+            "tail": "0x85ef05749a8152a7c7c2d2db14a6514de0b30b4f204ecf8991f6b7f18be27047"
+          },
+          "tick_spacing": 200.0
+        },
+        "rewarder_manager": {
+          "last_updated_time": "1793174148",
+          "points_growth_global": "550617117990570",
+          "points_released": "55340232221128654848000000",
+          "rewarders": []
+        },
+        "tick_manager": {
+          "tick_spacing": 200.0,
+          "ticks": {
+            "head": [
+              {
+                "is_none": false,
+                "v": "443436"
+              },
+              {
+                "is_none": false,
+                "v": "443836"
+              }
+            ],
+            "id": "0x1eb156e6cc322c1a190c8776f181d8b15015540de1c43f2c982f85ce17525b37",
+            "level": "2",
+            "list_p": "2",
+            "max_level": "16",
+            "random": {
+              "seed": "4611966201881891758"
+            },
+            "size": "2",
+            "tail": {
+              "is_none": false,
+              "v": "443836"
+            }
+          }
+        },
+        "tick_spacing": 200.0,
+        "url": "local ownership"
+      }
+    },
+    "partner": {
+      "objectId": "0x36f24f3f66df4d4cf9e361f6de212cfe5bdd4d3a7f8893e8b664b6686d9e50ff",
+      "version": 28777,
+      "digest": "492n4EMdsAPCRMBwgfo484CXUnRAb9UXcVpPeWtq7g9p",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::partner::Partner",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 28747
+        }
+      },
+      "prevTx": "DkmNwnZazFy9weHZKrnCvaJ4Grrng3YhqkHoMR6HKnSe",
+      "storageRebate": 2371200,
+      "content": {
+        "balances": {
+          "id": "0x90515733721cb5d5fd4d458dee9696c813f9b383dfa779b72970603fc2b0bea6",
+          "size": "1"
+        },
+        "end_time": "9999999999",
+        "id": "0x36f24f3f66df4d4cf9e361f6de212cfe5bdd4d3a7f8893e8b664b6686d9e50ff",
+        "name": "ownership-0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84",
+        "ref_fee_rate": "1000",
+        "start_time": "0"
+      }
+    },
+    "config": {
+      "objectId": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+      "version": 28720,
+      "digest": "DuZfJXgDNCJfzK3nrwTYzfQbbF6dHsfUjVeTAt3WoCKX",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 2
+        }
+      },
+      "prevTx": "HNZdrxM4yjBiuPM4rxZx9FmGahyvoNnFnuih8NCpSjFY",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x4b81578d13a381efaa82bf013e0c168bc28f12bdd69e7adf5cf709f7758814b4",
+            "size": "5",
+            "tail": "0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+        "package_version": "1",
+        "protocol_fee_rate": "2000"
+      }
+    }
+  },
+  "exit_code": 1,
+  "rejection": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087 is owned by account address 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb, but given owner/signer address is 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72\", source: RpcError(Status { code: InvalidArgument, message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087 is owned by account address 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb, but given owner/signer address is 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72\", details: b\"\\x08\\x03\\x12\\xea\\x02Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087 is owned by account address 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb, but given owner/signer address is 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72\", metadata: MetadataMap { headers: {\"content-type\": \"application/grpc\", \"date\": \"Wed, 28 Oct 2026 07:55:51 GMT\", \"server-timing\": \"finish_request;dur=0\", \"access-control-expose-headers\": \"*\", \"x-sui-chain-id\": \"E7x8EvWdcCoP4xLmzhRbqC9VBfTE5XejARba6v99R9Qy\", \"x-sui-chain\": \"unknown\", \"x-sui-epoch\": \"0\", \"x-sui-checkpoint-height\": \"7206\", \"x-sui-timestamp-ms\": \"1793174150813\", \"x-sui-timestamp\": \"2026-10-28T07:55:50.813Z\", \"x-sui-lowest-available-checkpoint\": \"0\", \"x-sui-lowest-available-checkpoint-objects\": \"0\", \"server\": \"sui-node/unknown\", \"vary\": \"origin, access-control-request-method, access-control-request-headers\", \"access-control-allow-origin\": \"*\"} }, source: None })\n\nCaused by:\n    0: RPC error: code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087 is owned by account address 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb, but given owner/signer address is 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72\"\n    1: code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xd8b7bf76a391595330fe24e9f2e19b761a6762f55459c4e63542570485b9a087 is owned by account address 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb, but given owner/signer address is 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72\"\n"
+}

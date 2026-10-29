@@ -1,0 +1,42 @@
+{
+  "kind": "clmm",
+  "chain": {
+    "base58": "E7x8EvWdcCoP4xLmzhRbqC9VBfTE5XejARba6v99R9Qy",
+    "hex": "c2efbea7"
+  },
+  "rpc": "http://127.0.0.1:19300",
+  "toolchain": "sui 1.79.1-808640d9b49a",
+  "publication_digest": "F1KVLGM3gkAMs8PDpM4SF33wK4qnGseHC3FxdhRhya4o",
+  "package": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540",
+  "capability": "0x10abfb56ccdfb6c1826a7b6d43bdae5c49d3f4e9ee0c80a80859a5299c910b07",
+  "owner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+  "other": "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb",
+  "cases": [
+    {
+      "case": "owner-accepted",
+      "expected_result_observed": true
+    },
+    {
+      "case": "nonowner-rejected",
+      "expected_result_observed": true
+    },
+    {
+      "case": "former-owner-rejected",
+      "expected_result_observed": true
+    },
+    {
+      "case": "new-owner-accepted",
+      "expected_result_observed": true
+    }
+  ],
+  "limits": "AdminCap and config::set_roles only. Local relocated production publication, not mainnet state or every capability/entry. Does not cover shared/frozen/wrapped capabilities, multisig custody or upgrade replay.",
+  "sha256": {
+    "former-owner-rejected.json": "c26a8bdd7c284007a108c679265e28fc43b179dcfc5731ed6c10678be1b683db",
+    "owner-accepted.json": "1794cba7712079f7d5f68e5b732a4ac21a96fc1df65379983815f311318eeb0b",
+    "nonowner-rejected.json": "2a63b6f7d1086e2b6c270960dce5c2362fe6bfdc6abc127fcda6e02edde2de5e",
+    "new-owner-accepted.json": "4f4eccfbf5beef806f998566f994e6025fff29e55b7b5026f0b5eb3f2f6fca83",
+    "transfer.json": "5860e8bf8fbbd9dffd1347a2aac691d7f482f72e40a3ffb96fd808a6b130b1db",
+    "publication.json": "df4e6d8cdc5d8f04da846264c4033fd738a7d950f21be0d99152f8a76d10ba3b",
+    "publication-inputs.json": "61af2f641010c7e72fe5e0ee54df0679f750e91a291450e8137291bcc38e938c"
+  }
+}

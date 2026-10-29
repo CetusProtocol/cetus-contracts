@@ -1626,6 +1626,174 @@
     "expected_failure": "abort_code = cetus_clmm::config::EPackageVersionDeprecate, location = cetus_clmm::config"
   },
   {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_apply_cut_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 42,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_apply_cut_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 46,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_inject_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 50,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_inject_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 54,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_withdraw_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 58,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_withdraw_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 62,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_remove_malicious_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 66,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_remove_malicious_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 70,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_restore_pool_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 74,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_restore_pool_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 78,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_pause_legacy_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 82,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_pause_legacy_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 86,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_unpause_legacy_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 90,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_unpause_legacy_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 94,
+    "expected_failure": "abort_code = pool::EDeprecatedFunction, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_update_pool_legacy_normal",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 98,
+    "expected_failure": "abort_code = 0, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_update_pool_legacy_recovery",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 102,
+    "expected_failure": "abort_code = 0, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_snapshot_full_cut",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 105,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_snapshot_zero_cut",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 108,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_snapshot_wrong_version",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 112,
+    "expected_failure": "abort_code = config::EConfigVersionNotEqualEmergencyRestoreVersion, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_snapshot_unauthorized",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 116,
+    "expected_failure": "abort_code = config::ENoPoolManagerPemission, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_snapshot_not_paused",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 120,
+    "expected_failure": "abort_code = pool::EPoolNotPaused, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_snapshot_over_ppm",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 124,
+    "expected_failure": "abort_code = pool::EInvalidRemovePercent, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_snapshot_duplicate",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 128,
+    "expected_failure": "abort_code = sui::dynamic_field::EFieldAlreadyExists, location = sui::dynamic_field"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_global_recovery_funded_exit",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 153,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_global_recovery_lower_version",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 156,
+    "expected_failure": "abort_code=config::EInvalidPackageVersion,location=cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_global_recovery_future_version",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 159,
+    "expected_failure": "abort_code=config::EInvalidPackageVersion,location=cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_global_recovery_not_paused",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 162,
+    "expected_failure": "abort_code=config::EProtocolNotEmergencyPause,location=cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::phase2_recovery_tests::test_phase2_global_recovery_replay",
+    "file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+    "line": 165,
+    "expected_failure": "abort_code=config::EProtocolNotEmergencyPause,location=cetus_clmm::config"
+  },
+  {
     "test": "cetus_clmm::pool_creator_tests::test_create_pool_v3",
     "file": "packages/cetus_clmm/tests/pool_creator_tests.move",
     "line": 20,

@@ -1,0 +1,1 @@
+sui move test --build-env mainnet --trace --coverage --gas-limit 10000000000

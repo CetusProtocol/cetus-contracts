@@ -1,0 +1,22 @@
+{
+  "production_source_sha256": {
+    "cetus_clmm/sources/partner.move": "453b83a99caf0c1ba9a765026c01f9928d04a9212724e850391f4febf40daabc",
+    "cetus_clmm/sources/acl.move": "209c6b1f5c5d25cf8ce88f96f67af111945b79198173264c048736ce8879007b",
+    "cetus_clmm/sources/pool.move": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+    "cetus_clmm/sources/rewarder.move": "43a069b9aaddbe1bfeae10023664bf10cccdfc3814cc915a6726a6fa55ba30c7",
+    "cetus_clmm/sources/config.move": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+    "cetus_clmm/sources/tick.move": "c1d2086164e18872f43e743e5b416c1dc0a06de4ab245e30c238c75fc635ca78",
+    "cetus_clmm/sources/position.move": "4498a6d762f791b3e08db44deb948ae464afa98f3a8bf047eb63fac188230a75",
+    "cetus_clmm/sources/factory.move": "9b3a87ddc0cdfdc35e2bb3333c3f690dba4069c40b0a92324fb30a8da3a04276",
+    "cetus_clmm/sources/position_snapshot.move": "672c0fc24f917306d1d4d15d6f0b036545effbb63347c2634c802b45409a25d2",
+    "cetus_clmm/sources/utils.move": "c4bdd0d713768d9c25c62691fb500c756647afbf4c157477ce369cc7bf3c0485",
+    "cetus_clmm/sources/pool_creator.move": "337cf8c7d79ccc3cdfe677a0c9cda36ee7bd118bf4a7da26e75eff81036c2937",
+    "cetus_clmm/sources/math/clmm_math.move": "0c73df0bf1fa8626a2c4cbbace02546cbb854aa8ee2501573b5e305a638c60b3",
+    "cetus_clmm/sources/math/tick_math.move": "7b349d6c2fc29a55d5dadc3898e689af19fab6dd4f98c9a6e59e905b22f00780"
+  },
+  "base_commit": "3a8528954d5a623e4a401da9c06107933dcf786a",
+  "publication": "Local fresh publication with ephemeral relocation. Production .move files byte-identical; framework/dependency addresses resolved for localnet. No mainnet objects used.",
+  "command": "sui client --client.config LOCALNET/client.yaml --client.env phase2 --json test-publish COPY_OF_cetus_clmm --build-env mainnet --with-unpublished-dependencies --gas-budget 1000000000",
+  "publisher_toolchain": "sui 1.79.1-808640d9b49a",
+  "source_lock_sha256": "6d7b6a5fa5220e9586b634c379c5e464c6e8bd154856fef3339853498d61eef6"
+}

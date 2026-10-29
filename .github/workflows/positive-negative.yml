@@ -17,6 +17,7 @@ jobs:
         run: |
           python3 Audit/tools/check_inventory.py
           python3 Audit/tools/positive_negative_report.py
+          python3 Audit/tools/verify_phase2_evidence.py
           python3 -m unittest discover -s Audit/tools -p 'test_*.py'
           git diff --exit-code -- Audit/check-inventory.csv Audit/check-inventory-summary.json Audit/test-index.json Audit/positive-negative-status.csv Audit/positive-negative-status.json
   move:

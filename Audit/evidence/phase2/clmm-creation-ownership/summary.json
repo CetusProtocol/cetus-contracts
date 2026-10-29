@@ -1,0 +1,44 @@
+{
+  "chain": {
+    "base58": "E7x8EvWdcCoP4xLmzhRbqC9VBfTE5XejARba6v99R9Qy",
+    "hex": "c2efbea7"
+  },
+  "package": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540",
+  "capability": "0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2",
+  "coin_type": "0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE",
+  "cases": [
+    {
+      "case": "owner-register-accepted",
+      "expected_result_observed": true
+    },
+    {
+      "case": "nonowner-unregister-rejected",
+      "expected_result_observed": true
+    },
+    {
+      "case": "former-owner-unregister-rejected",
+      "expected_result_observed": true
+    },
+    {
+      "case": "new-owner-unregister-accepted",
+      "expected_result_observed": true
+    },
+    {
+      "case": "new-owner-register-accepted",
+      "expected_result_observed": true
+    }
+  ],
+  "limits": "PoolCreationCap register/unregister ownership; funded pool creation is separate.",
+  "sha256": {
+    "grant-setup-role.json": "affe19e802980f21692271feab20b8a2612a238e965a885bf0a59f9dec2b5140",
+    "nonowner-unregister-rejected.json": "06417ba521e0069742c59009d605110f748e696d7cccbb2ac713435bcae3d5da",
+    "new-owner-unregister-accepted.json": "97527b33aa5475da35378096a88ed4dab9898624c4ef764e6be780477cbada0d",
+    "coin-publication.json": "9a04826beb549e09b7504402a181b59da885c9c152eb89884bc7e97d9cd626b4",
+    "initialize-factory.json": "26103caeb47801e9f7201ae131f6d1d916a486ba0389fe36ac11de250a00d936",
+    "owner-register-accepted.json": "06d30ef8126a8195b87fa2484a1be6e407355c17660349708cf26e181471553b",
+    "former-owner-unregister-rejected.json": "5f9742c52eaa6d576c0cbf3d5f2049269d39172e65491118c0a464a40c126787",
+    "mint.json": "fc1207221ab17ea288843702f60a2d0a5e70a9a8d32edb9283a7939a3c62bc45",
+    "transfer.json": "6ccaa789bb3650d577b0aa904189c53ddfb96d7f9b802c052142cc9c977f6193",
+    "new-owner-register-accepted.json": "f002dc5b3e9d72c98f2184827f15623c3fc0ae083578e0a643e77f3f685d14f1"
+  }
+}
