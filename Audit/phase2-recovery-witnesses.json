@@ -1,0 +1,105 @@
+{
+  "scope": "Explicit entry witnesses, not a complete invariant inventory",
+  "test_file": "packages/cetus_clmm/tests/phase2_recovery_tests.move",
+  "test_sha256": "ee648cb3c47845691637976842ef06a427bf7e0fa7dc2d23a8a525867d3d327b",
+  "entries": [
+    {
+      "entry": "pool::apply_liquidity_cut",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_apply_cut_normal",
+        "test_phase2_apply_cut_recovery"
+      ]
+    },
+    {
+      "entry": "pool::governance_fund_injection",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_inject_normal",
+        "test_phase2_inject_recovery"
+      ]
+    },
+    {
+      "entry": "pool::governance_fund_withdrawal",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_withdraw_normal",
+        "test_phase2_withdraw_recovery"
+      ]
+    },
+    {
+      "entry": "pool::emergency_remove_malicious_position",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_remove_malicious_normal",
+        "test_phase2_remove_malicious_recovery"
+      ]
+    },
+    {
+      "entry": "pool::emergency_restore_pool_state",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_restore_pool_normal",
+        "test_phase2_restore_pool_recovery"
+      ]
+    },
+    {
+      "entry": "pool::pause",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_pause_legacy_normal",
+        "test_phase2_pause_legacy_recovery"
+      ]
+    },
+    {
+      "entry": "pool::unpause",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_unpause_legacy_normal",
+        "test_phase2_unpause_legacy_recovery"
+      ]
+    },
+    {
+      "entry": "pool::update_pool",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_update_pool_legacy_normal",
+        "test_phase2_update_pool_legacy_recovery"
+      ]
+    },
+    {
+      "entry": "pool::init_position_snapshot",
+      "source": "packages/cetus_clmm/sources/pool.move",
+      "source_sha256": "1c11d659d8a4296f8df66322625b712cdffa98bdfc2a116d6fbd3205ec1fda4d",
+      "witnesses": [
+        "test_phase2_snapshot_full_cut",
+        "test_phase2_snapshot_zero_cut",
+        "test_phase2_snapshot_wrong_version",
+        "test_phase2_snapshot_unauthorized",
+        "test_phase2_snapshot_not_paused",
+        "test_phase2_snapshot_over_ppm",
+        "test_phase2_snapshot_duplicate"
+      ]
+    },
+    {
+      "entry": "config::emergency_unpause",
+      "source": "packages/cetus_clmm/sources/config.move",
+      "source_sha256": "1e66a5ac166424e8d1b9ce9143d2bc0dfa96ed480ea9d131cdcc6ebd5b46852d",
+      "witnesses": [
+        "test_phase2_global_recovery_funded_exit",
+        "test_phase2_global_recovery_lower_version",
+        "test_phase2_global_recovery_future_version",
+        "test_phase2_global_recovery_not_paused",
+        "test_phase2_global_recovery_replay"
+      ]
+    }
+  ]
+}

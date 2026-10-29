@@ -1,0 +1,181 @@
+{
+  "command": [
+    "call",
+    "--package",
+    "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540",
+    "--module",
+    "factory",
+    "--function",
+    "unregister_permission_pair",
+    "--args",
+    "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+    "0x49e51c0d7be7fffb4f32ff22344bb375ea21ca9ce16667e1e34e5ecd736009f0",
+    "200",
+    "0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2",
+    "--type-args",
+    "0xca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE",
+    "0x2::sui::SUI",
+    "--sender",
+    "0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb",
+    "--gas",
+    "0xa7a693ecb087c9e13c3822088e45234bf498c19bb513d043be00e2fe3912e42b",
+    "--gas-budget",
+    "100000000"
+  ],
+  "before": {
+    "cap": {
+      "objectId": "0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2",
+      "version": 28166,
+      "digest": "AdadvessvJSfczichgHWtPbwzTQPFRjhwDemxtXeuCTc",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::factory::PoolCreationCap",
+      "owner": {
+        "AddressOwner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+      },
+      "prevTx": "8rzLN6FBLmwxfEhAQj8KCvAtWzsU8LKK5XqooLoH7wqx",
+      "storageRebate": 1960800,
+      "content": {
+        "coin_type": "ca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE",
+        "id": "0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2"
+      }
+    },
+    "pools": {
+      "objectId": "0x49e51c0d7be7fffb4f32ff22344bb375ea21ca9ce16667e1e34e5ecd736009f0",
+      "version": 28166,
+      "digest": "3UQtNEj3EqAnykguErCqR4WQVAT2o8ocypWpDe8n9DiQ",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::factory::Pools",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 2
+        }
+      },
+      "prevTx": "8rzLN6FBLmwxfEhAQj8KCvAtWzsU8LKK5XqooLoH7wqx",
+      "storageRebate": 2150800,
+      "content": {
+        "id": "0x49e51c0d7be7fffb4f32ff22344bb375ea21ca9ce16667e1e34e5ecd736009f0",
+        "index": "2",
+        "list": {
+          "head": "0x9299e89ba81f439e0699b45ef751824cf93056429eb310c0f5dd2540b9551254",
+          "id": "0xcf00da2006ce4446d02a08bbdcca87e7cc65164a3752455a74bc73cc686b4c42",
+          "size": "2",
+          "tail": "0x06ef84d38dd1aadaf7deb27adc175b2aafaae0b3c8014dc93b5066bd85b689b6"
+        }
+      }
+    },
+    "config": {
+      "objectId": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+      "version": 27281,
+      "digest": "SuUjBKzvMiXVWVGMehtGhMnUZdtJLSArx1pneMecDXB",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 2
+        }
+      },
+      "prevTx": "HLNzMW84tStrYYg4f3RMgJouLjajBuJ8nzyJ6RDW7ZEz",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x4b81578d13a381efaa82bf013e0c168bc28f12bdd69e7adf5cf709f7758814b4",
+            "size": "4",
+            "tail": "0x52de0b14aa91e0e5f891f3e0740fca414f2ac9f0724e5e492023cae71e670ee2"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+        "package_version": "1",
+        "protocol_fee_rate": "2000"
+      }
+    }
+  },
+  "after": {
+    "cap": {
+      "objectId": "0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2",
+      "version": 28166,
+      "digest": "AdadvessvJSfczichgHWtPbwzTQPFRjhwDemxtXeuCTc",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::factory::PoolCreationCap",
+      "owner": {
+        "AddressOwner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+      },
+      "prevTx": "8rzLN6FBLmwxfEhAQj8KCvAtWzsU8LKK5XqooLoH7wqx",
+      "storageRebate": 1960800,
+      "content": {
+        "coin_type": "ca1546a875b31bb1950649aed75c56f59a161b6e3fb1e559a3a142351d34db84::probe::PROBE",
+        "id": "0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2"
+      }
+    },
+    "pools": {
+      "objectId": "0x49e51c0d7be7fffb4f32ff22344bb375ea21ca9ce16667e1e34e5ecd736009f0",
+      "version": 28166,
+      "digest": "3UQtNEj3EqAnykguErCqR4WQVAT2o8ocypWpDe8n9DiQ",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::factory::Pools",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 2
+        }
+      },
+      "prevTx": "8rzLN6FBLmwxfEhAQj8KCvAtWzsU8LKK5XqooLoH7wqx",
+      "storageRebate": 2150800,
+      "content": {
+        "id": "0x49e51c0d7be7fffb4f32ff22344bb375ea21ca9ce16667e1e34e5ecd736009f0",
+        "index": "2",
+        "list": {
+          "head": "0x9299e89ba81f439e0699b45ef751824cf93056429eb310c0f5dd2540b9551254",
+          "id": "0xcf00da2006ce4446d02a08bbdcca87e7cc65164a3752455a74bc73cc686b4c42",
+          "size": "2",
+          "tail": "0x06ef84d38dd1aadaf7deb27adc175b2aafaae0b3c8014dc93b5066bd85b689b6"
+        }
+      }
+    },
+    "config": {
+      "objectId": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+      "version": 27281,
+      "digest": "SuUjBKzvMiXVWVGMehtGhMnUZdtJLSArx1pneMecDXB",
+      "objType": "0xe021433c89f4083ee9d69291439cc4ae16a48ffad36e41456e65eef098dda540::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 2
+        }
+      },
+      "prevTx": "HLNzMW84tStrYYg4f3RMgJouLjajBuJ8nzyJ6RDW7ZEz",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x4b81578d13a381efaa82bf013e0c168bc28f12bdd69e7adf5cf709f7758814b4",
+            "size": "4",
+            "tail": "0x52de0b14aa91e0e5f891f3e0740fca414f2ac9f0724e5e492023cae71e670ee2"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xfa2a5f1517cc2352f7ddeaacfadd3e65c200e96a71203ee496ca04a96e209ff9",
+        "package_version": "1",
+        "protocol_fee_rate": "2000"
+      }
+    }
+  },
+  "exit_code": 1,
+  "rejection": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2 is owned by account address 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72, but given owner/signer address is 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb\", source: RpcError(Status { code: InvalidArgument, message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2 is owned by account address 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72, but given owner/signer address is 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb\", details: b\"\\x08\\x03\\x12\\xea\\x02Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2 is owned by account address 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72, but given owner/signer address is 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb\", metadata: MetadataMap { headers: {\"content-type\": \"application/grpc\", \"date\": \"Wed, 28 Oct 2026 07:55:42 GMT\", \"server-timing\": \"finish_request;dur=0\", \"access-control-expose-headers\": \"*\", \"x-sui-chain-id\": \"E7x8EvWdcCoP4xLmzhRbqC9VBfTE5XejARba6v99R9Qy\", \"x-sui-chain\": \"unknown\", \"x-sui-epoch\": \"0\", \"x-sui-checkpoint-height\": \"7162\", \"x-sui-timestamp-ms\": \"1793174141778\", \"x-sui-timestamp\": \"2026-10-28T07:55:41.778Z\", \"x-sui-lowest-available-checkpoint\": \"0\", \"x-sui-lowest-available-checkpoint-objects\": \"0\", \"server\": \"sui-node/unknown\", \"vary\": \"origin, access-control-request-method, access-control-request-headers\", \"access-control-allow-origin\": \"*\"} }, source: None })\n\nCaused by:\n    0: RPC error: code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2 is owned by account address 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72, but given owner/signer address is 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb\"\n    1: code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x9d1a2700673d0c75035c5eeed4c5354a35bc0cbd6b86c3abd14931750219a4e2 is owned by account address 0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72, but given owner/signer address is 0x04821cedddf6095f11d6d944a0997b445f2aaab1e82ba544aa709113ea6572cb\"\n"
+}

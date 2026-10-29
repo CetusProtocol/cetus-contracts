@@ -1,0 +1,44 @@
+{
+  "chain": {
+    "base58": "E7x8EvWdcCoP4xLmzhRbqC9VBfTE5XejARba6v99R9Qy",
+    "hex": "c2efbea7"
+  },
+  "scope": "Preserved funded state, pause/resume, retired old entry, nonduplicating claims, position ownership transfer, full principal exit and recovery replay/downgrade rejection",
+  "sha256": {
+    "old-package-retired-claim.json": "73c241b2e71a42a61326375e2278b4efcc7256946a261591b62fb80cd75e8b1e",
+    "set-v14-gate.json": "57157c3ea7c7bf8575da015039bd6f80e7c581cc6944c86810f459c186052f8b",
+    "position-foreign-holder-rejected.json": "1f7944d6092c119bb627d9b8893418d967ab7f4d04e1d47d112052473641e522",
+    "inputs.json": "f3b9db9152af819e8e2b4f17d2fcd4380919ae6bbc46d55eec21a90756372d50",
+    "gate-downgrade-rejected.json": "b4e567ae573ed9805ac13834c1f6b9f1315abc46abbe201a3422a476b2bb17e6",
+    "before-pause.json": "210b12b827dd25b4dde3ed4229ced7870a1453218b64f6837bd07fd7c7366588",
+    "upgrade.json": "274090879ea1deee31e2cd8f38082f938b896b037041bacabd4a2557f0c7b697",
+    "pause-v14.json": "c28fedd2979c5e8348c80f02f4c878944a4bd2d574ceb199089ce9a7058ff47a",
+    "unpause-v15.json": "dd540813f5c7e3b95cfeb86ab8d3c4e9835ccaf705882842a4350d0b297d7c17",
+    "retained-position-full-exit.json": "6c36438fed774987cbccf5de06b876d3364dbbffd73fd0c593927bd1c5fcc9b4",
+    "new-package-paused-claim.json": "002a6836c40197a74cf6b162144b6ae490d5a35099851116ccc2d6236350632f",
+    "fixture.json": "c87c2d3736149d97a1069202920a0c9cbd0cff17d46c446873dea26e99a48a18",
+    "position-new-holder-claim.json": "e485b2c2559622a9e5970d41fb56f4182190a03e79de15b50703636486260820",
+    "paused-after-upgrade.json": "8b4157f13314a9f8ca8347c4572c9d75f541a0c1b0d2c268661fa16feba5a184",
+    "position-former-holder-rejected.json": "a05a141a14a8f2cb30f8e7ebd6038544a9881ed5a3be30d18df47651a8f28c76",
+    "transfer-retained-position.json": "670eb98d76bdf48dc6cfe9d235b32844d142abeb04b374861081e7dbffd46606",
+    "future-unpause-rejected.json": "fecc84bab920feb04ada3ea10965c04fc52a7b28e338998d20dc821025098d8b",
+    "package-lineage.json": "b4c29a8a60b101628dc9390abc8c5aaf48f49b264cd7c4b295cc1d5745a0e7dd",
+    "upgrade-command.json": "c3705c1c9d5e7d803bb470355c69f99c5ab46731a7bdcb44f3e30a7ea2b2232a",
+    "resume-v15-after-interruption.json": "249a69562ed724da751ac208c73affde171f16b64b9fe0648f2511980bb5f867",
+    "retained-position-claim.json": "f7419256abb120e2ef59ea2e47e77fe148a2d9536781563801151a17691a2336",
+    "paused-before-upgrade.json": "8b4157f13314a9f8ca8347c4572c9d75f541a0c1b0d2c268661fa16feba5a184",
+    "pause-v15-for-old-recovery-check.json": "366bc65c353cf698a61fabee21948f6a54099ee673cea30c729cbb5624a98bf1",
+    "unpause-replay-rejected.json": "4d692f47d70c160a81dd4462b4f458dfb6244da5bf15907ea592c1da16f2ffa3",
+    "old-recovery-cannot-restore-v14.json": "a3fbcf3c22bd0950600c81d583397c66123d4826d50d187085d32eeb9541c3ea",
+    "repeat-claim-zero.json": "b1260b7a9ee00f695bb664807e8f0510f7b0a5bca05f760025aa748da138a961",
+    "setup/second-swap.json": "1bdc21b7c9662dc3bfa34ae82c91c9ac73ff1cdeb92da6cd9f066023a3795993",
+    "setup/first-swap.json": "50d2c984c6210a872238d1aa162a331a9e6b9d95b60008d96475b650dc75786e",
+    "setup/old-publication.json": "c1781093510f0153b3e148c02872dcec7d162f7bc6d4e7849993648869980173",
+    "setup/funded-position.json": "c89be4b1a12ad5f7ea0cf1b93072575bcecfc560a9107d70ac57963ed4596dba"
+  },
+  "completed_at": "2026-10-28",
+  "reproduction_sha256": {
+    "Audit/tools/prepare_upgrade_fixture.py": "e6c94aceb9b5f6ffec12ab3ee70f3da6f1dd8203c6f34217599db7851d730ab8",
+    "Audit/tools/clmm_upgrade_rehearsal.py": "3b0e15a64030cc2b18c350858bd0988f09495703d9c0f02be22ee463532fc452"
+  }
+}

@@ -1,0 +1,9 @@
+[package]
+name = "cetus_clmm"
+version = "mainnet-v1.50.0"
+edition = "2024.beta"
+
+[dependencies]
+move_stl = { git = "https://github.com/CetusProtocol/move-stl.git", rev = "mainnet-v1.3.0", override = true }
+integer_mate = { git = "https://github.com/CetusProtocol/integer-mate.git", rev = "mainnet-v1.3.0", override = true }
+#$IntegerMate = {local = "../sui-integer-mate/"}

@@ -1,0 +1,305 @@
+{
+  "command": [
+    "call",
+    "--package",
+    "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5",
+    "--module",
+    "config",
+    "--function",
+    "emergency_unpause",
+    "--args",
+    "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+    "14",
+    "--sender",
+    "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+    "--gas",
+    "0x1984787b745e3a28ca08c9a7239e30c6af1599ca539e943bd45d129dd89de800",
+    "--gas-budget",
+    "100000000"
+  ],
+  "before": {
+    "config": {
+      "objectId": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+      "version": 56889,
+      "digest": "BR2dArFHrMfkPXEQ1XxfjvRNNbS1NHKXDTnuMzwaHgef",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 51683
+        }
+      },
+      "prevTx": "EsSMH8Jvj8EgJjCiJK1aKCLBNP6aS855emMzAXnpePDA",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x1fe1efec1db4937c5a74925f238a482f3c0fb3b58165aeaf9b4e1040c54ff6b6",
+            "size": "3",
+            "tail": "0xdadb4c903a2c5acb7c51badc24703a80c8325bdf58ea21f94283f455f9c16c2b"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+        "package_version": "9223372036854775808",
+        "protocol_fee_rate": "2000"
+      }
+    },
+    "pool": {
+      "objectId": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+      "version": 56888,
+      "digest": "5JxApGvsirDCa2sP82NH7dowks7qfdz1QQXK66vwPLVF",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::pool::Pool<0x460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE,0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI>",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 56547
+        }
+      },
+      "prevTx": "3VUcyUUCVxFaCoEKUgY5J6afHpcucJWARpzJYKrNw4Bz",
+      "storageRebate": 4962800,
+      "content": {
+        "coin_a": "2",
+        "coin_b": "2",
+        "current_sqrt_price": "18446380673570787434",
+        "current_tick_index": {
+          "bits": 4294967295.0
+        },
+        "fee_growth_global_a": "2936624629282",
+        "fee_growth_global_b": "0",
+        "fee_protocol_coin_a": "0",
+        "fee_protocol_coin_b": "0",
+        "fee_rate": "10000",
+        "id": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "index": "0",
+        "is_pause": false,
+        "liquidity": "0",
+        "position_manager": {
+          "position_index": "1",
+          "positions": {
+            "head": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+            "id": "0x5af09fa4eb857639b5c38437042ced3bde75ff16f1ea0c040f6ac0ded152aaf1",
+            "size": "1",
+            "tail": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b"
+          },
+          "tick_spacing": 200.0
+        },
+        "rewarder_manager": {
+          "last_updated_time": "1793175593",
+          "points_growth_global": "3303702707943420",
+          "points_released": "332041393326771929088000000",
+          "rewarders": []
+        },
+        "tick_manager": {
+          "tick_spacing": 200.0,
+          "ticks": {
+            "head": [
+              {
+                "is_none": true,
+                "v": "0"
+              },
+              {
+                "is_none": true,
+                "v": "0"
+              }
+            ],
+            "id": "0x2fc8f18a854dd12c1a7bf647b33f8c5bf0921a521bf82071765b00259bfa66d3",
+            "level": "2",
+            "list_p": "2",
+            "max_level": "16",
+            "random": {
+              "seed": "2306123192891635768"
+            },
+            "size": "0",
+            "tail": {
+              "is_none": true,
+              "v": "0"
+            }
+          }
+        },
+        "tick_spacing": 200.0,
+        "url": "local ownership"
+      }
+    },
+    "position": {
+      "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+      "version": 56888,
+      "digest": "B8Gy4rHyxFyPTs9X9SsuwaRMmwvPwkJ8McQGXPiMWihy",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::position::Position",
+      "owner": {
+        "AddressOwner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+      },
+      "prevTx": "3VUcyUUCVxFaCoEKUgY5J6afHpcucJWARpzJYKrNw4Bz",
+      "storageRebate": 3427600,
+      "content": {
+        "coin_type_a": "460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE",
+        "coin_type_b": "0000000000000000000000000000000000000000000000000000000000000002::sui::SUI",
+        "description": "Cetus Liquidity Position",
+        "id": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+        "index": "1",
+        "liquidity": "0",
+        "name": "Cetus LP | Pool0-1",
+        "pool": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "tick_lower_index": {
+          "bits": 4294967096.0
+        },
+        "tick_upper_index": {
+          "bits": 200.0
+        },
+        "url": "local ownership"
+      }
+    }
+  },
+  "after": {
+    "config": {
+      "objectId": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+      "version": 56890,
+      "digest": "2VrB7hfhSLcwj4sLHQBcHH2HNf1uGxog2MuGBhAxCGEy",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::config::GlobalConfig",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 51683
+        }
+      },
+      "prevTx": "7WETmqvw9A5ap5E4atm5ZNFEAt63rgnJr33eywFp8mER",
+      "storageRebate": 2386400,
+      "content": {
+        "acl": {
+          "permissions": {
+            "head": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72",
+            "id": "0x1fe1efec1db4937c5a74925f238a482f3c0fb3b58165aeaf9b4e1040c54ff6b6",
+            "size": "3",
+            "tail": "0xdadb4c903a2c5acb7c51badc24703a80c8325bdf58ea21f94283f455f9c16c2b"
+          }
+        },
+        "fee_tiers": {
+          "contents": [
+            {
+              "key": 200.0,
+              "value": {
+                "fee_rate": "10000",
+                "tick_spacing": 200.0
+              }
+            }
+          ]
+        },
+        "id": "0xddae9d689edf61f7cca714a6570b3d0cd9a1ca6cece9a5f7b1962004bea34438",
+        "package_version": "9223372036854775808",
+        "protocol_fee_rate": "2000"
+      }
+    },
+    "pool": {
+      "objectId": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+      "version": 56888,
+      "digest": "5JxApGvsirDCa2sP82NH7dowks7qfdz1QQXK66vwPLVF",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::pool::Pool<0x460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE,0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI>",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 56547
+        }
+      },
+      "prevTx": "3VUcyUUCVxFaCoEKUgY5J6afHpcucJWARpzJYKrNw4Bz",
+      "storageRebate": 4962800,
+      "content": {
+        "coin_a": "2",
+        "coin_b": "2",
+        "current_sqrt_price": "18446380673570787434",
+        "current_tick_index": {
+          "bits": 4294967295.0
+        },
+        "fee_growth_global_a": "2936624629282",
+        "fee_growth_global_b": "0",
+        "fee_protocol_coin_a": "0",
+        "fee_protocol_coin_b": "0",
+        "fee_rate": "10000",
+        "id": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "index": "0",
+        "is_pause": false,
+        "liquidity": "0",
+        "position_manager": {
+          "position_index": "1",
+          "positions": {
+            "head": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+            "id": "0x5af09fa4eb857639b5c38437042ced3bde75ff16f1ea0c040f6ac0ded152aaf1",
+            "size": "1",
+            "tail": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b"
+          },
+          "tick_spacing": 200.0
+        },
+        "rewarder_manager": {
+          "last_updated_time": "1793175593",
+          "points_growth_global": "3303702707943420",
+          "points_released": "332041393326771929088000000",
+          "rewarders": []
+        },
+        "tick_manager": {
+          "tick_spacing": 200.0,
+          "ticks": {
+            "head": [
+              {
+                "is_none": true,
+                "v": "0"
+              },
+              {
+                "is_none": true,
+                "v": "0"
+              }
+            ],
+            "id": "0x2fc8f18a854dd12c1a7bf647b33f8c5bf0921a521bf82071765b00259bfa66d3",
+            "level": "2",
+            "list_p": "2",
+            "max_level": "16",
+            "random": {
+              "seed": "2306123192891635768"
+            },
+            "size": "0",
+            "tail": {
+              "is_none": true,
+              "v": "0"
+            }
+          }
+        },
+        "tick_spacing": 200.0,
+        "url": "local ownership"
+      }
+    },
+    "position": {
+      "objectId": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+      "version": 56888,
+      "digest": "B8Gy4rHyxFyPTs9X9SsuwaRMmwvPwkJ8McQGXPiMWihy",
+      "objType": "0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::position::Position",
+      "owner": {
+        "AddressOwner": "0xc36e75f2804c557e2eac3726f7e8b396e490f27009bf6c6023c53c1f746d1a72"
+      },
+      "prevTx": "3VUcyUUCVxFaCoEKUgY5J6afHpcucJWARpzJYKrNw4Bz",
+      "storageRebate": 3427600,
+      "content": {
+        "coin_type_a": "460299ebaf19f24c2e9036bea89676d4404be076bd5032d2dda4dd874536933a::probe::PROBE",
+        "coin_type_b": "0000000000000000000000000000000000000000000000000000000000000002::sui::SUI",
+        "description": "Cetus Liquidity Position",
+        "id": "0x84ed9326661fc64a0e2be3e59f91933c479407df6025558a5dc78fd812a40a6b",
+        "index": "1",
+        "liquidity": "0",
+        "name": "Cetus LP | Pool0-1",
+        "pool": "0x75a1102f0b9891bc585713e75bafd4faee1935ad5a835f5a4466d8a2692940e0",
+        "tick_lower_index": {
+          "bits": 4294967096.0
+        },
+        "tick_upper_index": {
+          "bits": 200.0
+        },
+        "url": "local ownership"
+      }
+    }
+  },
+  "rejection": "Error executing transaction '7WETmqvw9A5ap5E4atm5ZNFEAt63rgnJr33eywFp8mER': 1st command aborted within function '0x2949cd2bfcb45fe27b142668b177673877e71ed157b7f5cf4a8808b4e7be5fb5::config::emergency_unpause' at instruction 28 with code 16\n"
+}

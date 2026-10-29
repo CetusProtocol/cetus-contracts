@@ -1,0 +1,144 @@
+--- a/sources/config.move
++++ b/sources/config.move
+@@ -12,14 +12,13 @@
+ /// lp_fee = total_fee - protocol_fee
+ /// Also, the acl roles is managed by this module, the roles is used for control the access of the cetus clmmpool
+ /// protocol.
+-/// Currently, we have 7 roles:
++/// Currently, we have 5 roles:
+ /// 1. PoolManager: The pool manager can update pool fee rate, pause and unpause the pool.
+ /// 2. FeeTierManager: The fee tier manager can add/remove fee tier, update fee tier fee rate.
+ /// 3. ClaimProtocolFee: The claim protocol fee can claim the protocol fee.
+ /// 4. PartnerManager: The partner manager can add/remove partner, update partner fee rate.
+ /// 5. RewarderManager: The rewarder manager can add/remove rewarder, update rewarder fee rate.
+-/// 6. EmergencyUnpause: The emergency unpause role can restore the protocol after an emergency pause.
+-/// 7. EmergencyPause: The emergency pause role can pause the protocol without being able to unpause it.
++/// 6. EmergencyPause: The emergency pause can emergency pause the protocol.
+ /// The package version is used for upgrade the package, when upgrade the package, we need increase the package version.
+ module cetus_clmm::config;
+ 
+@@ -44,19 +43,16 @@
+ /// - ACL_CLAIM_PROTOCOL_FEE (2): Can claim protocol fees
+ /// - ACL_PARTNER_MANAGER (3): Can add/remove partners and update partner fee rates
+ /// - ACL_REWARDER_MANAGER (4): Can add/remove rewarders and update rewarder rates
+-/// - ACL_EMERGENCY_UNPAUSE (5): Can restore the protocol after an emergency pause
+-/// - ACL_EMERGENCY_PAUSE (6): Can trigger emergency pause functionality
++/// - ACL_EMERGENCY_PAUSE (5): Can trigger emergency pause functionality
+ const ACL_POOL_MANAGER: u8 = 0;
+ const ACL_FEE_TIER_MANAGER: u8 = 1;
+ const ACL_CLAIM_PROTOCOL_FEE: u8 = 2;
+ const ACL_PARTNER_MANAGER: u8 = 3;
+ const ACL_REWARDER_MANAGER: u8 = 4;
+-// Keep the legacy role at bit 5 so existing multisig unpause permissions remain valid.
+-const ACL_EMERGENCY_UNPAUSE: u8 = 5;
+-const ACL_EMERGENCY_PAUSE: u8 = 6;
++const ACL_EMERGENCY_PAUSE: u8 = 5;
+ 
+ /// The version of this package, need increase it when upgrade the package.
+-const VERSION: u64 = 15;
++const VERSION: u64 = 14;
+ /// The version of the package that requires an emergency restore
+ const EMERGENCY_RESTORE_NEED_VERSION: u64 = 18446744073709551000;
+ /// The version of the package that requires an emergency pause
+@@ -83,7 +79,6 @@
+ const EProtocolNotEmergencyPause: u64 = 14;
+ const EProtocolAlreadyEmergencyPause: u64 = 15;
+ const EInvalidPackageVersion: u64 = 16;
+-const ENoEmergencyUnpausePermission: u64 = 17;
+ 
+ /// `AdminCap` is a capability token that grants administrative privileges to its holder.
+ public struct AdminCap has key, store {
+@@ -474,16 +469,6 @@
+     assert!(acl::has_role(&config.acl, member, ACL_EMERGENCY_PAUSE), ENoEmergencyPausePermission)
+ }
+ 
+-/// Check member has emergency unpause role.
+-/// * `config` - The global config
+-/// * `member` - The member address
+-public fun check_emergency_unpause_role(config: &GlobalConfig, member: address) {
+-    assert!(
+-        acl::has_role(&config.acl, member, ACL_EMERGENCY_UNPAUSE),
+-        ENoEmergencyUnpausePermission,
+-    )
+-}
+-
+ /// Get tick_spacing of FeeTier.
+ /// * `fee_tier` - The fee tier
+ /// * Returns the tick spacing
+@@ -552,7 +537,7 @@
+ }
+ 
+ public fun emergency_unpause(config: &mut GlobalConfig, version: u64, ctx: &TxContext) {
+-    check_emergency_unpause_role(config, tx_context::sender(ctx));
++    check_emergency_pause_role(config, tx_context::sender(ctx));
+     assert!(
+         dynamic_field::exists_with_type<vector<u8>, u64>(
+             &config.id,
+@@ -564,7 +549,7 @@
+         &mut config.id,
+         EMERGENCY_PAUSE_BEFORE_VERSION,
+     );
+-    assert!(version >= before_version && version <= package_version(), EInvalidPackageVersion);
++    assert!(version >= before_version, EInvalidPackageVersion);
+     config.package_version = version;
+ }
+ 
+--- a/sources/math/clmm_math.move
++++ b/sources/math/clmm_math.move
+@@ -448,19 +448,3 @@
+     };
+     (_liquidity, amount_a, amount_b)
+ }
+-
+-#[test]
+-#[expected_failure(abort_code = EAMOUNT_CAST_TO_U128_OVERFLOW)]
+-public fun test_overflow_in_get_liquidity_from_a() {
+-    // setup with max values to trigger overflow
+-    let sqrt_price_0: u128 = tick_math::max_sqrt_price();
+-    let sqrt_price_1: u128 = tick_math::max_sqrt_price() - 1;
+-    let amount_a: u64 = std::u64::max_value!(); // 2^64 - 1
+-
+-    get_liquidity_from_a(
+-        sqrt_price_0,
+-        sqrt_price_1,
+-        amount_a,
+-        false,
+-    );
+-}
+--- a/sources/partner.move
++++ b/sources/partner.move
+@@ -352,16 +352,6 @@
+     partner: &mut Partner,
+     ctx: &mut TxContext,
+ ) {
+-    let fee_coin = claim_ref_fee_coin<T>(config, partner_cap, partner, ctx);
+-    transfer::public_transfer<Coin<T>>(fee_coin, ctx.sender());
+-}
+-
+-public fun claim_ref_fee_coin<T>(
+-    config: &GlobalConfig,
+-    partner_cap: &PartnerCap,
+-    partner: &mut Partner,
+-    ctx: &mut TxContext,
+-): Coin<T> {
+     checked_package_version(config);
+     assert!(partner_cap.partner_id == object::id(partner), EInvalidPartnerCap);
+ 
+@@ -376,15 +366,14 @@
+     );
+     let amount = balance::value<T>(&current_balance);
+     let fee_coin = coin::from_balance<T>(current_balance, ctx);
++    transfer::public_transfer<Coin<T>>(fee_coin, tx_context::sender(ctx));
+ 
+     event::emit(ClaimRefFeeEvent {
+         partner_id: object::id(partner),
+         amount,
+         type_name: key,
+     });
+-    fee_coin
+-}
+-
++}
+ 
+ #[test_only]
+ public fun create_partner_for_test(
