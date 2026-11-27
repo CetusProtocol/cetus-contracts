@@ -13,7 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check reviewed test witnesses and generated inventories
+      - name: Check current lexical inventory
+        run: |
+          python3 Audit/tools/check_inventory.py
+          git diff --exit-code -- Audit/check-inventory.csv Audit/check-inventory-summary.json Audit/test-index.json
+      - uses: actions/checkout@v4
+        with:
+          ref: 4e6147ed5584def9eb6b8e36ef7e62ccb7551fd3
+          path: historical-v15
+      - name: Validate historical v15 evidence against its original sources
+        working-directory: historical-v15
         run: |
           python3 Audit/tools/check_inventory.py
           python3 Audit/tools/positive_negative_report.py
@@ -29,7 +38,7 @@ jobs:
       matrix:
         package: [cetus_clmm]
     env:
-      SUI_VERSION: mainnet-v1.79.1
+      SUI_VERSION: mainnet-v1.81.1
       MVR_VERSION: v0.1.0
       PACKAGE: ${{ matrix.package }}
     steps:
