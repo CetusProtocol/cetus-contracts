@@ -1,4 +1,28 @@
-# Changelog 
+# Changelog
+
+## Unreleased — planned mainnet V16
+
+### Version and compatibility
+- Increase the CLMM business version from 15 to 16. Activate the stored GlobalConfig version only after package and integration linkage verification.
+- Automatically initialize Bitmap for pools created through the upgraded factory when the stored version is at least 16. Existing pools remain Legacy until explicitly migrated; migration is optional and their degeneration risk persists until completion.
+- Preserve existing pool and tick storage layouts. Upgrade the existing MoveSTL lineage before deploying CLMM with the new dependency.
+
+### Bitmap maintenance
+- Add authorized migration, cancellation before activation, and resumable repair operations, with progress events and fixed tick-spacing mappings.
+- Freeze ordinary pool operations during maintenance and reflect the freeze in all six is_allow predicates.
+- Add conservative atomic object-budget checks. Spacing 1/2 repair requires batching; batch limits are 1..128, and atomic max_ticks cannot exceed 768.
+- Validate tick identity, bottom-chain neighbors, sparse words, and index consistency.
+
+### Fee handling and integrations
+- Reject flash swaps and flash loans while an add-liquidity receipt remains unpaid.
+- Allocate zero-active-liquidity flash-loan fees to the protocol, with partner referral accounting applied afterward.
+- Document caller-enforced amount bounds and exact-output rounding considerations for router operations.
+
+### Verification and release evidence
+- Add bitmap boundary, lifecycle, permission, accounting, and business-operation regression tests.
+- Archive historical Testnet and mainnet-snapshot validation reports, including the 1,108-tick batched migration scenario.
+- See [release readiness](Audit/bitmap-v16-release-readiness.md) for exact source references, unresolved items, and deployment-record requirements. This entry does not assert that V16 has been deployed.
+
 
 ## (2024-10-28)
 - Online Version: 8

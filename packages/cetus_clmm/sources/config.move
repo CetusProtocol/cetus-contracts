@@ -12,7 +12,7 @@
 /// lp_fee = total_fee - protocol_fee
 /// Also, the acl roles is managed by this module, the roles is used for control the access of the cetus clmmpool
 /// protocol.
-/// Currently, we have 7 roles:
+/// Currently, we have 8 roles:
 /// 1. PoolManager: The pool manager can update pool fee rate, pause and unpause the pool.
 /// 2. FeeTierManager: The fee tier manager can add/remove fee tier, update fee tier fee rate.
 /// 3. ClaimProtocolFee: The claim protocol fee can claim the protocol fee.
@@ -20,6 +20,7 @@
 /// 5. RewarderManager: The rewarder manager can add/remove rewarder, update rewarder fee rate.
 /// 6. EmergencyUnpause: The emergency unpause role can restore the protocol after an emergency pause.
 /// 7. EmergencyPause: The emergency pause role can pause the protocol without being able to unpause it.
+/// 8. BitmapMigration: Explicitly authorized operators can migrate or rebuild a pool index.
 /// The package version is used for upgrade the package, when upgrade the package, we need increase the package version.
 module cetus_clmm::config;
 
@@ -56,7 +57,11 @@ const ACL_EMERGENCY_UNPAUSE: u8 = 5;
 const ACL_EMERGENCY_PAUSE: u8 = 6;
 
 /// The version of this package, need increase it when upgrade the package.
-const VERSION: u64 = 15;
+const VERSION: u64 = 16;
+const BITMAP_VERSION: u64 = 16;
+const ACL_BITMAP_MIGRATION: u8 = 7;
+const ENoBitmapMigrationPermission: u64 = 18;
+const EBitmapVersionGate: u64 = 19;
 /// The version of the package that requires an emergency restore
 const EMERGENCY_RESTORE_NEED_VERSION: u64 = 18446744073709551000;
 /// The version of the package that requires an emergency pause
@@ -646,4 +651,19 @@ fun test_init() {
 #[test_only]
 public fun update_package_version_for_test(_: &AdminCap, config: &mut GlobalConfig, version: u64) {
     config.package_version = version;
+}
+
+/// Migration requires both current-code compatibility and rejection of pre-bitmap code.
+public fun check_bitmap_migration(config: &GlobalConfig, ctx: &TxContext) {
+    checked_package_version(config);
+    assert!(config.package_version >= BITMAP_VERSION, EBitmapVersionGate);
+    assert!(acl::has_role(&config.acl, tx_context::sender(ctx), ACL_BITMAP_MIGRATION), ENoBitmapMigrationPermission);
+}
+
+public fun bitmap_migration_role(): u8 { ACL_BITMAP_MIGRATION }
+
+/// New pools may use bitmap only after pre-bitmap packages are deprecated.
+public(package) fun bitmap_enabled_for_new_pools(config: &GlobalConfig): bool {
+    checked_package_version(config);
+    config.package_version >= BITMAP_VERSION
 }

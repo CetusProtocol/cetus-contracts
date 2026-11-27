@@ -1,3 +1,5 @@
+> Historical v15 scope. The current release is [CLMM v16](RELEASE_PROVENANCE.md); the version and verification results below apply only to v15.
+
 # Cetus CLMM v15 Audit Scope
 
 > Historical deployment snapshot. Current added regression tests and line/branch evidence are documented in [Audit](../../Audit/README.md); the full suite now contains 549 tests. The historical results below remain dated as originally recorded.

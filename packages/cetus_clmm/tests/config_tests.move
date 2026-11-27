@@ -181,7 +181,7 @@ fun test_update_fee_tier_fee_rate_max_exceed() {
 fun test_package_version() {
     let mut ctx = tx_context::dummy();
     let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 1000);
-    config::update_package_version(&admin_cap, &mut config, 16);
+    config::update_package_version(&admin_cap, &mut config, config::package_version() + 1);
     config::add_fee_tier(&mut config, 2, 2000, &ctx);
     public_share_object(config);
     public_transfer(admin_cap, tx_context::sender(&ctx));
@@ -412,7 +412,7 @@ fun test_emergency_unpause_correct_version() {
     config::add_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_UNPAUSE);
     config::add_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_PAUSE);
     config::emergency_pause(&mut config, &ctx);
-    config::emergency_unpause(&mut config, 16, &ctx);
+    config::emergency_unpause(&mut config, config::package_version() + 1, &ctx);
     public_share_object(config);
     public_transfer(admin_cap, tx_context::sender(&ctx));
 }

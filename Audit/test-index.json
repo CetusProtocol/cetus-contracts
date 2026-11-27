@@ -2,13 +2,13 @@
   {
     "test": "cetus_clmm::config::test_init",
     "file": "packages/cetus_clmm/sources/config.move",
-    "line": 627,
+    "line": 632,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::factory::test_init",
     "file": "packages/cetus_clmm/sources/factory.move",
-    "line": 1151,
+    "line": 1152,
     "expected_failure": ""
   },
   {
@@ -26,13 +26,13 @@
   {
     "test": "cetus_clmm::pool::test_init",
     "file": "packages/cetus_clmm/sources/pool.move",
-    "line": 3491,
+    "line": 3553,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::pool::test_set_display",
     "file": "packages/cetus_clmm/sources/pool.move",
-    "line": 3504,
+    "line": 3566,
     "expected_failure": ""
   },
   {
@@ -44,7 +44,7 @@
   {
     "test": "cetus_clmm::tick::test_tick_score_invalid_tick",
     "file": "packages/cetus_clmm/sources/tick.move",
-    "line": 847,
+    "line": 866,
     "expected_failure": "abort_code = cetus_clmm::tick::EInvalidTick"
   },
   {
@@ -117,6 +117,1422 @@
     "test": "cetus_clmm::acl_tests::test_get_permission",
     "file": "packages/cetus_clmm/tests/acl_tests.move",
     "line": 171,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_begin_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 41,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_begin_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 45,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_begin_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 49,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_migrate_batch_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 53,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_migrate_batch_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 57,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_migrate_batch_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 61,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_finalize_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 65,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_finalize_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 69,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_finalize_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 73,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_begin_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 77,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_begin_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 81,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_begin_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 85,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_batch_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 89,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_batch_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 93,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_batch_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 97,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_finish_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 101,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_finish_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 105,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_cancel_finish_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 109,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_begin_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 113,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_begin_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 117,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_begin_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 121,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_clear_batch_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 125,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_clear_batch_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 129,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_clear_batch_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 133,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_clear_finish_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 137,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_clear_finish_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 141,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_clear_finish_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 145,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_build_batch_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 149,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_build_batch_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 153,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_build_batch_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 157,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_finalize_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 161,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_finalize_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 165,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_finalize_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 169,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_restart_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 173,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_restart_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 177,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_restart_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 181,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_migrate_atomic_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 185,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_migrate_atomic_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 189,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_migrate_atomic_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 193,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_atomic_wrong_role",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 197,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_atomic_revoked",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 201,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_repair_atomic_low_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 205,
+    "expected_failure": "abort_code = 19, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_empty_pool_repair_preserves_pause_and_version_floor",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 208,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_1_open_position",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 232,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_1_update_fee_rate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 245,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_1_flash_loan",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 258,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_1_collect_protocol_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 271,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_2_open_position",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 284,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_2_update_fee_rate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 297,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_2_flash_loan",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 310,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_2_collect_protocol_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 323,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_4_open_position",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 336,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_4_update_fee_rate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 349,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_4_flash_loan",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 362,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_4_collect_protocol_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 375,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_5_open_position",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 388,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_5_update_fee_rate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 401,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_5_flash_loan",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 414,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::bitmap_business_freeze_5_collect_protocol_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 427,
+    "expected_failure": "abort_code=13,location=move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::begin_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 440,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::begin_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 444,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::migrate_batch_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 448,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::migrate_batch_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 452,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::finalize_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 456,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::finalize_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 460,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::cancel_begin_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 464,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::cancel_begin_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 468,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::cancel_batch_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 472,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::cancel_batch_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 476,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::cancel_finish_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 480,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::cancel_finish_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 484,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_begin_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 488,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_begin_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 492,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_clear_batch_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 496,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_clear_batch_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 500,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_clear_finish_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 504,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_clear_finish_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 508,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_build_batch_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 512,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_build_batch_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 516,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_finalize_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 520,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_finalize_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 524,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_restart_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 528,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_restart_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 532,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::migrate_atomic_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 536,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::migrate_atomic_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 540,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_atomic_role_belongs_to_other_sender",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 544,
+    "expected_failure": "abort_code = 18, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_admin_tests::repair_atomic_future_version_gate",
+    "file": "packages/cetus_clmm/tests/bitmap_admin_tests.move",
+    "line": 548,
+    "expected_failure": "abort_code = 10, location = cetus_clmm::config"
+  },
+  {
+    "test": "cetus_clmm::bitmap_allow_tests::lifecycle_and_status_flags",
+    "file": "packages/cetus_clmm/tests/bitmap_allow_tests.move",
+    "line": 17,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_atomic_budget_tests::bounds_include_sparse_words_and_state",
+    "file": "packages/cetus_clmm/tests/bitmap_atomic_budget_tests.move",
+    "line": 9,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_atomic_budget_tests::empty_spacing_one_rejected",
+    "file": "packages/cetus_clmm/tests/bitmap_atomic_budget_tests.move",
+    "line": 30,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_atomic_budget_tests::empty_spacing_two_rejected",
+    "file": "packages/cetus_clmm/tests/bitmap_atomic_budget_tests.move",
+    "line": 33,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_add_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 27,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_add_liquidity_fix_coin",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 41,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_remove_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 55,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_remove_with_slippage",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 66,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_collect_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 77,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_set_pool_status",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 88,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_swap",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 99,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_1_close_position",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 110,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_add_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 120,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_add_liquidity_fix_coin",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 134,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_remove_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 148,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_remove_with_slippage",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 159,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_collect_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 170,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_set_pool_status",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 181,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_swap",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 192,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_2_close_position",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 203,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_add_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 213,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_add_liquidity_fix_coin",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 227,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_remove_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 241,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_remove_with_slippage",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 252,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_collect_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 263,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_set_pool_status",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 274,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_swap",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 285,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_4_close_position",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 296,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_add_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 306,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_add_liquidity_fix_coin",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 320,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_remove_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 334,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_remove_with_slippage",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 345,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_collect_fee",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 356,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_set_pool_status",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 367,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_swap",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 378,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::frozen_5_close_position",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 389,
+    "expected_failure": "abort_code = 13, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::begin_pending_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 399,
+    "expected_failure": "abort_code = 35, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::migrate_atomic_pending_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 413,
+    "expected_failure": "abort_code = 35, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::repair_begin_pending_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 427,
+    "expected_failure": "abort_code = 35, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::repair_atomic_pending_liquidity",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 441,
+    "expected_failure": "abort_code = 35, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_business_tests::remove_last_ticks_and_reinsert_after_repair",
+    "file": "packages/cetus_clmm/tests/bitmap_business_tests.move",
+    "line": 454,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::begin_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 26,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::begin_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 35,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::begin_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 44,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::begin_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 53,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::begin_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 62,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_batch_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 71,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_batch_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 80,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_batch_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 89,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_batch_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 98,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::finalize_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 107,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::finalize_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 116,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::finalize_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 125,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::finalize_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 134,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_begin_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 143,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_begin_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 152,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_begin_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 161,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_begin_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 170,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_batch_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 179,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_batch_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 188,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_batch_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 197,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_batch_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 206,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_finish_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 215,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_finish_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 224,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_finish_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 233,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_finish_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 242,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_begin_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 251,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_begin_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 260,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_begin_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 269,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_begin_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 278,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_batch_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 287,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_batch_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 296,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_batch_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 305,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_batch_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 314,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_finish_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 323,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_finish_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 332,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_finish_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 341,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_finish_rejects_mode_5",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 350,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_build_batch_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 359,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_build_batch_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 368,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_build_batch_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 377,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_build_batch_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 386,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_finalize_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 395,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_finalize_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 404,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_finalize_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 413,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_finalize_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 422,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_restart_rejects_mode_1",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 431,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_restart_rejects_mode_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 440,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_restart_rejects_mode_3",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 449,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_restart_rejects_mode_4",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 458,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_batch_limit_0",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 467,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_batch_limit_129",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 476,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_batch_limit_0",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 485,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_batch_limit_129",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 494,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_batch_limit_0",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 503,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_batch_limit_129",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 512,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_build_batch_limit_0",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 521,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_build_batch_limit_129",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 530,
+    "expected_failure": "abort_code = 14, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_atomic_limit_0",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 539,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_atomic_limit_769",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 548,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_atomic_limit_0",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 557,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_atomic_limit_769",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 566,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migrate_atomic_insufficient_budget",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 575,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_atomic_insufficient_budget",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 585,
+    "expected_failure": "abort_code = 60, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::finalize_incomplete",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 595,
+    "expected_failure": "abort_code = 12, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_finalize_incomplete",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 605,
+    "expected_failure": "abort_code = 12, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::cancel_finish_incomplete",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 615,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::repair_clear_finish_incomplete",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 624,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::nonempty_cancel_migrate_repair_restart_preserves_economics",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 632,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::atomic_nonempty_budget_2",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 672,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::atomic_nonempty_budget_128",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 686,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::atomic_nonempty_budget_768",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 700,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::atomic_empty_event_sequence",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 714,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_lifecycle_tests::migration_and_repair_resume_across_transactions",
+    "file": "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move",
+    "line": 737,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_new_pool_tests::version_gate_and_existing_pool_compatibility",
+    "file": "packages/cetus_clmm/tests/bitmap_new_pool_tests.move",
+    "line": 10,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::all_modes_readable",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 15,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::rejects_format",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 34,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::rejects_mapping",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 43,
+    "expected_failure": "abort_code = 11, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::rejects_mode",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 52,
+    "expected_failure": "abort_code = 10, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::rejects_reciprocal",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 61,
+    "expected_failure": "abort_code = 12, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::rejects_order",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 70,
+    "expected_failure": "abort_code = 12, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::neighbor_identity_False_False",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 79,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::neighbor_identity_False_True",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 89,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::neighbor_identity_True_False",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 99,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_read_regression_tests::neighbor_identity_True_True",
+    "file": "packages/cetus_clmm/tests/bitmap_read_regression_tests.move",
+    "line": 109,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_spacing_1",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 45,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_spacing_2",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 46,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_spacing_10",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 47,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_spacing_60",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 48,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_spacing_200",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 49,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_swap_a2b_exact_in",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 97,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_swap_a2b_exact_out",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 98,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_swap_b2a_exact_in",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 99,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_swap_b2a_exact_out",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 100,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::repaired_swap_a2b_exact_in",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 102,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::repaired_swap_a2b_exact_out",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 104,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::repaired_swap_b2a_exact_in",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 106,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::repaired_swap_b2a_exact_out",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 108,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tests::bitmap_spacing_1000",
+    "file": "packages/cetus_clmm/tests/bitmap_tests.move",
+    "line": 110,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::changed_spacing_rejects_mapping",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 19,
+    "expected_failure": "abort_code = 11, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::migration_rejects_tick_key_mismatch",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 29,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::repair_rejects_tick_key_mismatch",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 39,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::crossing_rejects_current_tick_key_mismatch",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 51,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::crossing_rejects_next_tick_key_mismatch",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 61,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::migration_rejects_unaligned_tick",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 72,
+    "expected_failure": "abort_code = 11, location = move_stl::skip_list"
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::endpoints_spacing_1",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 100,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::endpoints_spacing_10",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 101,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::endpoints_spacing_60",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 102,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::bitmap_tick_boundary_tests::endpoints_spacing_1000",
+    "file": "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move",
+    "line": 103,
     "expected_failure": ""
   },
   {
@@ -2814,6 +4230,30 @@
     "expected_failure": "abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool"
   },
   {
+    "test": "cetus_clmm::pool_tests::test_flash_loan_rejects_pending_add_liquidity",
+    "file": "packages/cetus_clmm/tests/pool_tests.move",
+    "line": 3920,
+    "expected_failure": "abort_code = 35, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::pool_tests::test_flash_swap_rejects_pending_add_liquidity",
+    "file": "packages/cetus_clmm/tests/pool_tests.move",
+    "line": 3953,
+    "expected_failure": "abort_code = 35, location = cetus_clmm::pool"
+  },
+  {
+    "test": "cetus_clmm::pool_tests::test_zero_active_flash_fee_protocol",
+    "file": "packages/cetus_clmm/tests/pool_tests.move",
+    "line": 4032,
+    "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::pool_tests::test_zero_active_flash_fee_partner",
+    "file": "packages/cetus_clmm/tests/pool_tests.move",
+    "line": 4034,
+    "expected_failure": ""
+  },
+  {
     "test": "cetus_clmm::position_snapshot_tests::test_calculate_remove_liquidity",
     "file": "packages/cetus_clmm/tests/position_snapshot.move",
     "line": 13,
@@ -3350,115 +4790,127 @@
   {
     "test": "cetus_clmm::tick_tests::test_tick_score",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 47,
+    "line": 48,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_default_rewards_growth_inside",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 56,
+    "line": 57,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_update_by_liquidity_lower_tick",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 64,
+    "line": 65,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_update_by_liquidity_upper_tick",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 189,
+    "line": 190,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_cross_swap",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 314,
+    "line": 315,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_get_points_in_range",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 488,
+    "line": 489,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_get_fee_in_range",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 580,
+    "line": 581,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_get_rewards_in_range",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 732,
+    "line": 733,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_increase_liquidity",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 897,
+    "line": 898,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_decrease_liquidity",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1022,
+    "line": 1023,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_first_score_for_swap",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1159,
+    "line": 1160,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_fetch_ticks",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1245,
+    "line": 1246,
     "expected_failure": ""
+  },
+  {
+    "test": "cetus_clmm::tick_tests::test_fetch_ticks_rejects_mismatched_tick",
+    "file": "packages/cetus_clmm/tests/tick_tests.move",
+    "line": 1292,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
+  },
+  {
+    "test": "cetus_clmm::tick_tests::test_borrow_tick_for_swap_rejects_mismatched_tick",
+    "file": "packages/cetus_clmm/tests/tick_tests.move",
+    "line": 1307,
+    "expected_failure": "abort_code = 2, location = cetus_clmm::tick"
   },
   {
     "test": "cetus_clmm::tick_tests::test_increase_liquidity_zero",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1290,
+    "line": 1321,
     "expected_failure": ""
   },
   {
     "test": "cetus_clmm::tick_tests::test_increase_liquidity_tick_not_found",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1321,
+    "line": 1352,
     "expected_failure": "abort_code = cetus_clmm::tick::ETickNotFound"
   },
   {
     "test": "cetus_clmm::tick_tests::test_increase_liquidity_tick_not_found_2",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1340,
+    "line": 1371,
     "expected_failure": "abort_code = cetus_clmm::tick::ETickNotFound"
   },
   {
     "test": "cetus_clmm::tick_tests::test_cross_by_swap",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1370,
+    "line": 1401,
     "expected_failure": "abort_code = cetus_clmm::tick::ELiquidityUnderflow"
   },
   {
     "test": "cetus_clmm::tick_tests::test_update_by_liquidity_overflow",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1398,
+    "line": 1429,
     "expected_failure": "abort_code = cetus_clmm::tick::ELiquidityOverflow"
   },
   {
     "test": "cetus_clmm::tick_tests::test_update_by_liquidity_overflow_case_2",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1428,
+    "line": 1459,
     "expected_failure": "abort_code = cetus_clmm::tick::ELiquidityOverflow"
   },
   {
     "test": "cetus_clmm::tick_tests::test_update_by_liquidity_underflow",
     "file": "packages/cetus_clmm/tests/tick_tests.move",
-    "line": 1458,
+    "line": 1489,
     "expected_failure": "abort_code = cetus_clmm::tick::ELiquidityUnderflow"
   }
 ]

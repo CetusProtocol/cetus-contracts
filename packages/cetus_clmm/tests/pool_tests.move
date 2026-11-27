@@ -3914,3 +3914,121 @@ fun test_repayment_partner_loan_b_wrong_partner() { exercise_repayment_invariant
 #[test]
 #[expected_failure(abort_code = pool::EFlashLoanReceiptNotMatch, location = cetus_clmm::pool)]
 fun test_repayment_partner_loan_b_plain_repay() { exercise_repayment_invariant(3, false, 8); }
+
+#[test]
+#[expected_failure(abort_code = 35, location = cetus_clmm::pool)]
+fun test_flash_loan_rejects_pending_add_liquidity() {
+    let ctx = &mut tx_context::dummy();
+    let (clock, admin_cap, config) = init_test(ctx);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(
+        200,
+        18446744073709551616,
+        10000,
+        string::utf8(b""),
+        0,
+        &clock,
+        ctx,
+    );
+    let mut position = open_position(&config, &mut pool, nt(1800), pt(1800), ctx);
+    // Leave the add-liquidity receipt unpaid on purpose.
+    let receipt = pool::add_liquidity(&config, &mut pool, &mut position, 1 << 64, &clock);
+    transfer::public_transfer(position, TEST_ADDR);
+    let (a, b, r) = pool::flash_loan(&config, &mut pool, true, 10000);
+    // Unreachable: flash_loan aborts while the add is pending.
+    pool::repay_flash_loan(&config, &mut pool, a, b, r);
+    let (pay_a, pay_b) = pool::add_liquidity_pay_amount(&receipt);
+    pool::repay_add_liquidity(
+        &config,
+        &mut pool,
+        balance::create_for_testing(pay_a),
+        balance::create_for_testing(pay_b),
+        receipt,
+    );
+    transfer::public_share_object(pool);
+    close_test(admin_cap, config, clock);
+}
+
+#[test]
+#[expected_failure(abort_code = 35, location = cetus_clmm::pool)]
+fun test_flash_swap_rejects_pending_add_liquidity() {
+    let ctx = &mut tx_context::dummy();
+    let (clock, admin_cap, config) = init_test(ctx);
+    let mut pool = pool::new_for_test<CoinA, CoinB>(
+        200,
+        18446744073709551616,
+        10000,
+        string::utf8(b""),
+        0,
+        &clock,
+        ctx,
+    );
+    let mut position = open_position(&config, &mut pool, nt(1800), pt(1800), ctx);
+    // Leave the add-liquidity receipt unpaid on purpose.
+    let receipt = pool::add_liquidity(&config, &mut pool, &mut position, 1 << 64, &clock);
+    transfer::public_transfer(position, TEST_ADDR);
+    let (a, b, r) = pool::flash_swap(
+        &config,
+        &mut pool,
+        true,
+        true,
+        10000,
+        max_sqrt_price(),
+        &clock,
+    );
+    // Unreachable: flash_swap aborts while the add is pending.
+    pool::repay_flash_swap(&config, &mut pool, a, b, r);
+    let (pay_a, pay_b) = pool::add_liquidity_pay_amount(&receipt);
+    pool::repay_add_liquidity(
+        &config,
+        &mut pool,
+        balance::create_for_testing(pay_a),
+        balance::create_for_testing(pay_b),
+        receipt,
+    );
+    transfer::public_share_object(pool);
+    close_test(admin_cap, config, clock);
+}
+
+fun zero_active_flash_fee(to_partner: bool) {
+    let ctx = &mut tx_context::dummy();
+    let (clock, admin_cap, config) = init_test(ctx);
+    let mut p = pool::new_for_test<CoinA, CoinB>(200, 18446744073709551616, 2500, string::utf8(b""), 0, &clock, ctx);
+    // Fund both vaults using real, fully paid positions outside the active price.
+    let mut left = open_position(&config, &mut p, nt(2000), nt(1000), ctx);
+    let mut right = open_position(&config, &mut p, pt(1000), pt(2000), ctx);
+    add_liquidity(&config, &mut p, &mut left, 1000000000, &clock);
+    add_liquidity(&config, &mut p, &mut right, 1000000000, &clock);
+    assert!(liquidity(&p) == 0);
+    let (partner_cap, mut partner) = cetus_clmm::partner::create_partner_for_test(string::utf8(b"zero active"), 2000, 0, 10000000000000000000, &clock, ctx);
+    let mut i = 0;
+    while (i < 2) {
+        let (mut a, mut b, receipt) = if (to_partner) {
+            pool::flash_loan_with_partner(&config, &mut p, &partner, i == 0, 10000, &clock)
+        } else { pool::flash_loan(&config, &mut p, i == 0, 10000) };
+        if (i == 0) { balance::join(&mut a, balance::create_for_testing(25)); }
+        else { balance::join(&mut b, balance::create_for_testing(25)); };
+        if (to_partner) { pool::repay_flash_loan_with_partner(&config, &mut p, &mut partner, a, b, receipt); }
+        else { pool::repay_flash_loan(&config, &mut p, a, b, receipt); };
+        i = i + 1;
+    };
+    let (growth_a, growth_b) = pool::fees_growth_global(&p);
+    assert!(growth_a == 0 && growth_b == 0);
+    let (a, b) = pool::collect_protocol_fee(&config, &mut p, ctx);
+    let expected = if (to_partner) 20 else 25;
+    assert!(balance::value(&a) == expected && balance::value(&b) == expected);
+    balance::destroy_for_testing(a); balance::destroy_for_testing(b);
+    if (to_partner) {
+        let fees = cetus_clmm::partner::balances(&partner);
+        let ka = string::from_ascii(type_name::into_string(type_name::with_defining_ids<CoinA>()));
+        let kb = string::from_ascii(type_name::into_string(type_name::with_defining_ids<CoinB>()));
+        assert!(balance::value(bag::borrow<String, Balance<CoinA>>(fees, ka)) == 5);
+        assert!(balance::value(bag::borrow<String, Balance<CoinB>>(fees, kb)) == 5);
+    };
+    transfer::public_transfer(left, TEST_ADDR); transfer::public_transfer(right, TEST_ADDR);
+    transfer::public_transfer(partner_cap, TEST_ADDR); transfer::public_share_object(partner);
+    transfer::public_share_object(p); close_test(admin_cap, config, clock);
+}
+#[test]
+fun test_zero_active_flash_fee_protocol() { zero_active_flash_fee(false); }
+#[test]
+fun test_zero_active_flash_fee_partner() { zero_active_flash_fee(true); }

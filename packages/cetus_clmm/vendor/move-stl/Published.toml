@@ -1,0 +1,19 @@
+# Mainnet V6 was published in transaction H1dRraMNowXZRQmSBSZRUKZkWDgm5pdSk8af3W5MBF9t.
+[published.mainnet]
+chain-id = "35834a8a"
+original-id = "0xbe21a06129308e0495431d12286127897aff07a8ade3970495a4404d97f9eaaa"
+published-at = "0xab8e703f093e1d3efa04cca4494bd07ab926b2a189879fc9fe62f34532657464"
+version = 6
+upgrade-capability = "0x5d320585b2b1a589c68dadd1dc3b5e6804d5bb43b9934c844e28f3e3cee6db3b"
+# Toolchain used to reproduce the published bytecode.
+toolchain-version = "1.85.1"
+
+# Isolated Testnet upgrade rehearsal for the bitmap release.
+[published.testnet]
+chain-id = "4c78adac"
+original-id = "0x8c2dd901efc8c0478b5e7fbd4e8269ec652bd24c1e9f0eacf97c29edbdbe726e"
+published-at = "0x0fff64ee68047d82762b8dcb2b04be6033cdee4031be644c17efa872e166cc93"
+version = 2
+upgrade-capability = "0xb1a980f902c12618cdd4e8bbe51008745a14fb3dc71d05e953942b8f7439d62d"
+toolchain-version = "1.84.1"
+build-config = { flavor = "sui", edition = "2024" }

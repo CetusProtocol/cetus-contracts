@@ -1,6 +1,9 @@
-# CLMM positive and negative test evidence
+# CLMM release and historical test evidence
 
-This directory covers only `packages/cetus_clmm`. Production v15 sources and deployment inputs are unchanged by this synchronization.
+Current release: CLMM v16. See [release provenance](../packages/cetus_clmm/RELEASE_PROVENANCE.md).
+The current public package passes 819 tests. The generated lexical inventory describes v16; the reviewed positive/negative ledger, Phase 1/2 receipts, coverage percentages and build-input hashes below are historical v15 evidence, pinned to commit `4e6147ed5584def9eb6b8e36ef7e62ccb7551fd3`. They are not a v16 coverage or security claim. The existing workflow still targets the v15 ledger and needs a companion workflow update to validate historical records against that original checkout and run the current suite separately. That workflow change is prepared but blocked by GitHub workflow permissions; this synchronization remains a draft until it is applied.
+
+This directory covers only `packages/cetus_clmm`. The sections below describe the earlier v15 synchronization.
 
 - [Recovery, upgrade and signed ownership supplement](phase2-recovery-ownership.md): 28 additional tests, signed capability/position controls and a funded v14→v15 upgrade rehearsal completed 2026-10-28.
 - [Phase 1 acceptance and deferred scope](phase1-acceptance.md)

@@ -999,7 +999,8 @@ fun create_pool_internal<CoinTypeA, CoinTypeB>(
     } else {
         url
     };
-    let pool = pool::new<CoinTypeA, CoinTypeB>(
+    let pool = pool::new_with_bitmap<CoinTypeA, CoinTypeB>(
+        global_config,
         tick_spacing,
         initialize_price,
         fee_rate,

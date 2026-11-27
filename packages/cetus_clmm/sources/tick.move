@@ -15,6 +15,8 @@ const ELiquidityOverflow: u64 = 0;
 const ELiquidityUnderflow: u64 = 1;
 const EInvalidTick: u64 = 2;
 const ETickNotFound: u64 = 3;
+/// Persisted MoveSTL mode value for an active bitmap index.
+const BITMAP_MODE_ACTIVE: u8 = 3;
 
 /// Manages ticks of a pool using a SkipList data structure.
 /// The SkipList provides efficient insertion, deletion and lookup of ticks.
@@ -223,10 +225,12 @@ public fun first_score_for_swap(
 public fun borrow_tick_for_swap(manager: &TickManager, score: u64, a2b: bool): (&Tick, OptionU64) {
     assert!(skip_list::contains(&manager.ticks, score), ETickNotFound);
     let node = skip_list::borrow_node(&manager.ticks, score);
-    let opt_next_target_score = if (a2b) {
-        skip_list::prev_score(node)
-    } else {
-        skip_list::next_score(node)
+    let opt_next_target_score = skip_list::bitmap_checked_neighbor(&manager.ticks, score, !a2b);
+    // The key/value identity is a business invariant in every mode.
+    assert!(tick_score(skip_list::borrow_value(node).index) == score, EInvalidTick);
+    if (option_u64::is_some(&opt_next_target_score)) {
+        let next = option_u64::borrow(&opt_next_target_score);
+        assert!(tick_score(skip_list::borrow(&manager.ticks, next).index) == next, EInvalidTick);
     };
     (skip_list::borrow_value(node), opt_next_target_score)
 }
@@ -542,6 +546,10 @@ public fun fetch_ticks(manager: &TickManager, start: vector<u32>, limit: u64): v
     if(limit == 0) {
         return vector::empty<Tick>()
     };
+    // Read the optional bitmap state once so a corrupted persisted format,
+    // unknown mode or inconsistent mapping aborts the view. The read-only
+    // path stays available in Legacy and in every maintenance mode.
+    let mode = skip_list::bitmap_mode(&manager.ticks);
     let mut ticks = vector::empty<Tick>();
     let mut opt_next_score = if (vector::is_empty(&start)) {
         skip_list::head(&manager.ticks)
@@ -553,13 +561,24 @@ public fun fetch_ticks(manager: &TickManager, start: vector<u32>, limit: u64): v
 
     let mut count = 0;
     while (option_u64::is_some(&opt_next_score)) {
-        let node = skip_list::borrow_node(&manager.ticks, option_u64::borrow(&opt_next_score));
-        vector::push_back(&mut ticks, *skip_list::borrow_value(node));
-        opt_next_score = skip_list::next_score(node);
+        let score = option_u64::borrow(&opt_next_score);
+        let node = skip_list::borrow_node(&manager.ticks, score);
+        let tick = skip_list::borrow_value(node);
+        // Every stored tick must map back to the key it is stored under.
+        assert!(tick_score(tick.index) == score, EInvalidTick);
+        vector::push_back(&mut ticks, *tick);
         count = count + 1;
         if (count == limit) {
             break
-        }
+        };
+        // Only validate links the traversal actually follows. Active bitmap
+        // mode additionally checks ordering and reciprocal links; Legacy and
+        // maintenance modes keep using the bottom link directly.
+        opt_next_score = if (mode == BITMAP_MODE_ACTIVE) {
+            skip_list::bitmap_checked_neighbor(&manager.ticks, score, true)
+        } else {
+            skip_list::next_score(node)
+        };
     };
     ticks
 }
@@ -846,4 +865,82 @@ public fun update_by_liquidity_test(
 #[expected_failure(abort_code = cetus_clmm::tick::EInvalidTick)]
 fun test_tick_score_invalid_tick() {
     tick_score(i32::from(443637));
+}
+
+/// The mapping belongs to this pool; callers cannot choose origin or stride.
+public(package) fun bitmap_mapping(manager: &TickManager): (u64, u64, u64) {
+    let stride = manager.tick_spacing as u64;
+    assert!(stride > 0 && stride <= 1000, EInvalidTick);
+    let bound = tick_math::tick_bound() as u64;
+    let aligned = (bound / stride) * stride;
+    (bound - aligned, bound + aligned, stride)
+}
+
+public fun bitmap_mode(manager: &TickManager): u8 { skip_list::bitmap_mode(&manager.ticks) }
+public fun bitmap_status(manager: &TickManager): (u8, u64, u64, OptionU64, u8, u64) {
+    skip_list::bitmap_status(&manager.ticks)
+}
+public(package) fun bitmap_cleanup_done(manager: &TickManager): bool {
+    skip_list::bitmap_cleanup_done(&manager.ticks)
+}
+public(package) fun assert_bitmap_available(manager: &TickManager) {
+    skip_list::assert_bitmap_available(&manager.ticks);
+}
+public(package) fun bitmap_check_mapping(manager: &TickManager) {
+    let (min, max, stride) = bitmap_mapping(manager);
+    skip_list::bitmap_check_mapping(&manager.ticks, min, max, stride);
+}
+public(package) fun bitmap_begin(manager: &mut TickManager) {
+    let (min, max, stride) = bitmap_mapping(manager);
+    skip_list::bitmap_begin(&mut manager.ticks, min, max, stride);
+}
+public(package) fun bitmap_build_batch(manager: &mut TickManager, limit: u64, repair: bool) {
+    assert!(bitmap_mode(manager) == if (repair) 5 else 1, EInvalidTick);
+    skip_list::bitmap_check_limit(limit);
+    let mut count = 0;
+    while (count < limit) {
+        let cursor = skip_list::bitmap_cursor(&manager.ticks);
+        if (option_u64::is_none(&cursor)) { break };
+        let score = option_u64::borrow(&cursor);
+        assert!(tick_score(skip_list::borrow(&manager.ticks, score).index) == score, EInvalidTick);
+        skip_list::bitmap_build_step(&mut manager.ticks);
+        count = count + 1;
+    };
+}
+
+public(package) fun bitmap_finalize(manager: &mut TickManager) { skip_list::bitmap_finalize(&mut manager.ticks); }
+
+public(package) fun bitmap_cancel_begin(manager: &mut TickManager) { skip_list::bitmap_cancel_begin(&mut manager.ticks); }
+
+public(package) fun bitmap_cancel_finish(manager: &mut TickManager) { skip_list::bitmap_cancel_finish(&mut manager.ticks); }
+
+public(package) fun bitmap_repair_begin(manager: &mut TickManager) { skip_list::bitmap_repair_begin(&mut manager.ticks); }
+
+public(package) fun bitmap_repair_clear_finish(manager: &mut TickManager) { skip_list::bitmap_repair_clear_finish(&mut manager.ticks); }
+
+public(package) fun bitmap_repair_finalize(manager: &mut TickManager) { skip_list::bitmap_repair_finalize(&mut manager.ticks); }
+
+public(package) fun bitmap_repair_restart(manager: &mut TickManager) { skip_list::bitmap_repair_restart(&mut manager.ticks); }
+
+public(package) fun bitmap_cancel_batch(manager: &mut TickManager, limit: u64) { skip_list::bitmap_cancel_batch(&mut manager.ticks, limit); }
+
+public(package) fun bitmap_repair_clear_batch(manager: &mut TickManager, limit: u64) { skip_list::bitmap_repair_clear_batch(&mut manager.ticks, limit); }
+
+/// Test-only fault injection: change spacing after persisting an index mapping.
+#[test_only]
+public fun bitmap_set_spacing_for_test(manager: &mut TickManager, spacing: u32) {
+    manager.tick_spacing = spacing;
+}
+
+/// Test-only fault injection: store a Tick under a deliberately independent score.
+#[test_only]
+public fun bitmap_insert_tick_at_score_for_test(manager: &mut TickManager, score: u64, value: Tick) {
+    skip_list::insert(&mut manager.ticks, score, value);
+}
+
+/// Ordinary operations are available in Legacy and Active modes only.
+/// Invalid persisted state still aborts rather than being treated as available.
+public(package) fun is_bitmap_available(manager: &TickManager): bool {
+    let mode = bitmap_mode(manager);
+    mode == 0 || mode == BITMAP_MODE_ACTIVE
 }

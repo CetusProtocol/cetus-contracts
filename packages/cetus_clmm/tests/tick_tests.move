@@ -7,6 +7,7 @@ use cetus_clmm::tick::{
     TickManager,
     cross_by_swap,
     borrow_tick,
+    borrow_tick_for_swap,
     default_rewards_growth_outside_test,
     default_tick_test,
     get_points_in_range,
@@ -1283,6 +1284,36 @@ fun test_fetch_ticks() {
     let ticks = tick::fetch_ticks(&manager, vector[], 20);
     assert!(vector::borrow(&ticks, 0).index() == i32::neg_from(150), 1);
     assert!(vector::length(&ticks) == 6, 1);
+    return_manager(manager, &mut ctx);
+}
+
+#[test]
+#[expected_failure(abort_code = 2, location = cetus_clmm::tick)]
+fun test_fetch_ticks_rejects_mismatched_tick() {
+    let mut ctx = tx_context::dummy();
+    let mut manager = tick::new(2, 2 << 23, &mut ctx);
+    // Store a tick under a key derived from a different index.
+    skip_list::insert(
+        manager.mut_tick_manager(),
+        tick_score(i32::from(100)),
+        default_tick_test(i32::from(50)),
+    );
+    let _ = tick::fetch_ticks(&manager, vector[], 20);
+    return_manager(manager, &mut ctx);
+}
+
+#[test]
+#[expected_failure(abort_code = 2, location = cetus_clmm::tick)]
+fun test_borrow_tick_for_swap_rejects_mismatched_tick() {
+    let mut ctx = tx_context::dummy();
+    let mut manager = tick::new(2, 2 << 23, &mut ctx);
+    // Legacy mode has no bitmap index; the key/value identity must still hold.
+    skip_list::insert(
+        manager.mut_tick_manager(),
+        tick_score(i32::from(100)),
+        default_tick_test(i32::from(50)),
+    );
+    let (_tick, _next) = tick::borrow_tick_for_swap(&manager, tick_score(i32::from(100)), true);
     return_manager(manager, &mut ctx);
 }
 
