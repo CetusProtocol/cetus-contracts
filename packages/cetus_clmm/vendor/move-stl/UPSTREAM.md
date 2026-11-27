@@ -2,4 +2,4 @@ The baseline comes from [CetusProtocol/move-stl at `0681fec`](https://github.com
 
 The upgrade adds format-1 bitmap storage and migration, cancellation, and repair in `skip_list.move`, with word arithmetic in `bitmap_math.move`. Both skip-list constructors now reject zero maximum levels. The layout of every existing struct and the signature of every existing public function match the Mainnet v5 package.
 
-The existing Mainnet lineage was upgraded to V6 on November 27, 2026. Downstream packages must resolve V6 and enforce their version gates before enabling bitmap mode on shared state. [Publication records](Published.toml) · [Release review](release/bitmap-upgrade/REVIEW.md)
+The existing Mainnet lineage was upgraded to V6 on November 27, 2026. Downstream packages must resolve V6 and enforce their version gates before enabling bitmap mode on shared state. [Publication records](Published.toml) · [Release review](https://github.com/CetusProtocol/cetus-for-audit/blob/bf90ea71dce3786dfb3f32aace1f0b25b79ac347/move-stl/release/bitmap-upgrade/REVIEW.md)

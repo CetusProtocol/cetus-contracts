@@ -83,14 +83,12 @@ mvr add @cetuspackages/clmm --network mainnet
 
 #### Option 2 — Add as Git Dependency
 ```
-[dependencies]
-CetusClmm = {
-    git = "https://github.com/CetusProtocol/cetus-contracts.git",
-    subdir = "packages/cetus_clmm",
-    rev = "clmm-v15"
-}
+[dependencies.cetus_clmm]
+git = "https://github.com/CetusProtocol/cetus-contracts.git"
+subdir = "packages/cetus_clmm"
+rev = "b9eec1641473e921dd68aaf8790c163a43e55083"
 ```
-This method allows you to track a specific version (rev) and inspect or modify the source locally if needed.
+This example pins the verified CLMM v16 source snapshot by its full commit. The reference remains reproducible after this release is merged.
 
 ## Project Structure
 

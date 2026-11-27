@@ -8,7 +8,7 @@ MoveSTL was upgraded from V5 to V6 on Sui Mainnet. [Upgrade transaction](https:/
 
 - Add an opt-in sparse bitmap index for the u64 skip list. The index uses dynamic fields under the existing list UID.
 - Add batched migration, pre-activation cancellation, and active-index repair with resumable progress.
-- Add bitmap arithmetic, migration, integrity, and boundary tests. Archive the release review and Testnet evidence. [Review](release/bitmap-upgrade/REVIEW.md) · [Testnet results](release/bitmap-upgrade/TESTNET.md)
+- Add bitmap arithmetic, migration, integrity, and boundary tests. Archive the release review and Testnet evidence. [Review](https://github.com/CetusProtocol/cetus-for-audit/blob/bf90ea71dce3786dfb3f32aace1f0b25b79ac347/move-stl/release/bitmap-upgrade/REVIEW.md) · [Testnet results](https://github.com/CetusProtocol/cetus-for-audit/blob/bf90ea71dce3786dfb3f32aace1f0b25b79ac347/move-stl/release/bitmap-upgrade/TESTNET.md)
 
 ### Changed
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased — planned mainnet V16
+## 2026-11-27 — Mainnet V16
 
 ### Version and compatibility
 - Increase the CLMM business version from 15 to 16. Activate the stored GlobalConfig version only after package and integration linkage verification.
@@ -21,7 +21,8 @@
 ### Verification and release evidence
 - Add bitmap boundary, lifecycle, permission, accounting, and business-operation regression tests.
 - Archive historical Testnet and mainnet-snapshot validation reports, including the 1,108-tick batched migration scenario.
-- See [release readiness](Audit/bitmap-v16-release-readiness.md) for exact source references, unresolved items, and deployment-record requirements. This entry does not assert that V16 has been deployed.
+- Mainnet package v16 is published; see [release provenance](RELEASE_PROVENANCE.md) for its package ID, upgrade transaction and verification. Publication is separate from runtime activation and per-pool migration.
+- See the [upstream release readiness snapshot](https://github.com/CetusProtocol/cetus-clmm-sui/blob/122bca5ccd5e2ad56fea77793eb1116954d43845/cetus_clmm/Audit/bitmap-v16-release-readiness.md) for the historical pre-release review and deployment requirements.
 
 
 ## (2024-10-28)
