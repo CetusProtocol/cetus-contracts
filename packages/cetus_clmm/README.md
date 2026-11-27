@@ -15,15 +15,9 @@ Cetus CLMM is the core contract implementation of the Cetus protocol, providing 
 
 ## Current Release
 
-- Source release: **CLMM v15**
-- Mainnet package: `0x260693ec785a6e6c9d81d58c7d2ff72f1288ae0fa6a9725abe05a6478b11f084`
-- Original package ID: `0x1eabed72c53feb3805120a081dc15963c204dc8d091542592abaf7a35689b2fb`
-- Upgrade transaction: `5sSoTfTiti8kXjJhZeYuFWFcxxvjbZpFQ96rZ3dzeQbC`
+CLMM **v16**, mainnet package `0x276cc3060ce52f746c711627dcc72fb859d75f0f31f6a0ed4cfe0ff32c7fdacd`.
 
-The v15 package is published on mainnet. At the time this source was synchronized
-(2026-09-18), the on-chain `GlobalConfig.package_version` remained at 14, so v15
-had not yet been activated for protocol operations. The source was verified
-against the published package with Sui CLI 1.74.1.
+Includes the optional hierarchical bitmap tick index and migration/repair guards. Sources and linkage were verified against mainnet on 2026-11-27 with Sui 1.81.1. See [release provenance](RELEASE_PROVENANCE.md) for upstream commit, metadata adjustments and reproduction. Runtime activation and per-pool migration are separate from package publication.
 
 ## Features
 
@@ -89,14 +83,12 @@ mvr add @cetuspackages/clmm --network mainnet
 
 #### Option 2 — Add as Git Dependency
 ```
-[dependencies]
-CetusClmm = {
-    git = "https://github.com/CetusProtocol/cetus-contracts.git",
-    subdir = "packages/cetus_clmm",
-    rev = "clmm-v15"
-}
+[dependencies.cetus_clmm]
+git = "https://github.com/CetusProtocol/cetus-contracts.git"
+subdir = "packages/cetus_clmm"
+rev = "b9eec1641473e921dd68aaf8790c163a43e55083"
 ```
-This method allows you to track a specific version (rev) and inspect or modify the source locally if needed.
+This example pins the verified CLMM v16 source snapshot by its full commit. The reference remains reproducible after this release is merged.
 
 ## Project Structure
 

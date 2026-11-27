@@ -1,0 +1,11 @@
+# mainnet
+# ------------------------
+[package]
+name = "MoveSTL"
+version = "1.4.0"
+edition = "2024"
+
+[dependencies]
+
+[addresses]
+move_stl =  "0xbe21a06129308e0495431d12286127897aff07a8ade3970495a4404d97f9eaaa"
