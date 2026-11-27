@@ -21,7 +21,7 @@
     "packages/cetus_clmm/tests/bitmap_business_tests.move": "82e98a585863dea994f7b139f9920d723b1ff517e5fffb312ccb355878cc51ef",
     "packages/cetus_clmm/tests/bitmap_lifecycle_tests.move": "8ad47d120a34fead13a3d0887cb56d5d45db9a65b5aa1bd84f3f4275624954a6",
     "packages/cetus_clmm/tests/bitmap_new_pool_tests.move": "d617f240bf8f87ab03498590d8162d45982818bbac960d39ab8c3786f7d018c0",
-    "packages/cetus_clmm/tests/bitmap_read_regression_tests.move": "d1339447a272edc7ba5a1c2d35fa3c6245a6cbe3e6a715c3066004f6eb8e683e",
+    "packages/cetus_clmm/tests/bitmap_read_regression_tests.move": "33bf01057e399c0ec213dd90d0a914717aad094a5d0c94e8063dbc0d95718642",
     "packages/cetus_clmm/tests/bitmap_tests.move": "965595940d3a035ab359e643e89ee39f423eeab6f937049b3e996f10d858506c",
     "packages/cetus_clmm/tests/bitmap_tick_boundary_tests.move": "309ec97e053b469d15af67c4714617b9a1b2a1e696457763facad3b51d6dc2bc",
     "packages/cetus_clmm/tests/clmm_math_tests.move": "2a2981f5d1a04fb68fcb69e803d7249d579013c1070569419cb2cee25882dc28",
