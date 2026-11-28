@@ -1,4 +1,5 @@
 #[test_only]
+#[allow(deprecated_usage)]
 module cetus_clmm::pool_restore_tests;
 
 use cetus_clmm::config;

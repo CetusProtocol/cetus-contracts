@@ -1,4 +1,5 @@
 #[test_only]
+#[allow(deprecated_usage)]
 module cetus_clmm::partner_tests;
 
 use cetus_clmm::config;

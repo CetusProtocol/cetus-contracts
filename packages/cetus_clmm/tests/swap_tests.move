@@ -1,4 +1,5 @@
 #[test_only]
+#[allow(deprecated_usage)]
 module cetus_clmm::swap_tests;
 
 use cetus_clmm::config;
@@ -777,7 +778,7 @@ public fun test_emergency_restore_pool_state() {
         ctx,
     );
     let object_id = object::id(&position_nft);
-    std::debug::print(&1234567);
+    std::debug::print(&1234567u64);
     // std::debug::print(&position::liquidity(&position_nft));
     let (recv_a, recv_b) = remove_liquidity<CoinA, CoinB>(
         &config,

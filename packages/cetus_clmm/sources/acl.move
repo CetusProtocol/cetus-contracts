@@ -109,7 +109,7 @@ public fun remove_member(acl: &mut ACL, member: address) {
 /// * `acl` - The ACL instance to get members from
 /// Returns a vector of all members in the ACL
 public fun get_members(acl: &ACL): vector<Member> {
-    let mut members = vector::empty<Member>();
+    let mut members = vector<Member>[];
     let mut next_member_address = linked_table::head(&acl.permissions);
     while (is_some(&next_member_address)) {
         let address = *option::borrow(&next_member_address);

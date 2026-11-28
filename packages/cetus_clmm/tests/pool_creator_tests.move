@@ -1,4 +1,5 @@
 #[test_only]
+#[allow(deprecated_usage)]
 module cetus_clmm::pool_creator_tests {
     use cetus_clmm::cetus;
     use cetus_clmm::config::new_global_config_for_test;
@@ -412,6 +413,7 @@ module cetus_clmm::pool_creator_tests {
 }
 
 #[test_only]
+#[allow(deprecated_usage)]
 module cetus_clmm::cetus {
     use sui::coin::{Self, CoinMetadata};
     use sui::test_utils;
@@ -435,6 +437,7 @@ module cetus_clmm::cetus {
 }
 
 #[test_only]
+#[allow(deprecated_usage)]
 module cetus_clmm::usdc {
     use sui::coin::{Self, CoinMetadata};
     use sui::test_utils;

@@ -181,7 +181,7 @@ fun test_update_fee_tier_fee_rate_max_exceed() {
 fun test_package_version() {
     let mut ctx = tx_context::dummy();
     let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 1000);
-    config::update_package_version(&admin_cap, &mut config, 16);
+    config::update_package_version(&admin_cap, &mut config, config::package_version() + 1);
     config::add_fee_tier(&mut config, 2, 2000, &ctx);
     public_share_object(config);
     public_transfer(admin_cap, tx_context::sender(&ctx));
@@ -412,7 +412,7 @@ fun test_emergency_unpause_correct_version() {
     config::add_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_UNPAUSE);
     config::add_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_PAUSE);
     config::emergency_pause(&mut config, &ctx);
-    config::emergency_unpause(&mut config, 16, &ctx);
+    config::emergency_unpause(&mut config, config::package_version() + 1, &ctx);
     public_share_object(config);
     public_transfer(admin_cap, tx_context::sender(&ctx));
 }
@@ -463,4 +463,68 @@ fun test_separate_roles_can_pause_then_unpause() {
     config::checked_package_version(&config);
     test_scenario::return_shared(config);
     scenario.end();
+}
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EInvalidPackageVersion)]
+fun test_version_setter_rejects_equal() {
+    let mut ctx = tx_context::dummy();
+    let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 1000);
+    config::update_package_version(&admin_cap, &mut config, 14);
+    config::checked_package_version(&config);
+    config::update_package_version(&admin_cap, &mut config, 14);
+    public_share_object(config);
+    public_transfer(admin_cap, tx_context::sender(&ctx));
+}
+
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EInvalidPackageVersion)]
+fun test_version_setter_rejects_lower() {
+    let mut ctx = tx_context::dummy();
+    let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 1000);
+    config::update_package_version(&admin_cap, &mut config, 14);
+    config::checked_package_version(&config);
+    config::update_package_version(&admin_cap, &mut config, 13);
+    public_share_object(config);
+    public_transfer(admin_cap, tx_context::sender(&ctx));
+}
+
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::EInvalidPackageVersion)]
+fun test_version_setter_rejects_pause_sentinel() {
+    let mut ctx = tx_context::dummy();
+    let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 1000);
+    config::update_package_version(&admin_cap, &mut config, 14);
+    config::checked_package_version(&config);
+    config::update_package_version(&admin_cap, &mut config, 9223372036854775808);
+    public_share_object(config);
+    public_transfer(admin_cap, tx_context::sender(&ctx));
+}
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::ENoEmergencyPausePermission)]
+fun test_emergency_pause_rejects_revoked_role() {
+    let mut ctx = tx_context::dummy();
+    let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 1000);
+    config::add_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_PAUSE);
+    config::remove_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_PAUSE);
+    config::emergency_pause(&mut config, &ctx);
+    public_share_object(config);
+    public_transfer(admin_cap, sender(&ctx));
+}
+
+#[test]
+#[expected_failure(abort_code = cetus_clmm::config::ENoEmergencyUnpausePermission)]
+fun test_emergency_unpause_rejects_revoked_role() {
+    let mut ctx = tx_context::dummy();
+    let (admin_cap, mut config) = config::new_global_config_for_test(&mut ctx, 1000);
+    config::add_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_UNPAUSE);
+    config::add_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_PAUSE);
+    config::remove_role(&admin_cap, &mut config, sender(&ctx), ACL_EMERGENCY_UNPAUSE);
+    config::emergency_pause(&mut config, &ctx);
+    config::emergency_unpause(&mut config, config::package_version(), &ctx);
+    public_share_object(config);
+    public_transfer(admin_cap, sender(&ctx));
 }

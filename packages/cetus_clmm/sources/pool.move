@@ -61,6 +61,13 @@ const POSITION_LIQUIDITY_SNAPSHOT_KEY: vector<u8> = b"position_liquidity_snapsho
 /// Key used to store pool status in dynamic object fields
 const POOL_STATUS_KEY: vector<u8> = b"pool_status";
 
+const EBitmapAtomicLimit: u64 = 60;
+/// Conservative per-operation budget, leaving headroom below the 1,000-object
+/// runtime limit. Other PTB commands and future protocol limits still apply.
+const BITMAP_ATOMIC_OBJECT_BUDGET: u64 = 900;
+/// ceil(3,481 legal word positions / 128): spacing 1 has 3,466 + 14 + 1 positions.
+const MAX_CLEANUP_BATCHES: u64 = 28;
+
 const PENDING_ADD_LIQUIDITY_KEY: vector<u8> = b"pending_add_liquidity";
 
 // === Errors ===
@@ -558,7 +565,7 @@ public(package) fun new<CoinTypeA, CoinTypeB>(
     pool
 }
 
-#[allow(lint(self_transfer))]
+#[allow(deprecated_usage, lint(self_transfer))]
 /// Set display for pool.
 /// * `config` - The global config object of clmm package.
 /// * `publisher` - The publisher object
@@ -624,6 +631,7 @@ public fun open_position<CoinTypeA, CoinTypeB>(
     tick_upper: u32,
     ctx: &mut TxContext,
 ): Position {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_add_liquidity(pool), EOperationNotPermitted);
 
@@ -666,6 +674,7 @@ public fun add_liquidity<CoinTypeA, CoinTypeB>(
     delta_liquidity: u128,
     clock: &Clock,
 ): AddLiquidityReceipt<CoinTypeA, CoinTypeB> {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(delta_liquidity != 0, ELiquidityIsZero);
     assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch);
@@ -697,6 +706,7 @@ public fun add_liquidity_fix_coin<CoinTypeA, CoinTypeB>(
     fix_amount_a: bool,
     clock: &Clock,
 ): AddLiquidityReceipt<CoinTypeA, CoinTypeB> {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(amount > 0, EAmountIncorrect);
     assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch);
@@ -734,6 +744,7 @@ public fun repay_add_liquidity<CoinTypeA, CoinTypeB>(
     balance_b: Balance<CoinTypeB>,
     receipt: AddLiquidityReceipt<CoinTypeA, CoinTypeB>,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     let AddLiquidityReceipt<CoinTypeA, CoinTypeB> {
         pool_id,
@@ -762,6 +773,7 @@ public fun remove_liquidity<CoinTypeA, CoinTypeB>(
     delta_liquidity: u128,
     clock: &Clock,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_remove_liquidity(pool), EOperationNotPermitted);
     assert!(delta_liquidity > 0, ELiquidityIsZero);
@@ -850,6 +862,7 @@ public fun remove_liquidity_with_slippage<CoinTypeA, CoinTypeB>(
     min_amount_b: u64,
     clock: &Clock,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     let (balance_a, balance_b) = remove_liquidity(config, pool, position_nft, delta_liquidity, clock);
     assert!(balance_a.value() >= min_amount_a, EAmountOutLessThanMinAmount);
     assert!(balance_b.value() >= min_amount_b, EAmountOutLessThanMinAmount);
@@ -867,13 +880,14 @@ public fun close_position<CoinTypeA, CoinTypeB>(
     pool: &mut Pool<CoinTypeA, CoinTypeB>,
     position_nft: Position,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_remove_liquidity(pool), EOperationNotPermitted);
     assert!(object::id(pool) == pool_id(&position_nft), EPoolPositionNotMatch);
 
     let position_id = object::id(&position_nft);
     if (
-        dynamic_object_field::exists_<String>(
+        dynamic_object_field::exists<String>(
             &pool.id,
             string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY),
         )
@@ -911,6 +925,7 @@ public fun collect_fee<CoinTypeA, CoinTypeB>(
     position_nft: &Position,
     recalculate: bool,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_collect_fee(pool), EOperationNotPermitted);
     assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch);
@@ -965,6 +980,7 @@ public fun collect_reward<CoinTypeA, CoinTypeB, CoinTypeC>(
     recalculate: bool,
     clock: &Clock,
 ): Balance<CoinTypeC> {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_collect_reward(pool), EOperationNotPermitted);
     assert!(object::id(pool) == pool_id(position_nft), EPoolPositionNotMatch);
@@ -1020,6 +1036,7 @@ public fun calculate_and_update_rewards<CoinTypeA, CoinTypeB>(
     position_id: ID,
     clock: &Clock,
 ): vector<u64> {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_collect_reward(pool), EOperationNotPermitted);
 
@@ -1053,6 +1070,7 @@ public fun calculate_and_update_reward<CoinTypeA, CoinTypeB, CoinTypeC>(
     position_id: ID,
     clock: &Clock,
 ): u64 {
+    tick::assert_bitmap_available(&pool.tick_manager);
     let mut opt_rewarder_index = rewarder::rewarder_index<CoinTypeC>(&pool.rewarder_manager);
     assert!(option::is_some(&opt_rewarder_index), ERewardNotExist);
     let rewards = calculate_and_update_rewards(
@@ -1076,6 +1094,7 @@ public fun calculate_and_update_points<CoinTypeA, CoinTypeB>(
     position_id: ID,
     clock: &Clock,
 ): u128 {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_collect_reward(pool), EOperationNotPermitted);
 
@@ -1110,6 +1129,7 @@ public fun calculate_and_update_fee<CoinTypeA, CoinTypeB>(
     pool: &mut Pool<CoinTypeA, CoinTypeB>,
     position_id: ID,
 ): (u64, u64) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_collect_fee(pool), EOperationNotPermitted);
     let position_info = position::borrow_position_info(&pool.position_manager, position_id);
@@ -1187,6 +1207,7 @@ public fun flash_swap<CoinTypeA, CoinTypeB>(
     sqrt_price_limit: u128,
     clock: &Clock,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>, FlashSwapReceipt<CoinTypeA, CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_swap(pool), EOperationNotPermitted);
 
@@ -1216,6 +1237,7 @@ public fun repay_flash_swap<CoinTypeA, CoinTypeB>(
     coin_b: Balance<CoinTypeB>,
     receipt: FlashSwapReceipt<CoinTypeA, CoinTypeB>,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
 
     let FlashSwapReceipt<CoinTypeA, CoinTypeB> {
@@ -1260,6 +1282,7 @@ public fun flash_swap_with_partner<CoinTypeA, CoinTypeB>(
     sqrt_price_limit: u128,
     clock: &Clock,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>, FlashSwapReceipt<CoinTypeA, CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_swap(pool), EOperationNotPermitted);
 
@@ -1292,6 +1315,7 @@ public fun repay_flash_swap_with_partner<CoinTypeA, CoinTypeB>(
     mut coin_b: Balance<CoinTypeB>,
     receipt: FlashSwapReceipt<CoinTypeA, CoinTypeB>,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
 
     let FlashSwapReceipt<CoinTypeA, CoinTypeB> {
@@ -1334,6 +1358,7 @@ public fun collect_protocol_fee<CoinTypeA, CoinTypeB>(
     pool: &mut Pool<CoinTypeA, CoinTypeB>,
     ctx: &TxContext,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     config::check_protocol_fee_claim_role(config, tx_context::sender(ctx));
 
@@ -1352,6 +1377,7 @@ public fun collect_protocol_fee_with_cap<CoinTypeA, CoinTypeB>(
     config: &GlobalConfig,
     cap: &ProtocolFeeCollectCap,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
 
     let member = object::id_address(cap);
@@ -1370,6 +1396,7 @@ public fun initialize_rewarder<CoinTypeA, CoinTypeB, CoinTypeC>(
     pool: &mut Pool<CoinTypeA, CoinTypeB>,
     ctx: &TxContext,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
 
     //check_pool_manager_role(config, tx_context::sender(ctx));
@@ -1399,6 +1426,7 @@ public fun update_emission<CoinTypeA, CoinTypeB, CoinTypeC>(
     clock: &Clock,
     ctx: &TxContext,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
 
     //check_pool_manager_role(config, tx_context::sender(ctx));
@@ -1431,6 +1459,7 @@ public fun update_position_url<CoinTypeA, CoinTypeB>(
     url: String,
     ctx: &TxContext,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     check_pool_manager_role(config, tx_context::sender(ctx));
     pool.url = url;
@@ -1447,6 +1476,7 @@ public fun update_fee_rate<CoinTypeA, CoinTypeB>(
     fee_rate: u64,
     ctx: &TxContext,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     if (fee_rate > config::max_fee_rate()) {
         abort EInvalidFeeRate
@@ -1510,6 +1540,7 @@ public fun flash_loan<CoinTypeA, CoinTypeB>(
     loan_a: bool,
     amount: u64,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>, FlashLoanReceipt) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_flash_loan(pool), EOperationNotPermitted);
 
@@ -1532,6 +1563,7 @@ public fun flash_loan_with_partner<CoinTypeA, CoinTypeB>(
     amount: u64,
     clock: &Clock,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>, FlashLoanReceipt) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     assert!(is_allow_flash_loan(pool), EOperationNotPermitted);
 
@@ -1552,6 +1584,7 @@ public fun repay_flash_loan<CoinTypeA, CoinTypeB>(
     balance_b: Balance<CoinTypeB>,
     receipt: FlashLoanReceipt,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
 
     let FlashLoanReceipt {
@@ -1590,6 +1623,7 @@ public fun repay_flash_loan_with_partner<CoinTypeA, CoinTypeB>(
     mut balance_b: Balance<CoinTypeB>,
     receipt: FlashLoanReceipt,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
 
     let FlashLoanReceipt {
@@ -1633,6 +1667,7 @@ public entry fun init_position_snapshot<CoinTypeA, CoinTypeB>(
     remove_percent: u64,
     ctx: &mut TxContext,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     check_emergency_restore_version(config);
     check_pool_manager_role(config, tx_context::sender(ctx));
     assert!(pool.is_pause, EPoolNotPaused);
@@ -1656,7 +1691,7 @@ public fun position_liquidity_snapshot<CoinTypeA, CoinTypeB>(
     pool: &Pool<CoinTypeA, CoinTypeB>,
 ): &PositionLiquiditySnapshot {
     assert!(
-        dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
+        dynamic_object_field::exists(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
         EPoolHasNoPositionSnapshot,
     );
     dynamic_object_field::borrow<String, PositionLiquiditySnapshot>(
@@ -1673,7 +1708,7 @@ public fun is_attacked_position<CoinTypeA, CoinTypeB>(
     pool: &Pool<CoinTypeA, CoinTypeB>,
     position_id: ID,
 ): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY))) {
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY))) {
         let snapshot = dynamic_object_field::borrow<String, PositionLiquiditySnapshot>(
             &pool.id,
             string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY),
@@ -1693,7 +1728,7 @@ public fun get_position_snapshot_by_position_id<CoinTypeA, CoinTypeB>(
     position_id: ID,
 ): PositionSnapshot {
     assert!(
-        dynamic_object_field::exists_(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
+        dynamic_object_field::exists(&pool.id, string::utf8(POSITION_LIQUIDITY_SNAPSHOT_KEY)),
         EPoolHasNoPositionSnapshot,
     );
     let snapshot = dynamic_object_field::borrow<String, PositionLiquiditySnapshot>(
@@ -2011,7 +2046,7 @@ public fun calculate_swap_result<CoinTypeA, CoinTypeB>(
         fee_rate: pool.fee_rate,
         after_sqrt_price: pool.current_sqrt_price,
         is_exceed: false,
-        step_results: vector::empty(),
+        step_results: vector[],
     };
     while (remainder_amount > 0) {
         if (option_u64::is_none(&opt_next_tick_score)) {
@@ -2413,7 +2448,8 @@ public fun step_swap_result_remainder_amount(stepSwapResult: &SwapStepResult): u
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_swap<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (!tick::is_bitmap_available(&pool.tick_manager)) { return false };
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2428,7 +2464,8 @@ public fun is_allow_swap<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_add_liquidity<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (!tick::is_bitmap_available(&pool.tick_manager)) { return false };
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2445,7 +2482,8 @@ public fun is_allow_add_liquidity<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, C
 public fun is_allow_remove_liquidity<CoinTypeA, CoinTypeB>(
     pool: &Pool<CoinTypeA, CoinTypeB>,
 ): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (!tick::is_bitmap_available(&pool.tick_manager)) { return false };
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2460,7 +2498,8 @@ public fun is_allow_remove_liquidity<CoinTypeA, CoinTypeB>(
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_flash_loan<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (!tick::is_bitmap_available(&pool.tick_manager)) { return false };
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2475,7 +2514,8 @@ public fun is_allow_flash_loan<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, Coin
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_collect_fee<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (!tick::is_bitmap_available(&pool.tick_manager)) { return false };
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2490,7 +2530,8 @@ public fun is_allow_collect_fee<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, Coi
 /// * `pool` - The clmm pool object.
 /// * Returns bool
 public fun is_allow_collect_reward<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {
-    if (dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))) {
+    if (!tick::is_bitmap_available(&pool.tick_manager)) { return false };
+    if (dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))) {
         let pool_status = dynamic_object_field::borrow<string::String, PoolStatus>(
             &pool.id,
             string::utf8(POOL_STATUS_KEY),
@@ -2522,6 +2563,7 @@ public fun set_pool_status<CoinTypeA, CoinTypeB>(
     disable_collect_reward: bool,
     ctx: &mut TxContext,
 ) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     checked_package_version(config);
     check_pool_manager_role(config, tx_context::sender(ctx));
 
@@ -2530,7 +2572,7 @@ public fun set_pool_status<CoinTypeA, CoinTypeB>(
         disable_add_liquidity || disable_remove_liquidity || disable_swap || disable_flash_loan || disable_collect_fee || disable_collect_reward,
     );
     let (before_status, after_status) = if (
-        dynamic_object_field::exists_(&pool.id, string::utf8(POOL_STATUS_KEY))
+        dynamic_object_field::exists(&pool.id, string::utf8(POOL_STATUS_KEY))
     ) {
         let pool_status = dynamic_object_field::borrow_mut<string::String, PoolStatus>(
             &mut pool.id,
@@ -2581,6 +2623,7 @@ fun add_liquidity_internal<CoinTypeA, CoinTypeB>(
     fix_amount_a: bool,
     timestamp: u64,
 ): AddLiquidityReceipt<CoinTypeA, CoinTypeB> {
+    tick::assert_bitmap_available(&pool.tick_manager);
     assert!(is_allow_add_liquidity(pool), EOperationNotPermitted);
     let position_id = object::id(position_nft);
     pool.mark_pending_add_liquidity();
@@ -2682,6 +2725,10 @@ fun flash_swap_internal<CoinTypeA, CoinTypeB>(
     sqrt_price_limit: u128,
     clock: &Clock,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>, FlashSwapReceipt<CoinTypeA, CoinTypeB>) {
+    // Fees must not be shared with liquidity whose add-liquidity receipt is
+    // still unpaid; remove_liquidity enforces the same invariant.
+    pool.assert_no_pending_add_liquidity();
+    tick::assert_bitmap_available(&pool.tick_manager);
     // Check amount_in/amount_out input, disable change the pool current price when amount_in/amount_out is zero.
     assert!(amount > 0, EAmountIncorrect);
 
@@ -2772,6 +2819,10 @@ fun flash_loan_internal<CoinTypeA, CoinTypeB>(
     loan_a: bool,
     amount: u64,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>, FlashLoanReceipt) {
+    // Fees must not be shared with liquidity whose add-liquidity receipt is
+    // still unpaid; remove_liquidity enforces the same invariant.
+    pool.assert_no_pending_add_liquidity();
+    tick::assert_bitmap_available(&pool.tick_manager);
     assert!(amount > 0, EAmountIncorrect);
     let (vault_a_amount, vault_b_amount) = (
         balance::value<CoinTypeA>(&pool.coin_a),
@@ -2851,6 +2902,7 @@ fun swap_in_pool<CoinTypeA, CoinTypeB>(
     protocol_fee_rate: u64,
     ref_fee_rate: u64,
 ): SwapResult {
+    tick::assert_bitmap_available(&pool.tick_manager);
     assert!(ref_fee_rate <= PROTOCOL_FEE_DENOMINATOR, EInvalidPartnerRefFeeRate);
     let mut swap_result = default_swap_result();
     let mut remainer_amount = amount;
@@ -2993,6 +3045,7 @@ fun update_pool_fee<CoinTypeA, CoinTypeB>(
     protocol_fee_rate: u64,
     a2b: bool,
 ): u64 {
+    tick::assert_bitmap_available(&pool.tick_manager);
     update_fee_growth(pool, fee_amount, protocol_fee_rate, a2b)
 }
 
@@ -3008,6 +3061,11 @@ fun update_flash_loan_fee<CoinTypeA, CoinTypeB>(
     protocol_fee_rate: u64,
     loan_a: bool,
 ): u64 {
+    tick::assert_bitmap_available(&pool.tick_manager);
+    // No in-range LP can claim fee growth. Assign the entire flash-loan fee
+    // to the protocol instead of leaving an unallocated balance. Partner
+    // referral fees are subsequently deducted from this protocol share.
+    if (pool.liquidity == 0) { return fee_amount };
     update_fee_growth(pool, fee_amount, protocol_fee_rate, loan_a)
 }
 
@@ -3023,6 +3081,7 @@ fun update_fee_growth<CoinTypeA, CoinTypeB>(
     protocol_fee_rate: u64,
     is_coin_a: bool,
 ): u64 {
+    tick::assert_bitmap_available(&pool.tick_manager);
     let protocol_fee = full_math_u64::mul_div_ceil(
         fee_amount,
         protocol_fee_rate,
@@ -3047,6 +3106,7 @@ fun update_fee_growth<CoinTypeA, CoinTypeB>(
 fun collect_protocol_fee_internal<CoinTypeA, CoinTypeB>(
     pool: &mut Pool<CoinTypeA, CoinTypeB>,
 ): (Balance<CoinTypeA>, Balance<CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     let amount_a = pool.fee_protocol_coin_a;
     let amount_b = pool.fee_protocol_coin_b;
     assert!(amount_a > 0 || amount_b > 0, ENoProtocolFee);
@@ -3067,16 +3127,18 @@ fun collect_protocol_fee_internal<CoinTypeA, CoinTypeB>(
 }
 
 fun mark_pending_add_liquidity<CoinTypeA, CoinTypeB>(pool: &mut Pool<CoinTypeA, CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     let key = PENDING_ADD_LIQUIDITY_KEY;
-    if (!dynamic_field::exists_(&pool.id, key)) {
+    if (!dynamic_field::exists(&pool.id, key)) {
         dynamic_field::add(&mut pool.id, key, 1u64);
     } else {
         let count = dynamic_field::borrow_mut(&mut pool.id, key);
-        *count = *count + 1;
+        *count = *count + 1u64;
     }
 }
 
 fun clear_pending_add_liquidity<CoinTypeA, CoinTypeB>(pool: &mut Pool<CoinTypeA, CoinTypeB>) {
+    tick::assert_bitmap_available(&pool.tick_manager);
     let key = PENDING_ADD_LIQUIDITY_KEY;
     let count = dynamic_field::borrow_mut(&mut pool.id, key);
     *count = *count - 1;
@@ -3087,7 +3149,7 @@ fun clear_pending_add_liquidity<CoinTypeA, CoinTypeB>(pool: &mut Pool<CoinTypeA,
 
 fun assert_no_pending_add_liquidity<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>){
     let key = PENDING_ADD_LIQUIDITY_KEY;
-    assert!(!dynamic_field::exists_<vector<u8>>(&pool.id, key), EPositionPendingAddLiquidity);
+    assert!(!dynamic_field::exists<vector<u8>>(&pool.id, key), EPositionPendingAddLiquidity);
 }
 
 /// Check the remainer amount sub
@@ -3501,6 +3563,7 @@ fun test_init() {
 public struct CETUS has drop {}
 
 #[test]
+#[expected_failure(abort_code = 2, location = sui::display)]
 fun test_set_display() {
     let mut sc = sui::test_scenario::begin(@0x23);
     init(sui::test_utils::create_one_time_witness(), sc.ctx());
@@ -3522,4 +3585,201 @@ fun test_set_display() {
     sui::transfer::public_share_object(config);
     sui::test_scenario::return_to_address(@0x23, publisher);
     sc.end();
+}
+
+public struct BitmapMigrationEvent has copy, drop {
+    pool_id: ID,
+    executor: address,
+    operation: vector<u8>,
+    format_version: u64,
+    min_score: u64,
+    max_score: u64,
+    stride: u64,
+    mode: u8,
+    snapshot_size: u64,
+    indexed_size: u64,
+    cursor: move_stl::option_u64::OptionU64,
+    cleanup_level: u8,
+    cleanup_word_index: u64,
+}
+
+fun emit_bitmap_event<A, B>(pool: &Pool<A, B>, operation: vector<u8>, ctx: &TxContext) {
+    let (mode, snapshot_size, indexed_size, cursor, cleanup_level, cleanup_word_index) = tick::bitmap_status(&pool.tick_manager);
+    let (min_score, max_score, stride) = tick::bitmap_mapping(&pool.tick_manager);
+    event::emit(BitmapMigrationEvent { pool_id: object::id(pool), executor: tx_context::sender(ctx), operation,
+        format_version: 1, min_score, max_score, stride,
+        mode, snapshot_size, indexed_size, cursor, cleanup_level, cleanup_word_index });
+}
+
+#[test_only]
+public fun bitmap_event_operation(event: BitmapMigrationEvent): vector<u8> { event.operation }
+
+public fun bitmap_status<A, B>(pool: &Pool<A, B>): (u8, u64, u64, move_stl::option_u64::OptionU64, u8, u64) {
+    tick::bitmap_status(&pool.tick_manager)
+}
+
+public fun bitmap_begin<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    config::check_bitmap_migration(config, ctx);
+    assert_no_pending_add_liquidity(pool);
+    tick::bitmap_begin(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"begin", ctx);
+}
+
+public fun bitmap_migrate_batch<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, limit: u64, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_build_batch(&mut pool.tick_manager, limit, false);
+    emit_bitmap_event(pool, b"migrate_batch", ctx);
+}
+
+public fun bitmap_finalize<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_finalize(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"finalize", ctx);
+}
+
+public fun bitmap_cancel_begin<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_cancel_begin(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"cancel_begin", ctx);
+}
+
+public fun bitmap_cancel_batch<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, limit: u64, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_cancel_batch(&mut pool.tick_manager, limit);
+    emit_bitmap_event(pool, b"cancel_batch", ctx);
+}
+
+public fun bitmap_cancel_finish<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_cancel_finish(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"cancel_finish", ctx);
+}
+
+public fun bitmap_repair_begin<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    assert_no_pending_add_liquidity(pool);
+    tick::bitmap_repair_begin(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"repair_begin", ctx);
+}
+
+public fun bitmap_repair_clear_batch<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, limit: u64, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_repair_clear_batch(&mut pool.tick_manager, limit);
+    emit_bitmap_event(pool, b"repair_clear_batch", ctx);
+}
+
+public fun bitmap_repair_clear_finish<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_repair_clear_finish(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"repair_clear_finish", ctx);
+}
+
+public fun bitmap_repair_build_batch<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, limit: u64, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_build_batch(&mut pool.tick_manager, limit, true);
+    emit_bitmap_event(pool, b"repair_build_batch", ctx);
+}
+
+public fun bitmap_repair_finalize<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_repair_finalize(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"repair_finalize", ctx);
+}
+
+public fun bitmap_repair_restart<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, ctx: &TxContext) {
+    check_bitmap_maintenance(config, pool, ctx);
+    tick::bitmap_repair_restart(&mut pool.tick_manager);
+    emit_bitmap_event(pool, b"repair_restart", ctx);
+}
+
+/// Bounded convenience entrypoint; max_ticks must cover the current tick count.
+/// Failure, including an incomplete scan, rolls back to Legacy.
+public fun bitmap_migrate_atomic<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, max_ticks: u64, ctx: &TxContext) {
+    config::check_bitmap_migration(config, ctx);
+    assert!(max_ticks > 0 && max_ticks <= 768, EBitmapAtomicLimit);
+    check_bitmap_atomic_budget(pool, max_ticks, false);
+    bitmap_begin(config, pool, ctx);
+    let (_, snapshot_size, _, _, _, _) = bitmap_status(pool);
+    assert!(snapshot_size <= max_ticks, EBitmapAtomicLimit);
+    let mut remaining = snapshot_size;
+    while (remaining > 0) {
+        let batch = if (remaining > 128) 128 else remaining;
+        bitmap_migrate_batch(config, pool, batch, ctx);
+        remaining = remaining - batch;
+    };
+    bitmap_finalize(config, pool, ctx);
+}
+
+/// Failure rolls back the freeze too. Use the batched flow when error 60 rejects
+/// the conservative object budget. Spacing 1/2 always requires batched repair.
+/// At 128 positions per cleanup transaction, spacing 1/2/4/10/60 needs
+/// 28/14/7/3/1 cleanup transactions, plus begin, clear_finish, ceil(ticks/128)
+/// rebuild transactions and finalize. Freeze duration depends on submission
+/// and network latency; it is not a fixed time guarantee.
+public fun bitmap_repair_atomic<A, B>(config: &GlobalConfig, pool: &mut Pool<A, B>, max_ticks: u64, ctx: &TxContext) {
+    config::check_bitmap_migration(config, ctx);
+    assert!(max_ticks > 0 && max_ticks <= 768, EBitmapAtomicLimit);
+    check_bitmap_atomic_budget(pool, max_ticks, true);
+    bitmap_repair_begin(config, pool, ctx);
+    let (_, snapshot_size, _, _, _, _) = bitmap_status(pool);
+    assert!(snapshot_size <= max_ticks, EBitmapAtomicLimit);
+    // Cleanup is bounded by the legal word positions of the pool's fixed universe.
+    let mut batches = 0;
+    while (!tick::bitmap_cleanup_done(&pool.tick_manager)) {
+        assert!(batches < MAX_CLEANUP_BATCHES, EBitmapAtomicLimit);
+        bitmap_repair_clear_batch(config, pool, 128, ctx);
+        batches = batches + 1;
+    };
+    bitmap_repair_clear_finish(config, pool, ctx);
+    let mut remaining = snapshot_size;
+    while (remaining > 0) {
+        let batch = if (remaining > 128) 128 else remaining;
+        bitmap_repair_build_batch(config, pool, batch, ctx);
+        remaining = remaining - batch;
+    };
+    bitmap_repair_finalize(config, pool, ctx);
+}
+
+/// Shared authorization and immutable mapping binding. Each concrete operation
+/// retains its own state transition checks in tick/skip_list.
+fun check_bitmap_maintenance<A, B>(config: &GlobalConfig, pool: &Pool<A, B>, ctx: &TxContext) {
+    config::check_bitmap_migration(config, ctx);
+    tick::bitmap_check_mapping(&pool.tick_manager);
+}
+
+/// Factory constructor: activate the empty index only after the on-chain version gate.
+/// Existing pools and the legacy constructor retain their original layout and mode.
+public(package) fun new_with_bitmap<A, B>(
+    config: &GlobalConfig, tick_spacing: u32, init_sqrt_price: u128,
+    fee_rate: u64, url: String, index: u64, clock: &Clock, ctx: &mut TxContext,
+): Pool<A, B> {
+    let enabled = config::bitmap_enabled_for_new_pools(config);
+    let mut pool = new<A, B>(tick_spacing, init_sqrt_price, fee_rate, url, index, clock, ctx);
+    if (enabled) {
+        tick::bitmap_begin(&mut pool.tick_manager);
+        tick::bitmap_finalize(&mut pool.tick_manager);
+    };
+    pool
+}
+
+/// Worst-case distinct dynamic-field positions: nodes, state, and words.
+/// Migration can touch at most one word per tick at each level; repair probes
+/// every legal word, including missing fields. Rebuilding reuses these keys.
+public(package) fun bitmap_atomic_object_bound(min: u64, max: u64, stride: u64, ticks: u64, repair: bool): u64 {
+    let mut bits = (max - min) / stride + 1;
+    let mut bound = ticks + 1;
+    loop {
+        let words = (bits + 255) / 256;
+        bound = bound + if (repair || words < ticks) words else ticks;
+        if (words == 1) { break };
+        bits = words;
+    };
+    bound
+}
+
+fun check_bitmap_atomic_budget<A, B>(pool: &Pool<A, B>, max_ticks: u64, repair: bool) {
+    let count = tick::tick_count(&pool.tick_manager);
+    assert!(count <= max_ticks, EBitmapAtomicLimit);
+    let (min, max, stride) = tick::bitmap_mapping(&pool.tick_manager);
+    assert!(bitmap_atomic_object_bound(min, max, stride, count, repair) <= BITMAP_ATOMIC_OBJECT_BUDGET, EBitmapAtomicLimit);
 }
